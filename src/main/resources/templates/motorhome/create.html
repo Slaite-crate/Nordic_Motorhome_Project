@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<div>
+    <nav>
+        <a href="/"><button class="Button1">Main page</button></a>
+        <a href="/customer"><button class="Button1">Customer</button></a>
+        <a href="/motorhome"><button class="Button1">Motor home</button></a>
+        <a href="/rental"><button class="Button1">Rental</button></a>
+
+    </nav>
+</div>
+<div id="student-create" class="content">
+    <div d="student-create-back">
+        <h1>Create Student</h1>
+        <p>Add information about new student</p>
+        <a href="/students"><button id="back-btn" class = "btn">Back</button></a>
+    </div>
+    <div>
+        <form action="/motorhomes/realcreate" method="post">
+            <label for="id">Id:</label>
+            <br>
+            <input id="firstName" name="firstName" type="text" >
+            <br>
+            <label for="lastName">Last name:</label>
+            <br>
+            <input id="lastName" name="lastName" type="text" >
+            <br>
+            <label for="enrollmentDate">Enrollment date:</label>
+            <br>
+            <input id="enrollmentDate" name="enrollmentDate" type="date">
+            <br>
+            <label for="cpr">Cpr:</label>
+            <br>
+            <input id="cpr" name="cpr" type="text">
+            <br>
+            <button type="submit" id="create-btn" class ="btn">Create student</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
