@@ -19,6 +19,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository{
 
     @Override
     public boolean create(Customer customer) {
+
         return false;
     }
 
@@ -60,4 +61,4 @@ public class CustomerRepositoryImpl implements ICustomerRepository{
     public boolean delete(int id) {
         return false;
     }
-}
+} // by Pelle and Cecilie
