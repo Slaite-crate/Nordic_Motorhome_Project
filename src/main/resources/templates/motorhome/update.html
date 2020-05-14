@@ -16,24 +16,21 @@
 </div>
 <div id ="motorhome-update-view" class="view">
     <form action="/motorhomes/realupdate" method="post">
-        <input id="id" name="id" type="hidden" th:value="${motorhome.id}">
-        <label for="id">Id:</label>
-        <br>
-        <input id="regnr" name="regnr" type="number" th:value="${motorhome.regNr}">
-        <br>
         <label for="regNr">Reg Nr:</label>
         <br>
-        <input id="brand" name="brand" type="text" th:value="${motorhome.brand}">
+        <input id="regNr" name="regNr" type="number" th:value="${motorhome.regNr}">
         <br>
         <label for="brand">Brand:</label>
         <br>
-        <input id="model" name="model" type="text" th:value="${motorhome.model}">
+        <input id="brand" name="brand" type="text" th:value="${motorhome.brand}">
         <br>
         <label for="model">Model:</label>
         <br>
-        <input id="price" name="price" type="value" th:value="${motorhome.price}">
+        <input id="model" name="model" type="text" th:value="${motorhome.model}">
         <br>
         <label for="price">Price:</label>
+        <br>
+        <input id="price" name="price" type="number" th:value="${motorhome.price}">
         <br>
         <button type="submit" id="update-btn" class ="btn">Update</button>
     </form>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Delete</title>
@@ -13,6 +13,33 @@
         <a href="/rental"><button class="Button1">Rental</button></a>
 
     </nav>
-</div>
-</body>
+    <div id="motorhome-delete" class="content">
+        <div id="motorhome-delete-back">
+            <h1>Delete Motor home</h1>
+            <p>Do you want to delete this Motor home?</p>
+            <a href="/motorhome"><button id="back-btn" class = "btn">Back</button></a>
+            <a th:href="@{/motorhomes/realdelete(id=${motorhome.id})}"><button id="delete-btn" class = "btn">Delete</button></a>
+        </div>
+
+        <div id="motorhome-details-view" class ="view">
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Reg Nr</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td th:number="${motorhome.id}"></td>
+                    <td th:number="${motorhome.regNr}"></td>
+                    <td th:text="${motorhome.brand}"></td>
+                    <td th:text="${motorhome.model}"></td>
+                    <td th:number="${motorhome.price}"></td>
+                </tr>
+            </table>
+        </div>
+
+        </div>
+    </body>
 </html>

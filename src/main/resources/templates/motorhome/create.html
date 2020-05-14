@@ -14,31 +14,31 @@
 
     </nav>
 </div>
-<div id="student-create" class="content">
-    <div d="student-create-back">
-        <h1>Create Student</h1>
-        <p>Add information about new student</p>
-        <a href="/students"><button id="back-btn" class = "btn">Back</button></a>
+<div id="motorhome-create" class="content">
+    <div id="moterhome-create-back">
+        <h1>Create Motor home</h1>
+        <p>Add information about the new Motor home</p>
+        <a href="/motorhome"><button id="back-btn" class = "btn">Back</button></a>
     </div>
     <div>
-        <form action="/motorhomes/realcreate" method="post">
-            <label for="id">Id:</label>
+        <form action="/motorhome/realcreate" method="post">
+            <label for="regNr">Reg nr:</label>
             <br>
-            <input id="firstName" name="firstName" type="text" >
+            <input id="regNr" name="regNr" type="number" >
             <br>
-            <label for="lastName">Last name:</label>
+            <label for="brand">Brand:</label>
             <br>
-            <input id="lastName" name="lastName" type="text" >
+            <input id="brand" name="brand" type="text" >
             <br>
-            <label for="enrollmentDate">Enrollment date:</label>
+            <label for="model">Model:</label>
             <br>
-            <input id="enrollmentDate" name="enrollmentDate" type="date">
+            <input id="model" name="model" type="text">
             <br>
-            <label for="cpr">Cpr:</label>
+            <label for="price">Price:</label>
             <br>
-            <input id="cpr" name="cpr" type="text">
+            <input id="price" name="price" type="number">
             <br>
-            <button type="submit" id="create-btn" class ="btn">Create student</button>
+            <button type="submit" id="create-btn" class ="btn">Create Motor home</button>
         </form>
     </div>
 </div>
