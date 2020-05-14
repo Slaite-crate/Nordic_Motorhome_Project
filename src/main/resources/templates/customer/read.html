@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Read</title>
+</head>
+<body>
+
+<div class = "content">
+    <div>
+        <table>
+            <p>Customer info:</p>
+            <tr>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Enrollment date</th>
+                <th>CPR</th>
+            </tr>
+            <tr>
+                <td th:text="${customer.id}"></td>
+                <td th:text="${customer.firstName}"></td>
+                <td th:text="${customer.lastName}"></td>
+                <td th:text="${customer.address}"></td>
+                <td th:text="${customer.cpr}"></td>
+                <td th:text="${customer.phoneNumber}"></td>
+                <td th:text="${customer.driversLicence}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
