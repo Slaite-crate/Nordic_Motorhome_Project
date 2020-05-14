@@ -1,4 +1,4 @@
-package nordic_motorhome_project.demo.Controller;
+package nordic_motorhome_project.demo.controllers;
 
 
 import org.springframework.stereotype.Controller;
