@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Read</title>
@@ -8,7 +8,6 @@
 
 <div class = "content">
     <div>
-        <p>Customer info:</p>
         <table>
             <tr>
                 <th>ID</th>
@@ -17,7 +16,7 @@
                 <th>Address</th>
                 <th>CPR</th>
                 <th>Phone number</th>
-                <th>Drivers Lincence</th>
+                <th>Drivers Licence</th>
             </tr>
             <tr>
                 <td th:text="${customer.id}"></td>
