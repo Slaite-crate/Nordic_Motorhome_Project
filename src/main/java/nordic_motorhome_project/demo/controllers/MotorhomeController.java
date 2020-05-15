@@ -1,7 +1,6 @@
 package nordic_motorhome_project.demo.controllers;
 
 import nordic_motorhome_project.demo.models.Motorhome;
-import nordic_motorhome_project.demo.repositories.ICustomerRepository;
 import nordic_motorhome_project.demo.repositories.IMotorhomeRepository;
 import nordic_motorhome_project.demo.repositories.MotorhomeRepositoryImpl;
 import org.springframework.stereotype.Controller;

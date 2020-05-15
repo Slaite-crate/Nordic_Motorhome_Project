@@ -8,7 +8,7 @@ public interface IMotorhomeRepository {
 
         public boolean create(Motorhome motorhome);
         public Motorhome read(int id);
-        public List readAll();
+        public List<Motorhome> readAll();
         public boolean update(Motorhome motorhome);
         public boolean delete(int id);
 }

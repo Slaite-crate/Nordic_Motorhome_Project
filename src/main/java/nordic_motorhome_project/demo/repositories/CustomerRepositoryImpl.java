@@ -65,8 +65,8 @@ public class CustomerRepositoryImpl implements ICustomerRepository{
     }
 
     @Override
-    public List readAll() {
-        List<Customer> allCustomers = new ArrayList();
+    public List<Customer> readAll() {
+        List<Customer> allCustomers = new ArrayList<Customer>();
         try {
             String sql = "SELECT * FROM customers";
             PreparedStatement ps = conn.prepareStatement(sql);

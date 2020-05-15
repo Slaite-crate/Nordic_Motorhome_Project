@@ -31,6 +31,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
         }
         return true;
     }
+
     @Override
     public Motorhome read(int id) {
         Motorhome motorhomeToReturn = new Motorhome();
@@ -52,6 +53,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
         }
         return motorhomeToReturn;
     }
+
     @Override
     public List<Motorhome> readAll() {
         List<Motorhome> allMotorhomes = new ArrayList<Motorhome>();
@@ -72,6 +74,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
         }
         return allMotorhomes;
     }
+
     @Override
     public boolean update(Motorhome motorhome) {
         String sqlStatement = "UPDATE motorhomes SET motorhome_id=?, reg_nr=?, brand=?, model=?, price=? where motorhome_id=?";
@@ -89,6 +92,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
         }
         return true;
     }
+
     @Override
     public boolean delete(int id) {
         String sqlStatement = "DELETE from motorhomes where motorhome_id=?";
