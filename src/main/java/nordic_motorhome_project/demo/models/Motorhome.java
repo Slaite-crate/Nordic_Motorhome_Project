@@ -8,7 +8,6 @@ public class Motorhome {
     private String model;
     private double price;
 
-
     public Motorhome(int id, String regNr, String brand, String model, double price) {
         this.id = id;
         this.regNr = regNr;

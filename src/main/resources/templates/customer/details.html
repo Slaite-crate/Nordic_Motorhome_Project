@@ -2,11 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Read</title>
+    <title>details</title>
+    <link rel="stylesheet" type="text/css" href="../Styles/Stylesheet.css">
 </head>
 <body>
-
-<div class = "content">
+    <nav>
+        <a href="/">Main page</a>
+        <a href="/customer">Customer</a>
+        <a href="/motorhome">Motorhome</a>
+        <a href="/rental">Rental</a>
+    </nav>
     <div>
         <table>
             <tr>
@@ -19,17 +24,18 @@
                 <th>Drivers Licence</th>
             </tr>
             <tr>
-                <td th:text="${customer.id}"></td>
+                <td th:text="${customer.customerId}"></td>
                 <td th:text="${customer.firstName}"></td>
                 <td th:text="${customer.lastName}"></td>
                 <td th:text="${customer.address}"></td>
                 <td th:text="${customer.cpr}"></td>
                 <td th:text="${customer.phoneNumber}"></td>
-                <td th:text="${customer.driversLicence}"></td>
+                <td th:text="${customer.driversLicense}"></td>
             </tr>
         </table>
     </div>
-</div>
-
+    <div>
+        <a th:href="@{/customer/delete(id=${customer.customerId})}"><button>Delete</button></a>
+    </div>
 </body>
 </html>

@@ -24,7 +24,20 @@ nav a:hover {
 }
 
 div {
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-left: 1%;
+    padding-right: 1%;
     margin: 1%;
+}
+
+table{
+    background-color: lightgray;
+    border: 1px solid black;
+}
+
+td, th {
+    border: 1px solid black;
+}
+
+tr:nth-child(even){
+    background-color: white;
 }

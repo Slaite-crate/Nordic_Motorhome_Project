@@ -1,44 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Details</title>
+    <title>details</title>
+    <link rel="stylesheet" type="text/css" href="../Styles/Stylesheet.css">
 </head>
 <body>
+<nav>
+    <a href="/">Main page</a>
+    <a href="/customer">Customer</a>
+    <a href="/motorhome">Motorhome</a>
+    <a href="/rental">Rental</a>
+</nav>
 <div>
-    <nav>
-        <a href="/"><button class="Button1">Main page</button></a>
-        <a href="/customer"><button class="Button1">Customer</button></a>
-        <a href="/motorhome"><button class="Button1">Motor home</button></a>
-        <a href="/rental"><button class="Button1">Rental</button></a>
-
-    </nav>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>register number</th>
+            <th>brand</th>
+            <th>model</th>
+            <th>price</th>
+        </tr>
+        <tr>
+            <td th:text="${motorhome.id}"></td>
+            <td th:text="${motorhome.regNr}"></td>
+            <td th:text="${motorhome.brand}"></td>
+            <td th:text="${motorhome.model}"></td>
+            <td th:text="${motorhome.price}"></td>
+        </tr>
+    </table>
 </div>
 <div>
-    <div>
-        <h1>Motorhome</h1>
-        <p>Information about selected motorhome</p>
-        <a href="/motorhome"><button>Back</button></a>
-    </div>
-    <div>
-        <table>
-            <p>Motorhome info:</p>
-            <tr>
-                <th>Id</th>
-                <th>Reg Nr</th>
-                <th>Brand</th>
-                <th>Model</th>
-                <th>Price</th>
-            </tr>
-            <tr>
-                <td th:text="${motorhome.id}"></td>
-                <td th:text="${motorhome.regNr}"></td>
-                <td th:text="${motorhome.brand}"></td>
-                <td th:text="${motorhome.model}"></td>
-                <td th:text="${motorhome.price}"></td>
-            </tr>
-        </table>
-    </div>
+    <a th:href="@{/motorhome/delete(id=${motorhome.id})}"><button>Delete</button></a>
 </div>
 </body>
 </html>

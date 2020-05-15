@@ -1,20 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Motorhome</title>
+    <title>motorhomes</title>
+    <link rel="stylesheet" type="text/css" href="../Styles/Stylesheet.css">
 </head>
 <body>
-
-<div>
     <nav>
-        <a href="/"><button class="Button1">Main page</button></a>
-        <a href="/customer"><button class="Button1">Customer</button></a>
-        <a href="/motorhome"><button class="Button1">Motor home</button></a>
-        <a href="/rental"><button class="Button1">Rental</button></a>
-
+        <a href="/">Main page</a>
+        <a href="/customer">Customer</a>
+        <a href="/motorhome">Motorhome</a>
+        <a href="/rental">Rental</a>
     </nav>
-</div>
-
+    <div>
+        <a href="/motorhome/create"><button>Create</button></a>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>register number</th>
+                <th>brand</th>
+                <th>model</th>
+                <th>price</th>
+            </tr>
+            <tr th:each="motorhome : ${motorhomes}">
+                <td th:text="${motorhome.regNr}"></td>
+                <td th:text="${motorhome.brand}"></td>
+                <td th:text="${motorhome.model}"></td>
+                <td th:text="${motorhome.price}"></td>
+                <td>
+                    <a th:href="@{/motorhome/details(id=${motorhome.id})}"><button>details</button></a>
+                    <a th:href="@{/motorhome/update(id=${motorhome.id})}"><button>update</button></a>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

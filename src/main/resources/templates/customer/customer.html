@@ -1,19 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Customer</title>
+    <title>All Customers</title>
     <link rel="stylesheet" type="text/css" href="../Styles/Stylesheet.css">
 </head>
 <body>
-    <nav>
-        <a href="/">Main page</a>
-        <a href="/customer">Customer</a>
-        <a href="/motorhome">Motorhome</a>
-        <a href="/rental">Rental</a>
-    </nav>
-    <div>
-        <a href="/customer/create"><button>Create</button></a>
-    </div>
+<nav>
+    <a href="/">Main page</a>
+    <a href="/customer">Customer</a>
+    <a href="/motorhome">Motorhome</a>
+    <a href="/rental">Rental</a>
+</nav>
+<div>
+    <a href="/customer/create"><button>Create</button></a>
+</div>
+<div>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone number</th>
+            <th></th>
+        </tr>
+        <tr th:each="customer : ${customers}">
+            <td th:text="${customer.firstName}"></td>
+            <td th:text="${customer.lastName}"></td>
+            <td th:text="${customer.address}"></td>
+            <td>
+                <a th:href="@{/customer/details(id=${customer.customerId})}"><button>details</button></a>
+                <a th:href="@{/customer/update(id=${customer.customerId})}"><button>update</button></a>
+            </td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>

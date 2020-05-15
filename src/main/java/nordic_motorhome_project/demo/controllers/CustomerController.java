@@ -20,19 +20,14 @@ public class CustomerController {
     }
 
     @GetMapping("/customer")
-    public String customer(){
-        return "/customer/customer";
-    }
-
-    @GetMapping("/customer/list")
     public String customersList(Model model){
         model.addAttribute("customers",customerRepository.readAll());
-        return "customer/list";
+        return "/customer/customer";
     }
 
     @GetMapping("/customer/create")
     public String customerCreate(){
-        return "customer/create";
+        return "/customer/create";
     }
 
     @PostMapping("/customer/realcreate")
@@ -41,12 +36,29 @@ public class CustomerController {
         return "redirect:/customer";
     }
 
-    @GetMapping("/customer/read")
-    public String readCustomer(@RequestParam int id, Model model){
-        model.addAttribute("customers",customerRepository.read(id));
-        return "customer/read";
+    @GetMapping("/customer/details")
+    public String customerDetails(@RequestParam int id, Model model){
+        model.addAttribute("customer",customerRepository.read(id));
+        return "/customer/details";
     }
 
+    @GetMapping("/customer/delete")
+    public String customerDelete(@RequestParam int id){
+        customerRepository.delete(id);
+        return "redirect:/customer";
+    }
+
+    @GetMapping("/customer/update")
+    public String customerUpdate(@RequestParam int id, Model model){
+        model.addAttribute("customer", customerRepository.read(id));
+        return "/customer/update";
+    }
+
+    @PostMapping("/customer/realupdate")
+    public String customerRealUpdate(@ModelAttribute Customer customer){
+        customerRepository.update(customer);
+        return "redirect:/customer";
+    }
 }
 
 
