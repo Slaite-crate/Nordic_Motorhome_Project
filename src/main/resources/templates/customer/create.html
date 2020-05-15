@@ -2,9 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create customer</title>
+    <link rel="stylesheet" type="text/css" href="../Styles/Stylesheet.css">
 </head>
 <body>
-
+    <nav>
+        <a href="/">Main page</a>
+        <a href="/customer">Customer</a>
+        <a href="/motorhome">Motorhome</a>
+        <a href="/rental">Rental</a>
+    </nav>
+    <div>
+        <form action="/customer/realcreate" method="post">
+            <label for="firstName">First name</label>
+            <input id="firstName" name="firstName" type="text">
+            <br>
+            <label for="lastName">Last name</label>
+            <input id="lastName" name="lastName" type="text">
+            <br>
+            <label for="address">address</label>
+            <input id="address" name="address" type="text">
+            <br>
+            <label for="cpr">cpr</label>
+            <input id="cpr" name="cpr" type="text">
+            <br>
+            <label for="phoneNumber">phone number</label>
+            <input id="phoneNumber" name="phoneNumber" type="text">
+            <br>
+            <label for="driversLicense">drivers license</label>
+            <input id="driversLicense" name="driversLicense" type="text">
+            <br>
+            <button type="submit">create customer</button>
+        </form>
+    </div>
 </body>
 </html>

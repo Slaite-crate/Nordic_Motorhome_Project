@@ -21,14 +21,14 @@ public class CustomerRepositoryImpl implements ICustomerRepository{
     public boolean create(Customer customer) {
         boolean result = false;
         try {
-            String sql = "INSERT INTO customers (first_name, last_name, address, cpr, phone_nr, drivers_licence) VALUES(?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO customers (first_name, last_name, address, cpr, phone_nr, drivers_license) VALUES(?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, customer.getFirstName());
             ps.setString(2, customer.getLastName());
             ps.setString(3, customer.getAddress());
             ps.setString(4, customer.getCpr());
             ps.setString(5, customer.getPhoneNumber());
-            ps.setString(6, customer.getDriversLicence());
+            ps.setString(6, customer.getDriversLicense());
             int rowsInserted = ps.executeUpdate();
             if (rowsInserted > 0) {
                 System.out.println("A customer was created successfully!");
@@ -56,7 +56,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository{
                         rs.getString("address"),
                         rs.getString("cpr"),
                         rs.getString("phone_nr"),
-                        rs.getString("drivers_licence"));
+                        rs.getString("drivers_license"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -79,7 +79,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository{
                         rs.getString("address"),
                         rs.getString("cpr"),
                         rs.getString("phone_nr"),
-                        rs.getString("drivers_licence"));
+                        rs.getString("drivers_license"));
                 allCustomers.add(tempCustomer);
             }
         } catch (SQLException e) {
@@ -92,14 +92,14 @@ public class CustomerRepositoryImpl implements ICustomerRepository{
     public boolean update(Customer customer) {
         boolean result = false;
         try {
-            String sql = "UPDATE customers SET first_name=?, last_name=?, address=?, cpr=?, phone_nr=?, drivers_licence=? WHERE customer_id =?";
+            String sql = "UPDATE customers SET first_name=?, last_name=?, address=?, cpr=?, phone_nr=?, drivers_license=? WHERE customer_id =?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1,customer.getFirstName());
             ps.setString(2,customer.getLastName());
             ps.setString(3,customer.getAddress());
             ps.setString(4,customer.getCpr());
             ps.setString(5,customer.getPhoneNumber());
-            ps.setString(6,customer.getDriversLicence());
+            ps.setString(6,customer.getDriversLicense());
             ps.setInt(7,customer.getCustomerId());
             int rowsInserted = ps.executeUpdate();
             if (rowsInserted > 0) {

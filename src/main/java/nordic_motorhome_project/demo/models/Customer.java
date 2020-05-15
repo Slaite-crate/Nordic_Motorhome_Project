@@ -7,28 +7,28 @@ public class Customer {
     private String address;
     private String cpr;
     private String phoneNumber;
-    private String driversLicence;
+    private String driversLicense;
 
     public Customer() {
     }
 
-    public Customer(int customerId, String firstName, String lastName, String address, String cpr, String phoneNumber, String driversLicence) {
+    public Customer(int customerId, String firstName, String lastName, String address, String cpr, String phoneNumber, String driversLicense) {
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.cpr = cpr;
         this.phoneNumber = phoneNumber;
-        this.driversLicence = driversLicence;
+        this.driversLicense = driversLicense;
     }
 
-    public Customer(String firstName, String lastName, String address, String cpr, String phoneNumber, String driversLicence) {
+    public Customer(String firstName, String lastName, String address, String cpr, String phoneNumber, String driversLicense) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.cpr = cpr;
         this.phoneNumber = phoneNumber;
-        this.driversLicence = driversLicence;
+        this.driversLicense = driversLicense;
     }
 
     public String getFirstName() {
@@ -79,12 +79,12 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getDriversLicence() {
-        return driversLicence;
+    public String getDriversLicense() {
+        return driversLicense;
     }
 
-    public void setDriversLicence(String driversLicence) {
-        this.driversLicence = driversLicence;
+    public void setDriversLicense(String driversLicense) {
+        this.driversLicense = driversLicense;
     }
 
     @Override
@@ -96,7 +96,7 @@ public class Customer {
                 ", customerId=" + customerId +
                 ", cpr='" + cpr + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", driversLicence='" + driversLicence + '\'' +
+                ", driversLicence='" + driversLicense + '\'' +
                 '}';
     }
 }
