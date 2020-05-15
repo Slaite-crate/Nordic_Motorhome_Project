@@ -21,7 +21,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository{
     public boolean create(Customer customer) {
         boolean result = false;
         try {
-            String sql = "INSERT INTO customers (first_name, last_name, address, cpr, phone_nr, drivers_license) VALUES(?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO customers (first_name, last_name, address, cpr, phone_nr, drivers_licence) VALUES(?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, customer.getFirstName());
             ps.setString(2, customer.getLastName());
@@ -92,7 +92,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository{
     public boolean update(Customer customer) {
         boolean result = false;
         try {
-            String sql = "UPDATE customers SET first_name=?, last_name=?, address=?, cpr=?, phone_nr=?, drivers_license=? WHERE customer_id =?";
+            String sql = "UPDATE customers SET first_name=?, last_name=?, address=?, cpr=?, phone_nr=?, drivers_licence=? WHERE customer_id =?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1,customer.getFirstName());
             ps.setString(2,customer.getLastName());
