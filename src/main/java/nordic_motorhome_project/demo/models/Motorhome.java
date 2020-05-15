@@ -3,13 +3,13 @@ package nordic_motorhome_project.demo.models;
 public class Motorhome {
 
     private int id;
-    private int regNr;
+    private String regNr;
     private String brand;
     private String model;
     private double price;
 
 
-    public Motorhome(int id, int regNr, String brand, String model, double price) {
+    public Motorhome(int id, String regNr, String brand, String model, double price) {
         this.id = id;
         this.regNr = regNr;
         this.brand = brand;
@@ -17,7 +17,7 @@ public class Motorhome {
         this.price = price;
     }
 
-    public Motorhome(int regNr, String brand, String model, double price) {
+    public Motorhome(String regNr, String brand, String model, double price) {
         this.regNr = regNr;
         this.brand = brand;
         this.model = model;
@@ -35,11 +35,11 @@ public class Motorhome {
         this.id = id;
     }
 
-    public int getRegNr() {
+    public String getRegNr() {
         return regNr;
     }
 
-    public void setRegNr(int regNr) {
+    public void setRegNr(String regNr) {
         this.regNr = regNr;
     }
 

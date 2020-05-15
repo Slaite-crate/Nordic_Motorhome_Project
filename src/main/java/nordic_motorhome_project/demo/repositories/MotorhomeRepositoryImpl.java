@@ -18,10 +18,10 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
 
     @Override
     public boolean create(Motorhome motorhome) {
-        String sqlStatement = "INSERT TO motorhomes(regNr, brand, model, price)VALUES (?, ?, ?, ?)";
+        String sqlStatement = "INSERT INTO motorhomes(reg_nr, brand, model, price)VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement statement = conn.prepareStatement(sqlStatement);
-            statement.setInt(1, motorhome.getRegNr());
+            statement.setString(1, motorhome.getRegNr());
             statement.setString(2, motorhome.getBrand());
             statement.setString(3, motorhome.getModel());
             statement.setDouble(4, motorhome.getPrice());
@@ -41,7 +41,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
             while(rs.next()){
                 motorhomeToReturn = new Motorhome();
                 motorhomeToReturn.setId(rs.getInt("motorhome_id"));
-                motorhomeToReturn.setRegNr(rs.getInt("reg_nr"));
+                motorhomeToReturn.setRegNr(rs.getString("reg_nr"));
                 motorhomeToReturn.setBrand(rs.getString("brand"));
                 motorhomeToReturn.setModel(rs.getString("model"));
                 motorhomeToReturn.setPrice(rs.getDouble("price"));
@@ -61,7 +61,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
             while(rs.next()){
                 Motorhome tempMotorhome = new Motorhome();
                 tempMotorhome.setId(rs.getInt("motorhome_id"));
-                tempMotorhome.setRegNr(rs.getInt("reg_nr"));
+                tempMotorhome.setRegNr(rs.getString("reg_nr"));
                 tempMotorhome.setBrand(rs.getString("brand"));
                 tempMotorhome.setModel(rs.getString("model"));
                 tempMotorhome.setPrice(rs.getDouble("price"));
@@ -78,7 +78,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
         try {
             PreparedStatement statement = conn.prepareStatement(sqlStatement);
             statement.setInt(1, motorhome.getId());
-            statement.setInt(2, motorhome.getRegNr());
+            statement.setString(2, motorhome.getRegNr());
             statement.setString(3, motorhome.getBrand());
             statement.setString(4, motorhome.getModel());
             statement.setDouble(5, motorhome.getPrice());
