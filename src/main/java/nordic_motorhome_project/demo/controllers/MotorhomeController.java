@@ -20,39 +20,39 @@ public class MotorhomeController {
         return "/motorhome/motorhome";
     }
 
-    @GetMapping("/motorhomes/create")
-    public String motorhomesCreate(){
+    @GetMapping("/motorhome/create")
+    public String motorhomeCreate(){
         return "motorhome/create";
     }
 
     @PostMapping("/motorhome/realcreate")
     public String realCreateStudent(@ModelAttribute Motorhome motorhomeFromPost){
         MotorhomeRepository.create(motorhomeFromPost);
-        return "redirect:/motorhomes";
+        return "redirect:/motorhome";
     }
-    @GetMapping("/motorhomes/details")
-    public String motorhomesDetails(@RequestParam int id, Model model){
+    @GetMapping("/motorhome/details")
+    public String motorhomeDetails(@RequestParam int id, Model model){
         model.addAttribute("motorhome", MotorhomeRepository.read(id));
-        return "motorhomes/details";
+        return "motorhome/details";
     }
-    @GetMapping("/motorhomes/delete")
-    public String motorhomesDelete(@RequestParam int id, Model model){
+    @GetMapping("/motorhome/delete")
+    public String motorhomeDelete(@RequestParam int id, Model model){
         model.addAttribute("motorhome", MotorhomeRepository.read(id));
-        return "motorhomes/delete";
+        return "motorhome/delete";
     }
-    @GetMapping("/motorhomes/update")
+    @GetMapping("/motorhome/update")
     public String motorhomesUpdate(@RequestParam int id, Model model){
         model.addAttribute("motorhome", MotorhomeRepository.read(id));
-        return "motorhomes/update";
+        return "motorhome/update";
     }
-    @PostMapping("/motorhomes/realupdate")
+    @PostMapping("/motorhome/realupdate")
     public String updateMotorhome(@ModelAttribute Motorhome motorhomeFromPost){
         MotorhomeRepository.update(motorhomeFromPost);
-        return "redirect:/motorhomes";
+        return "redirect:/motorhome";
     }
-    @GetMapping("/motorhomes/realdelete")
+    @GetMapping("/motorhome/realdelete")
     public String deleteMotorhome(@RequestParam int id){
         MotorhomeRepository.delete(id);
-        return "redirect:/motorhomes";
+        return "redirect:/motorhome";
     }
 }
