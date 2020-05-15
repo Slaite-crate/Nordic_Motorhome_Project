@@ -56,7 +56,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository{
                         rs.getString("address"),
                         rs.getString("cpr"),
                         rs.getString("phone_nr"),
-                        rs.getString("drivers_license"));
+                        rs.getString("drivers_licence"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -79,7 +79,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository{
                         rs.getString("address"),
                         rs.getString("cpr"),
                         rs.getString("phone_nr"),
-                        rs.getString("drivers_license"));
+                        rs.getString("drivers_licence"));
                 allCustomers.add(tempCustomer);
             }
         } catch (SQLException e) {
