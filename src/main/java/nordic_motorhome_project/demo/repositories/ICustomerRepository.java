@@ -8,6 +8,6 @@ public interface ICustomerRepository {
     public boolean create(Customer customer);
     public Customer read(int id);
     public List readAll();
-    public boolean update(int id);
+    public boolean update(Customer customer);
     public boolean delete(int id);
 }
