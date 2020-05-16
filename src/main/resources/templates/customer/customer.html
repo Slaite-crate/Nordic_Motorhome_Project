@@ -28,8 +28,9 @@
             <td th:text="${customer.lastName}"></td>
             <td th:text="${customer.address}"></td>
             <td>
-                <a th:href="@{/customer/details(id=${customer.customerId})}"><button>details</button></a>
-                <a th:href="@{/customer/update(id=${customer.customerId})}"><button>update</button></a>
+                <a th:href="@{/customer/details(id=${customer.customerId})}"><button>Details</button></a>
+                <a th:href="@{/customer/update(id=${customer.customerId})}"><button>Update</button></a>
+                <a th:href="@{/customer/delete(id=${customer.customerId})}"><button>Delete</button></a>
             </td>
         </tr>
     </table>
