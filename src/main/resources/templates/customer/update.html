@@ -13,6 +13,8 @@
     <a href="/rental">Rental</a>
 </nav>
 <div>
+    <h1>Update customer</h1>
+    <br>
     <form action="/customer/realupdate" method="post">
         <input id="customerId" name="customerId" type="hidden" th:value="${customer.customerId}">
         <table>
@@ -34,10 +36,8 @@
             </tr>
         </table>
         <br>
-        <button type="submit">Update customer</button>
-
+        <button type="submit">Update</button>
     </form>
-
 </div>
 </body>
 </html>

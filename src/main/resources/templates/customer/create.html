@@ -13,26 +13,29 @@
         <a href="/rental">Rental</a>
     </nav>
     <div>
+        <h1>Create customer</h1>
+        <br>
         <form action="/customer/realcreate" method="post">
-            <label for="firstName">First name</label>
-            <input id="firstName" name="firstName" type="text">
+            <table>
+                <tr>
+                    <th><label for="firstName">First name</label></th>
+                    <th><label for="lastName">Last name</label></th>
+                    <th><label for="address">Address</label></th>
+                    <th><label for="cpr">CPR</label></th>
+                    <th><label for="phoneNumber">Phone number</label></th>
+                    <th><label for="driversLicense">Drivers license</label></th>
+                </tr>
+                <tr>
+                    <td><input id="firstName" name="firstName" type="text"></td>
+                    <td><input id="lastName" name="lastName" type="text"></td>
+                    <td><input id="address" name="address" type="text"></td>
+                    <td><input id="cpr" name="cpr" type="text"></td>
+                    <td><input id="phoneNumber" name="phoneNumber" type="text"></td>
+                    <td><input id="driversLicense" name="driversLicense" type="text"></td>
+                </tr>
+            </table>
             <br>
-            <label for="lastName">Last name</label>
-            <input id="lastName" name="lastName" type="text">
-            <br>
-            <label for="address">address</label>
-            <input id="address" name="address" type="text">
-            <br>
-            <label for="cpr">cpr</label>
-            <input id="cpr" name="cpr" type="text">
-            <br>
-            <label for="phoneNumber">phone number</label>
-            <input id="phoneNumber" name="phoneNumber" type="text">
-            <br>
-            <label for="driversLicense">drivers license</label>
-            <input id="driversLicense" name="driversLicense" type="text">
-            <br>
-            <button type="submit">create customer</button>
+            <button type="submit">Create</button>
         </form>
     </div>
 </body>
