@@ -6,6 +6,11 @@ body {
     margin: 0;
 }
 
+img{
+    width: 80px;
+    padding: 0px;
+}
+
 nav {
     background-color: black;
     padding-bottom: 15px;
