@@ -6,9 +6,9 @@ body {
     margin: 0;
 }
 
-img{
-    width: 80px;
-    padding: 0px;
+img {
+    height: 50px;
+    margin: -20px 0px;
 }
 
 nav {
