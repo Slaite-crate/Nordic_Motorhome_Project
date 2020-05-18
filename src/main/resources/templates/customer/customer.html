@@ -26,7 +26,7 @@
         <tr th:each="customer : ${customers}">
             <td th:text="${customer.firstName}"></td>
             <td th:text="${customer.lastName}"></td>
-            <td th:text="${customer.address}"></td>
+            <td th:text="${customer.phoneNumber}"></td>
             <td>
                 <a th:href="@{/customer/details(id=${customer.customerId})}"><button>Details</button></a>
                 <a th:href="@{/customer/update(id=${customer.customerId})}"><button>Update</button></a>
