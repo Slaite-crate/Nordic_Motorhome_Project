@@ -7,7 +7,7 @@
 </head>
 <body>
 <nav>
-    <a href="/">Main page</a>
+    <a href="/"><img src="/img/nmh.png" id="logo"></a>
     <a href="/customer"  id="tabcolor">Customer</a>
     <a href="/motorhome">Motorhome</a>
     <a href="/rental">Rental</a>
@@ -26,7 +26,7 @@
         <tr th:each="customer : ${customers}">
             <td th:text="${customer.firstName}"></td>
             <td th:text="${customer.lastName}"></td>
-            <td th:text="${customer.address}"></td>
+            <td th:text="${customer.phoneNumber}"></td>
             <td>
                 <a th:href="@{/customer/details(id=${customer.customerId})}"><button>Details</button></a>
                 <a th:href="@{/customer/update(id=${customer.customerId})}"><button>Update</button></a>
