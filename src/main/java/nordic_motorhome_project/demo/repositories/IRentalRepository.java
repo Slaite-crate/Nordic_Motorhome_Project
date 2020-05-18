@@ -1,13 +1,15 @@
 package nordic_motorhome_project.demo.repositories;
 
+import nordic_motorhome_project.demo.models.Customer;
 import nordic_motorhome_project.demo.models.Rental;
 
 import java.util.List;
 
-public interface IRentalReposotory {
+public interface IRentalRepository {
     boolean create(Rental rental);
     Rental read(int id);
-    List<Rental> readAll(int id);
+    List<Rental> readAll();
+    List<Customer> readAllCustomers();
     boolean update(Rental rental);
     boolean delete(int id);
 }

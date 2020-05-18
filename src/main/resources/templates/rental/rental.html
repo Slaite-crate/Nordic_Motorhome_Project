@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>rental</title>
@@ -12,5 +12,21 @@
         <a href="/motorhome">Motorhome</a>
         <a href="/rental" id="tabcolor">Rental</a>
     </nav>
+    <div>
+        <table>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Phone number</th>
+                <th></th>
+            </tr>
+            <tr th:each="customer : ${customers}">
+                <td th:text="${customer.firstName}"></td>
+                <td th:text="${customer.lastName}"></td>
+                <td th:text="${customer.phoneNumber}"></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
