@@ -13,22 +13,28 @@
     <a href="/rental">Rental</a>
 </nav>
 <div>
+    <h1>Update motorhome</h1>
+    <br>
     <form action="/motorhome/realupdate" method="post">
         <input id="id" name="id" type="hidden" th:value="${motorhome.id}">
-        <label for="regNr">register number</label>
-        <input id="regNr" name="regNr" type="text" th:value="${motorhome.regNr}">
+        <table>
+            <tr>
+                <th><label for="regNr">Register number</label></th>
+                <th><label for="brand">Brand</label></th>
+                <th><label for="model">Model</label></th>
+                <th><label for="price">Price</label></th>
+            </tr>
+            <tr>
+                <td><input id="regNr" name="regNr" type="text" th:value="${motorhome.regNr}"></td>
+                <td><input id="brand" name="brand" type="text" th:value="${motorhome.brand}"></td>
+                <td><input id="model" name="model" type="text" th:value="${motorhome.model}"></td>
+                <td><input id="price" name="price" type="text" th:value="${motorhome.price}"></td>
+            </tr>
+        </table>
         <br>
-        <label for="brand">brand</label>
-        <input id="brand" name="brand" type="text" th:value="${motorhome.brand}">
-        <br>
-        <label for="model">model</label>
-        <input id="model" name="model" type="text" th:value="${motorhome.model}">
-        <br>
-        <label for="price">price</label>
-        <input id="price" name="price" type="text" th:value="${motorhome.price}">
-        <br>
-        <button type="submit">update motorhome</button>
+        <button type="submit">Update</button>
     </form>
 </div>
+
 </body>
 </html>
