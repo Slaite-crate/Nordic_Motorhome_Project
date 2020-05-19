@@ -1,6 +1,7 @@
 package nordic_motorhome_project.demo.repositories;
 
 import nordic_motorhome_project.demo.models.Customer;
+import nordic_motorhome_project.demo.models.Motorhome;
 import nordic_motorhome_project.demo.models.Rental;
 import nordic_motorhome_project.demo.utilities.DatabaseConnectionManager;
 
@@ -83,5 +84,39 @@ public class RentalRepository implements IRentalRepository {
     @Override
     public boolean delete(int id) {
         return false;
+    }
+
+    @Override
+    public List<Motorhome> readMotorhomes(int id) {
+        List<Motorhome> motorhomeList = new ArrayList<Motorhome>();
+        try {
+            String sql = "SELECT \n" +
+                    "    motorhome_id,\n" +
+                    "    reg_nr,\n" +
+                    "    brand,\n" +
+                    "    model,\n" +
+                    "    price\n" +
+                    "FROM\n" +
+                    "    motorhomes\n" +
+                    "        INNER JOIN\n" +
+                    "    rentals USING (motorhome_id)\n" +
+                    "    where customer_id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                Motorhome tempMotor = new Motorhome(
+                        rs.getInt("motorhome_id"),
+                        rs.getString("reg_nr"),
+                        rs.getString("brand"),
+                        rs.getString("model"),
+                        rs.getDouble("price")
+                );
+                motorhomeList.add(tempMotor);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return motorhomeList;
     }
 }

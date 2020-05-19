@@ -3,57 +3,57 @@ package nordic_motorhome_project.demo.models;
 import java.sql.Date;
 
 public class Rental {
-    private int rental_id;
-    private int cusomter_id;
-    private int motorhome_id;
-    private Date pickup_date;
-    private Date dropoff_date;
+    private int rentalId;
+    private int cusomterId;
+    private int motorhomeId;
+    private Date pickupDate;
+    private Date dropoffDate;
 
-    public Rental(int rental_id, int cusomter_id, int motorhome_id, Date pickup_date, Date dropoff_date) {
-        this.rental_id = rental_id;
-        this.cusomter_id = cusomter_id;
-        this.motorhome_id = motorhome_id;
-        this.pickup_date = pickup_date;
-        this.dropoff_date = dropoff_date;
+    public Rental(int rentalId, int cusomterId, int motorhomeId, Date pickupDate, Date dropoffDate) {
+        this.rentalId = rentalId;
+        this.cusomterId = cusomterId;
+        this.motorhomeId = motorhomeId;
+        this.pickupDate = pickupDate;
+        this.dropoffDate = dropoffDate;
     }
 
-    public int getRental_id() {
-        return rental_id;
+    public int getRentalId() {
+        return rentalId;
     }
 
-    public void setRental_id(int rental_id) {
-        this.rental_id = rental_id;
+    public void setRentalId(int rentalId) {
+        this.rentalId = rentalId;
     }
 
-    public int getCusomter_id() {
-        return cusomter_id;
+    public int getCusomterId() {
+        return cusomterId;
     }
 
-    public void setCusomter_id(int cusomter_id) {
-        this.cusomter_id = cusomter_id;
+    public void setCusomterId(int cusomterId) {
+        this.cusomterId = cusomterId;
     }
 
-    public int getMotorhome_id() {
-        return motorhome_id;
+    public int getMotorhomeId() {
+        return motorhomeId;
     }
 
-    public void setMotorhome_id(int motorhome_id) {
-        this.motorhome_id = motorhome_id;
+    public void setMotorhomeId(int motorhomeId) {
+        this.motorhomeId = motorhomeId;
     }
 
-    public Date getPickup_date() {
-        return pickup_date;
+    public Date getPickupDate() {
+        return pickupDate;
     }
 
-    public void setPickup_date(Date pickup_date) {
-        this.pickup_date = pickup_date;
+    public void setPickupDate(Date pickupDate) {
+        this.pickupDate = pickupDate;
     }
 
-    public Date getDropoff_date() {
-        return dropoff_date;
+    public Date getDropoffDate() {
+        return dropoffDate;
     }
 
-    public void setDropoff_date(Date dropoff_date) {
-        this.dropoff_date = dropoff_date;
+    public void setDropoffDate(Date dropoffDate) {
+        this.dropoffDate = dropoffDate;
     }
 }
