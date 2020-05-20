@@ -24,7 +24,7 @@
         </ul>
     </nav>
 </div>
-    <div class="content">
+<div class="content">
         <h1>Details</h1>
         <br>
         <table>
@@ -47,10 +47,10 @@
                 <td th:text="${customer.driversLicense}"></td>
             </tr>
         </table>
-    </div>
     <div>
         <a th:href="@{/customer/delete(id=${customer.customerId})}"><button>Delete</button></a>
         <a th:href="@{/customer/update(id=${customer.customerId})}"><button>Update</button></a>
+    </div>
     </div>
 </body>
 </html>
