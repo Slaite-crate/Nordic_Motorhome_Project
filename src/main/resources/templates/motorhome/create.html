@@ -6,13 +6,25 @@
     <link rel="stylesheet" type="text/css" href="../Styles/Stylesheet.css">
 </head>
 <body>
-<nav>
-    <a href="/"><img src="/img/nmh.png" id="logo"></a>
-    <a href="/customer">Customer</a>
-    <a href="/motorhome" id="tabcolor">Motorhome</a>
-    <a href="/rental">Rental</a>
-</nav>
-<div>
+<div class="top">
+    <nav>
+        <div>
+            <a href="/" id="logo">NMH | NMH</a>
+        </div>
+        <ul class = "navi">
+            <li>
+                <a href="/customer">Customer</a>
+            </li>
+            <li>
+                <a href="/motorhome" id = "tabcolor">Motorhome</a>
+            </li>
+            <li>
+                <a href="/rental">Rental</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="content">
     <h1>Create Motorhome</h1>
     <br>
     <form action="/motorhome/realcreate" method="post">

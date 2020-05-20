@@ -15,45 +15,56 @@ img {
     height: 50px;
     margin: -20px 0px;
 }
+#logo{
+    text-align: center;
+    letter-spacing: 2px;
+}
 
+#logo::before{
+    content: "nordic motorhome";
+}
+#logo::after{
+    content: "a familiy business";
+}
 #logo::before,#logo::after{
-    content: "Nordic Motorhome";
-    font-size: 16px;
-    color: white;
+    font-size: 10px;
+    color: black;
     display: block;
+    text-shadow: none;
+    font-weight: lighter;
+    text-align: center;
 }
 
 
 .navi{
     display: flex;
-    font-size: 20px;
-    text-space: 4px;
+    font-size: 16px;
     text-align: center;
     justify-content: space-around;
     width: 60%;
 }
 
 nav {
+    height: 50px;
     font-weight: bold;
     display: flex;
-    background-color: black;
+    background-color: white;
     justify-content: space-around;
     align-items: center;
-    padding-bottom: 5px;
-    padding-top: 5px;
     text-decoration: none;
     text-transform: uppercase;
 }
 
 nav a, nav li{
-    color: whitesmoke;
+    color: black;
     list-style: none;
     text-decoration: none;
 }
 
 nav a:hover, #tabcolor {
-    text-shadow: 2px 2px 0px cadetblue;
-    color: #f1f8ff;
+    color: cadetblue;
+    text-shadow: 1px 1px 0px black,2px 2px 0px peachpuff;
+    height: 100%;
 }
 
 .content {
