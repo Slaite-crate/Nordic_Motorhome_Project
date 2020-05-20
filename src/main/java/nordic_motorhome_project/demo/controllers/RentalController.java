@@ -30,7 +30,7 @@ public class RentalController {
     @GetMapping("/rental/details")
     public String rentalDetails(@RequestParam int id, Model modelCustomer, Model modelMotorhome){
         modelCustomer.addAttribute("customer", customerRepository.read(id));
-        modelMotorhome.addAttribute("motorhomes", rentalRepository.readMotorhomes(id));
+        modelMotorhome.addAttribute("rentals", rentalRepository.readMotorhomes(id));
         return "/rental/details";
     }
 }

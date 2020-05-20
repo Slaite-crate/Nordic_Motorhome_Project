@@ -87,30 +87,34 @@ public class RentalRepository implements IRentalRepository {
     }
 
     @Override
-    public List<Motorhome> readMotorhomes(int id) {
-        List<Motorhome> motorhomeList = new ArrayList<Motorhome>();
+    public List<Rental> readMotorhomes(int id) {
+        List<Rental> motorhomeList = new ArrayList<Rental>();
         try {
             String sql = "SELECT \n" +
                     "    motorhome_id,\n" +
                     "    reg_nr,\n" +
                     "    brand,\n" +
                     "    model,\n" +
-                    "    price\n" +
+                    "    pickup_date,\n" +
+                    "    dropoff_date\n" +
                     "FROM\n" +
                     "    motorhomes\n" +
                     "        INNER JOIN\n" +
                     "    rentals USING (motorhome_id)\n" +
-                    "    where customer_id = ?";
+                    "WHERE\n" +
+                    "    customer_id = ?\n" +
+                    "ORDER BY rental_id";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                Motorhome tempMotor = new Motorhome(
+                Rental tempMotor = new Rental(
                         rs.getInt("motorhome_id"),
                         rs.getString("reg_nr"),
                         rs.getString("brand"),
                         rs.getString("model"),
-                        rs.getDouble("price")
+                        rs.getDate("pickup_date"),
+                        rs.getDate("dropoff_date")
                 );
                 motorhomeList.add(tempMotor);
             }

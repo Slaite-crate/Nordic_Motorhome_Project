@@ -39,16 +39,18 @@
             <tr>
                 <th>ID</th>
                 <th>register number</th>
-                <th>brand</th>
                 <th>model</th>
-                <th>price</th>
+                <th>brand</th>
+                <th>pickup date</th>
+                <th>dropoff date</th>
             </tr>
-            <tr th:each="motorhome : ${motorhomes}">
-                <td th:text="${motorhome.id}"></td>
-                <td th:text="${motorhome.regNr}"></td>
-                <td th:text="${motorhome.brand}"></td>
-                <td th:text="${motorhome.model}"></td>
-                <td th:text="${motorhome.price}"></td>
+            <tr th:each="rental : ${rentals}">
+                <td th:text="${rental.id}"></td>
+                <td th:text="${rental.regNr}"></td>
+                <td th:text="${rental.model}"></td>
+                <td th:text="${rental.brand}"></td>
+                <td th:text="${rental.pickupDate}"></td>
+                <td th:text="${rental.dropoffDate}"></td>
             </tr>
         </table>
     </div>

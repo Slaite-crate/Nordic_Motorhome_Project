@@ -3,42 +3,52 @@ package nordic_motorhome_project.demo.models;
 import java.sql.Date;
 
 public class Rental {
-    private int rentalId;
-    private int cusomterId;
-    private int motorhomeId;
+    private int id;
+    private String regNr;
+    private String brand;
+    private String model;
     private Date pickupDate;
     private Date dropoffDate;
 
-    public Rental(int rentalId, int cusomterId, int motorhomeId, Date pickupDate, Date dropoffDate) {
-        this.rentalId = rentalId;
-        this.cusomterId = cusomterId;
-        this.motorhomeId = motorhomeId;
+    public Rental(int id, String regNr, String brand, String model, Date pickupDate, Date dropoffDate) {
+        this.id = id;
+        this.regNr = regNr;
+        this.brand = brand;
+        this.model = model;
         this.pickupDate = pickupDate;
         this.dropoffDate = dropoffDate;
     }
 
-    public int getRentalId() {
-        return rentalId;
+    public int getId() {
+        return id;
     }
 
-    public void setRentalId(int rentalId) {
-        this.rentalId = rentalId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getCusomterId() {
-        return cusomterId;
+    public String getRegNr() {
+        return regNr;
     }
 
-    public void setCusomterId(int cusomterId) {
-        this.cusomterId = cusomterId;
+    public void setRegNr(String regNr) {
+        this.regNr = regNr;
     }
 
-    public int getMotorhomeId() {
-        return motorhomeId;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setMotorhomeId(int motorhomeId) {
-        this.motorhomeId = motorhomeId;
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public Date getPickupDate() {

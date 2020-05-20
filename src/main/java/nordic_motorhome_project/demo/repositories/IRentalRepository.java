@@ -13,5 +13,5 @@ public interface IRentalRepository {
     List<Customer> readAllCustomers();
     boolean update(Rental rental);
     boolean delete(int id);
-    List<Motorhome> readMotorhomes(int id);
+    List<Rental> readMotorhomes(int id);
 }
