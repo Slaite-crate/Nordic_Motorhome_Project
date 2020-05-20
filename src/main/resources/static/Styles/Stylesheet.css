@@ -1,9 +1,14 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
 body {
     font-size: 20px;
     color: black;
-    background-color: gray;
+    background-color: #f1f8ff;
     font-family: Verdana, sans-serif;
-    margin: 0;
 }
 
 img {
@@ -11,24 +16,47 @@ img {
     margin: -20px 0px;
 }
 
-nav {
-    background-color: black;
-    padding-bottom: 15px;
-    padding-top: 15px;
+#logo::before,#logo::after{
+    content: "Nordic Motorhome";
+    font-size: 16px;
+    color: white;
+    display: block;
 }
 
-nav a {
-    color: lightgray;
-    padding: 15px 15px;
+
+.navi{
+    display: flex;
+    font-size: 20px;
+    text-space: 4px;
+    text-align: center;
+    justify-content: space-around;
+    width: 60%;
+}
+
+nav {
+    font-weight: bold;
+    display: flex;
+    background-color: black;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav a, nav li{
+    color: whitesmoke;
+    list-style: none;
     text-decoration: none;
 }
 
-nav a:hover {
-    color: black;
-    background-color: lightgray;
+nav a:hover, #tabcolor {
+    text-shadow: 2px 2px 0px cadetblue;
+    color: #f1f8ff;
 }
 
-div {
+.content {
     margin: 1%;
 }
 
@@ -61,15 +89,6 @@ tr {
 }
 
 tr:nth-child(even){
-    background-color: lightgray;
-}
-
-#tabcolor {
-    color: black;
-    background-color: gray;
-}
-
-#tabcolor:hover{
     background-color: lightgray;
 }
 
