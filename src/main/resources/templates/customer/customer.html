@@ -3,35 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>All Customers</title>
-    <link rel="stylesheet" type="text/css" href="../Styles/Stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
 </head>
 <body>
-<nav>
-    <a href="/"><img src="/img/nmh.png" id="logo"></a>
-    <a href="/customer"  id="tabcolor">Customer</a>
-    <a href="/motorhome">Motorhome</a>
-    <a href="/rental">Rental</a>
-</nav>
-<div>
-    <a href="/customer/create"><button>Create</button></a>
-</div>
-<div>
-    <table>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Phone number</th>
-            <th></th>
-        </tr>
-        <tr th:each="customer : ${customers}">
-            <td th:text="${customer.firstName}"></td>
-            <td th:text="${customer.lastName}"></td>
-            <td th:text="${customer.phoneNumber}"></td>
-            <td>
-                <a th:href="@{/customer/details(id=${customer.customerId})}"><button>Details</button></a>
-            </td>
-        </tr>
-    </table>
-</div>
+    <nav>
+        <a href="/"><img src="/img/nmh.png" id="logo"></a>
+        <a href="/customer"  id="tabcolor">Customer</a>
+        <a href="/motorhome">Motorhome</a>
+        <a href="/rental">Rental</a>
+    </nav>
+    <div>
+        <a href="/customer/create"><button>Create</button></a>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone number</th>
+                <th></th>
+            </tr>
+            <tr th:each="customer : ${customers}">
+                <td th:text="${customer.firstName}"></td>
+                <td th:text="${customer.lastName}"></td>
+                <td th:text="${customer.phoneNumber}"></td>
+                <td>
+                    <a th:href="@{/customer/details(id=${customer.customerId})}"><button>Details</button></a>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

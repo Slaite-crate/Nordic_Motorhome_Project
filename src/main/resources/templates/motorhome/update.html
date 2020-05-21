@@ -3,38 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>motorhome update</title>
-    <link rel="stylesheet" type="text/css" href="../Styles/Stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
 </head>
 <body>
-<nav>
-    <a href="/"><img src="/img/nmh.png" id="logo"></a>
-    <a href="/customer">Customer</a>
-    <a href="/motorhome" id="tabcolor">Motorhome</a>
-    <a href="/rental">Rental</a>
-</nav>
-<div>
-    <h1>Update motorhome</h1>
-    <br>
-    <form action="/motorhome/realupdate" method="post">
-        <input id="id" name="id" type="hidden" th:value="${motorhome.motorhomeId}">
-        <table>
-            <tr>
-                <th><label for="regNr">Register number</label></th>
-                <th><label for="brand">Brand</label></th>
-                <th><label for="model">Model</label></th>
-                <th><label for="price">Price</label></th>
-            </tr>
-            <tr>
-                <td><input id="regNr" name="regNr" type="text" th:value="${motorhome.regNr}"></td>
-                <td><input id="brand" name="brand" type="text" th:value="${motorhome.brand}"></td>
-                <td><input id="model" name="model" type="text" th:value="${motorhome.model}"></td>
-                <td><input id="price" name="price" type="text" th:value="${motorhome.price}"></td>
-            </tr>
-        </table>
+    <nav>
+        <a href="/"><img src="/img/nmh.png" id="logo"></a>
+        <a href="/customer">Customer</a>
+        <a href="/motorhome" id="tabcolor">Motorhome</a>
+        <a href="/rental">Rental</a>
+    </nav>
+    <div>
+        <h1>Update motorhome</h1>
         <br>
-        <button type="submit">Update</button>
-    </form>
-</div>
-
+        <form action="/motorhome/realupdate" method="post">
+            <input id="id" name="id" type="hidden" th:value="${motorhome.motorhomeId}">
+            <table>
+                <tr>
+                    <th><label for="regNr">Register number</label></th>
+                    <th><label for="brand">Brand</label></th>
+                    <th><label for="model">Model</label></th>
+                    <th><label for="seats">Seats</label></th>
+                    <th><label for="beds">Beds</label></th>
+                    <th><label for="price">Price</label></th>
+                </tr>
+                <tr>
+                    <td><input id="regNr" name="regNr" type="text" th:value="${motorhome.regNr}"></td>
+                    <td><input id="brand" name="brand" type="text" th:value="${motorhome.brand}"></td>
+                    <td><input id="model" name="model" type="text" th:value="${motorhome.model}"></td>
+                    <td><input id="seats" name="seats" type="text" th:value="${motorhome.seats}"></td>
+                    <td><input id="beds" name="beds" type="text" th:value="${motorhome.beds}"></td>
+                    <td><input id="price" name="price" type="text" th:value="${motorhome.price}"></td>
+                </tr>
+            </table>
+            <br>
+            <button type="submit">Update</button>
+        </form>
+    </div>
 </body>
 </html>

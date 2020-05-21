@@ -3,47 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Create customer</title>
-    <link rel="stylesheet" type="text/css" href="../Styles/Stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
 </head>
 <body>
-<nav>
-    <a href="/"><img src="/img/nmh.png" id="logo"></a>
-    <a href="/customer" id="tabcolor">Customer</a>
-    <a href="/motorhome">Motorhome</a>
-    <a href="/rental">Rental</a>
-</nav>
-<div>
-    <h1>Update customer</h1>
-    <br>
-    <form action="/customer/realupdate" method="post">
-        <input id="customerId" name="customerId" type="hidden" th:value="${customer.customerId}">
-        <table>
-            <tr>
-                <th><label for="firstName">First name</label></th>
-                <th><label for="lastName">Last name</label></th>
-                <th><label for="birthDate">Birth Date</label></th>
-                <th><label for="phoneNumber">Phone number</label></th>
-                <th><label for="driversLicense">Drivers license</label></th>
-                <th><label for="country">Country</label></th>
-                <td><label for="zipCode">Zip code</label></td>
-                <td><label for="city">City</label></td>
-                <td><label for="street">Street</label></td>
-            </tr>
-            <tr>
-                <td><input id="firstName" name="firstName" type="text" th:value="${customer.firstName}"></td>
-                <td><input id="lastName" name="lastName" type="text" th:value="${customer.lastName}"></td>
-                <td><input id="birthDate" name="birthDate" type="date" th:value="${customer.birthDate}"></td>
-                <td><input id="phoneNumber" name="phoneNumber" type="text" th:value="${customer.phoneNumber}"></td>
-                <td><input id="driversLicense" name="driversLicense" type="text" th:value="${customer.driversLicense}"></td>
-                <td><input id="country" name="country" type="text" th:value="${customer.country}"></td>
-                <td><input id="zipCode" name="zipCode" type="text" th:value="${customer.zipCode}"></td>
-                <td><input id="city" name="city" type="text" th:value="${customer.city}"></td>
-                <td><input id="street" name="street" type="text" th:value="${customer.street}"></td>
-            </tr>
-        </table>
+    <nav>
+        <a href="/"><img src="/img/nmh.png" id="logo"></a>
+        <a href="/customer" id="tabcolor">Customer</a>
+        <a href="/motorhome">Motorhome</a>
+        <a href="/rental">Rental</a>
+    </nav>
+    <div>
+        <h1>Update customer</h1>
         <br>
-        <button type="submit">Update</button>
-    </form>
-</div>
+        <form action="/customer/realupdate" method="post">
+            <input id="customerId" name="customerId" type="hidden" th:value="${customer.customerId}">
+            <table>
+                <tr>
+                    <th><label for="firstName">First name</label></th>
+                    <th><label for="lastName">Last name</label></th>
+                    <th><label for="birthDate">Birth Date</label></th>
+                    <th><label for="phoneNumber">Phone number</label></th>
+                    <th><label for="driversLicense">Drivers license</label></th>
+                    <th><label for="country">Country</label></th>
+                    <td><label for="zipCode">Zip code</label></td>
+                    <td><label for="city">City</label></td>
+                    <td><label for="street">Street</label></td>
+                </tr>
+                <tr>
+                    <td><input id="firstName" name="firstName" type="text" th:value="${customer.firstName}"></td>
+                    <td><input id="lastName" name="lastName" type="text" th:value="${customer.lastName}"></td>
+                    <td><input id="birthDate" name="birthDate" type="date" th:value="${customer.birthDate}"></td>
+                    <td><input id="phoneNumber" name="phoneNumber" type="text" th:value="${customer.phoneNumber}"></td>
+                    <td><input id="driversLicense" name="driversLicense" type="text" th:value="${customer.driversLicense}"></td>
+                    <td><input id="country" name="country" type="text" th:value="${customer.country}"></td>
+                    <td><input id="zipCode" name="zipCode" type="text" th:value="${customer.zipCode}"></td>
+                    <td><input id="city" name="city" type="text" th:value="${customer.city}"></td>
+                    <td><input id="street" name="street" type="text" th:value="${customer.street}"></td>
+                </tr>
+            </table>
+            <br>
+            <button type="submit">Update</button>
+        </form>
+    </div>
 </body>
 </html>

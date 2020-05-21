@@ -18,30 +18,58 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
 
     @Override
     public boolean create(Motorhome motorhome) {
-        String sqlStatement = "INSERT INTO motorhomes(reg_nr, brand, model, price)VALUES (?, ?, ?, ?)";
+        boolean result = false;
         try {
-            PreparedStatement statement = conn.prepareStatement(sqlStatement);
-            statement.setString(1, motorhome.getRegNr());
-            statement.setString(2, motorhome.getBrand());
-            statement.setString(3, motorhome.getModel());
-            statement.setDouble(4, motorhome.getPrice());
-            statement.executeUpdate();
+            String sql = "insert into brands (brand_name)\n" +
+                    "VALUES (?);";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, motorhome.getBrand());
+            int row = ps.executeUpdate();
+
+            String sql2 = "insert into models (brand_id, model_name, seats, beds, price_per_day)\n" +
+                    "values ((SELECT brand_id from brands where brand_name = ?), ?, ?, ?, ?);";
+            PreparedStatement ps2 = conn.prepareStatement(sql2);
+            ps2.setString(1, motorhome.getBrand());
+            ps2.setString(2, motorhome.getModel());
+            ps2.setInt(3, motorhome.getSeats());
+            ps2.setInt(4, motorhome.getBeds());
+            ps2.setDouble(5, motorhome.getPrice());
+            int row2 = ps2.executeUpdate();
+
+            String sql3 = "insert into motorhomes (model_id, reg_nr)\n" +
+                    "VALUES ((SELECT model_id from models where model_name = ?), ?);";
+            PreparedStatement ps3 = conn.prepareStatement(sql3);
+            ps3.setString(1, motorhome.getModel());
+            ps3.setString(2, motorhome.getRegNr());
+            int row3 = ps3.executeUpdate();
+
+            if(row > 0 && row2 > 0 && row3 > 0){
+                result = true;
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return true;
+        return result;
     }
 
     @Override
     public Motorhome read(int id) {
         Motorhome motorhomeToReturn = null;
         try {
-            String sql = "SELECT * FROM motorhomes WHERE motorhome_id=?";
+            String sql = "SELECT motorhome_id, reg_nr, brand_name, model_name, seats, beds, price_per_day FROM motorhomes INNER JOIN models USING (model_id) INNER JOIN brands USING (brand_id) WHERE motorhome_id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-
+                motorhomeToReturn = new Motorhome(
+                        rs.getInt("motorhome_id"),
+                        rs.getString("reg_nr"),
+                        rs.getString("brand_name"),
+                        rs.getString("model_name"),
+                        rs.getInt("seats"),
+                        rs.getInt("beds"),
+                        rs.getDouble("price_per_day")
+                );
             }
         }
         catch(SQLException s){
@@ -54,10 +82,20 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
     public List<Motorhome> readAll() {
         List<Motorhome> allMotorhomes = new ArrayList<Motorhome>();
         try {
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM motorhomes");
+            PreparedStatement ps = conn.prepareStatement("SELECT motorhome_id, reg_nr, brand_name, model_name, seats, beds, price_per_day\n" +
+                    "from motorhomes inner join models using (model_id) INNER join brands using (brand_id)");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-
+                Motorhome tempMotor = new Motorhome(
+                        rs.getInt("motorhome_id"),
+                        rs.getString("reg_nr"),
+                        rs.getString("brand_name"),
+                        rs.getString("model_name"),
+                        rs.getInt("seats"),
+                        rs.getInt("beds"),
+                        rs.getDouble("price_per_day")
+                );
+                allMotorhomes.add(tempMotor);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -67,8 +105,9 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
 
     @Override
     public boolean update(Motorhome motorhome) {
-        String sqlStatement = "UPDATE motorhomes SET motorhome_id=?, reg_nr=?, brand=?, model=?, price=? where motorhome_id=?";
+        boolean result = false;
         try {
+            String sqlStatement = "UPDATE motorhomes SET motorhome_id=?, reg_nr=?, brand=?, model=?, price=? where motorhome_id=?";
             PreparedStatement statement = conn.prepareStatement(sqlStatement);
             statement.setInt(1, motorhome.getMotorhomeId());
             statement.setString(2, motorhome.getRegNr());
@@ -80,7 +119,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return true;
+        return result;
     }
 
     @Override
