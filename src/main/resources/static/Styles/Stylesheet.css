@@ -1,6 +1,6 @@
 *{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -14,7 +14,7 @@ body {
 
 img {
     height: 50px;
-    margin: -20px 0px;
+    margin: -20px 0;
 }
 
 #logo{
@@ -65,7 +65,7 @@ nav a, nav li{
 
 nav a:hover, #tabcolor {
     color: cadetblue;
-    text-shadow: 1px 1px 0px black,2px 2px 0px peachpuff;
+    text-shadow: 1px 1px 0 black,2px 2px 0 peachpuff;
     height: 100%;
 }
 
@@ -98,7 +98,7 @@ table {
     background-color: #b8d7de;
     border-collapse: collapse;
     border: 1px solid #f1f8ff;
-    margin: 8px 0px;
+    margin: 8px 0;
     width: 75%;
 }
 
