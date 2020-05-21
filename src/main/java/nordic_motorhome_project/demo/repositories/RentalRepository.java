@@ -64,10 +64,14 @@ public class RentalRepository implements IRentalRepository {
                         rs.getInt("customer_id"),
                         rs.getString("first_name"),
                         rs.getString("last_name"),
-                        rs.getString("address"),
-                        rs.getString("cpr"),
+                        rs.getDate("birth_date"),
                         rs.getString("phone_nr"),
-                        rs.getString("drivers_license"));
+                        rs.getString("drivers_license"),
+                        rs.getString("country"),
+                        rs.getString("zip_code"),
+                        rs.getString("city"),
+                        rs.getString("street")
+                );
                 customerList.add(tempCustomer);
             }
         } catch (SQLException throwables) {

@@ -1,34 +1,54 @@
 package nordic_motorhome_project.demo.models;
 
+import java.sql.Date;
+
 public class Customer {
     private int customerId;
     private String firstName;
     private String lastName;
-    private String address;
-    private String cpr;
+    private Date birthDate;
     private String phoneNumber;
     private String driversLicense;
+    private String country;
+    private String zipCode;
+    private String city;
+    private String street;
 
-    public Customer() {
+    public Customer(String firstName, String lastName, Date birthDate, String phoneNumber, String driversLicense, String country, String zipCode, String city, String street) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.phoneNumber = phoneNumber;
+        this.driversLicense = driversLicense;
+        this.country = country;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.street = street;
     }
 
-    public Customer(int customerId, String firstName, String lastName, String address, String cpr, String phoneNumber, String driversLicense) {
+    public Customer(int customerId, String firstName, String lastName, Date birthDate, String phoneNumber, String driversLicense, String country, String zipCode, String city, String street) {
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address = address;
-        this.cpr = cpr;
+        this.birthDate = birthDate;
         this.phoneNumber = phoneNumber;
         this.driversLicense = driversLicense;
+        this.country = country;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.street = street;
     }
 
-    public Customer(String firstName, String lastName, String address, String cpr, String phoneNumber, String driversLicense) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.cpr = cpr;
-        this.phoneNumber = phoneNumber;
-        this.driversLicense = driversLicense;
+    public Customer(){
+
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public String getFirstName() {
@@ -47,28 +67,12 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public String getAddress() {
-        return address;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public int getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
-
-    public String getCpr() {
-        return cpr;
-    }
-
-    public void setCpr(String cpr) {
-        this.cpr = cpr;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
     public String getPhoneNumber() {
@@ -87,16 +91,35 @@ public class Customer {
         this.driversLicense = driversLicense;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", address='" + address + '\'' +
-                ", customerId=" + customerId +
-                ", cpr='" + cpr + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", driversLicence='" + driversLicense + '\'' +
-                '}';
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
     }
 }

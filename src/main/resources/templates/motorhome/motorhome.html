@@ -30,8 +30,8 @@
                 <td th:text="${motorhome.model}"></td>
                 <td th:text="${motorhome.price}"></td>
                 <td>
-                    <a th:href="@{/motorhome/details(id=${motorhome.id})}"><button>details</button></a>
-                    <a th:href="@{/motorhome/update(id=${motorhome.id})}"><button>update</button></a>
+                    <a th:href="@{/motorhome/details(id=${motorhome.motorhomeId})}"><button>details</button></a>
+                    <a th:href="@{/motorhome/update(id=${motorhome.motorhomeId})}"><button>update</button></a>
                 </td>
             </tr>
         </table>

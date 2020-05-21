@@ -34,18 +34,14 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
 
     @Override
     public Motorhome read(int id) {
-        Motorhome motorhomeToReturn = new Motorhome();
+        Motorhome motorhomeToReturn = null;
         try {
-            PreparedStatement getSingleMotorhome = conn.prepareStatement("SELECT * FROM motorhomes WHERE motorhome_id=?");
-            getSingleMotorhome.setInt(1, id);
-            ResultSet rs = getSingleMotorhome.executeQuery();
+            String sql = "SELECT * FROM motorhomes WHERE motorhome_id=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                motorhomeToReturn = new Motorhome();
-                motorhomeToReturn.setId(rs.getInt("motorhome_id"));
-                motorhomeToReturn.setRegNr(rs.getString("reg_nr"));
-                motorhomeToReturn.setBrand(rs.getString("brand"));
-                motorhomeToReturn.setModel(rs.getString("model"));
-                motorhomeToReturn.setPrice(rs.getDouble("price"));
+
             }
         }
         catch(SQLException s){
@@ -61,13 +57,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM motorhomes");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Motorhome tempMotorhome = new Motorhome();
-                tempMotorhome.setId(rs.getInt("motorhome_id"));
-                tempMotorhome.setRegNr(rs.getString("reg_nr"));
-                tempMotorhome.setBrand(rs.getString("brand"));
-                tempMotorhome.setModel(rs.getString("model"));
-                tempMotorhome.setPrice(rs.getDouble("price"));
-                allMotorhomes.add(tempMotorhome);
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -80,12 +70,12 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
         String sqlStatement = "UPDATE motorhomes SET motorhome_id=?, reg_nr=?, brand=?, model=?, price=? where motorhome_id=?";
         try {
             PreparedStatement statement = conn.prepareStatement(sqlStatement);
-            statement.setInt(1, motorhome.getId());
+            statement.setInt(1, motorhome.getMotorhomeId());
             statement.setString(2, motorhome.getRegNr());
             statement.setString(3, motorhome.getBrand());
             statement.setString(4, motorhome.getModel());
             statement.setDouble(5, motorhome.getPrice());
-            statement.setInt(6, motorhome.getId());
+            statement.setInt(6, motorhome.getMotorhomeId());
             statement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

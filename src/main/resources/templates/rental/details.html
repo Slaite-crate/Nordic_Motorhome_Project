@@ -28,7 +28,7 @@
                 <td th:text="${customer.firstName}"></td>
                 <td th:text="${customer.lastName}"></td>
                 <td th:text="${customer.address}"></td>
-                <td th:text="${customer.cpr}"></td>
+                <td th:text="${customer.birthDate}"></td>
                 <td th:text="${customer.phoneNumber}"></td>
                 <td th:text="${customer.driversLicense}"></td>
             </tr>
@@ -45,7 +45,7 @@
                 <th>dropoff date</th>
             </tr>
             <tr th:each="rental : ${rentals}">
-                <td th:text="${rental.id}"></td>
+                <td th:text="${rental.rentalId}"></td>
                 <td th:text="${rental.regNr}"></td>
                 <td th:text="${rental.model}"></td>
                 <td th:text="${rental.brand}"></td>

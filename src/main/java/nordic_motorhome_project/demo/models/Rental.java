@@ -3,15 +3,15 @@ package nordic_motorhome_project.demo.models;
 import java.sql.Date;
 
 public class Rental {
-    private int id;
+    private int rentalId;
     private String regNr;
     private String brand;
     private String model;
     private Date pickupDate;
     private Date dropoffDate;
 
-    public Rental(int id, String regNr, String brand, String model, Date pickupDate, Date dropoffDate) {
-        this.id = id;
+    public Rental(int rentalId, String regNr, String brand, String model, Date pickupDate, Date dropoffDate) {
+        this.rentalId = rentalId;
         this.regNr = regNr;
         this.brand = brand;
         this.model = model;
@@ -19,12 +19,12 @@ public class Rental {
         this.dropoffDate = dropoffDate;
     }
 
-    public int getId() {
-        return id;
+    public int getRentalId() {
+        return rentalId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setRentalId(int rentalId) {
+        this.rentalId = rentalId;
     }
 
     public String getRegNr() {

@@ -29,8 +29,6 @@
             <td th:text="${customer.phoneNumber}"></td>
             <td>
                 <a th:href="@{/customer/details(id=${customer.customerId})}"><button>Details</button></a>
-                <a th:href="@{/customer/update(id=${customer.customerId})}"><button>Update</button></a>
-                <a th:href="@{/customer/delete(id=${customer.customerId})}"><button>Delete</button></a>
             </td>
         </tr>
     </table>
