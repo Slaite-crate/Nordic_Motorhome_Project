@@ -70,7 +70,7 @@ nav a:hover, #tabcolor {
 }
 
 .content {
-    margin: 2%;
+    margin: 3%;
 }
 
 button {
@@ -99,7 +99,7 @@ table {
     border-collapse: collapse;
     border: 1px solid #f1f8ff;
     margin: 8px 0px;
-    width: 100%;
+    width: 75%;
 }
 
 th, td {
@@ -115,7 +115,8 @@ th{
 }
 
 #details{
-    background-color: #f1f8ff
+    background-color: #f1f8ff;
+    width: 50px;
 }
 
 tr {
