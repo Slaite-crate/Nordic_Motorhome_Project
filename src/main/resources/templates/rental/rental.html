@@ -1,32 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>rental</title>
-    <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../Styles/Stylesheet.css">
 </head>
 <body>
+<div class="top">
     <nav>
-        <a href="/"><img src="/img/nmh.png" id="logo"></a>
-        <a href="/customer">Customer</a>
-        <a href="/motorhome">Motorhome</a>
-        <a href="/rental" id="tabcolor">Rental</a>
+        <div>
+            <a href="/" id="logo">NMH | NMH</a>
+        </div>
+        <ul class = "navi">
+            <li>
+                <a href="/customer">Customer</a>
+            </li>
+            <li>
+                <a href="/motorhome">Motorhome</a>
+            </li>
+            <li>
+                <a href="/rental" id="tabcolor">Rental</a>
+            </li>
+        </ul>
     </nav>
-    <div>
-        <table>
-            <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Phone number</th>
-                <th></th>
-            </tr>
-            <tr th:each="customer : ${customers}">
-                <td th:text="${customer.firstName}"></td>
-                <td th:text="${customer.lastName}"></td>
-                <td th:text="${customer.phoneNumber}"></td>
-                <td><a th:href="@{/rental/details(id=${customer.customerId})}"><button>details</button></a></td>
-            </tr>
-        </table>
-    </div>
+</div>
 </body>
 </html>

@@ -3,40 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>motorhomes</title>
-    <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../Styles/Stylesheet.css">
 </head>
 <body>
+<div class="top">
     <nav>
-        <a href="/"><img src="/img/nmh.png" id="logo"></a>
-        <a href="/customer">Customer</a>
-        <a href="/motorhome" id="tabcolor">Motorhome</a>
-        <a href="/rental">Rental</a>
+        <div>
+            <a href="/" id="logo">NMH | NMH</a>
+        </div>
+        <ul class = "navi">
+            <li>
+                <a href="/customer">Customer</a>
+            </li>
+            <li>
+                <a href="/motorhome" id = "tabcolor">Motorhome</a>
+            </li>
+            <li>
+                <a href="/rental">Rental</a>
+            </li>
+        </ul>
     </nav>
-    <div>
-        <h1>Create Motorhome</h1>
+</div>
+<div class="content">
+    <h1>Create Motorhome</h1>
+    <br>
+    <form action="/motorhome/realcreate" method="post">
+        <table>
+            <tr>
+                <th><label for="regNr">Register Number</label></th>
+                <th><label for="brand">Brand</label></th>
+                <th><label for="model">Model</label></th>
+                <th><label for="price">Price</label></th>
+            </tr>
+            <tr>
+                <td><input id="regNr" name="regNr" type="text"></td>
+                <td><input id="brand" name="brand" type="text"></td>
+                <td><input id="model" name="model" type="text"></td>
+                <td><input id="price" name="price" type="text"></td>
+            </tr>
+        </table>
         <br>
-        <form action="/motorhome/realcreate" method="post">
-            <table>
-                <tr>
-                    <th><label for="regNr">Register Number</label></th>
-                    <th><label for="brand">Brand</label></th>
-                    <th><label for="model">Model</label></th>
-                    <th><label for="seats"></label></th>
-                    <th><label for="beds"></label></th>
-                    <th><label for="price">Price</label></th>
-                </tr>
-                <tr>
-                    <td><input id="regNr" name="regNr" type="text"></td>
-                    <td><input id="brand" name="brand" type="text"></td>
-                    <td><input id="model" name="model" type="text"></td>
-                    <td><input id="seats" name="seats" type="text"></td>
-                    <td><input id="beds" name="beds" type="text"></td>
-                    <td><input id="price" name="price" type="text"></td>
-                </tr>
-            </table>
-            <br>
-            <button type="submit">Create</button>
-        </form>
-    </div>
+        <button type="submit">Create</button>
+    </form>
+</div>
 </body>
 </html>

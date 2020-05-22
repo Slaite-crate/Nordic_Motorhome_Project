@@ -3,19 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>motorhomes</title>
-    <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="../Styles/Stylesheet.css">
 </head>
 <body>
-    <nav>
-        <a href="/"><img src="/img/nmh.png" id="logo"></a>
-        <a href="/customer">Customer</a>
-        <a href="/motorhome" id="tabcolor">Motorhome</a>
-        <a href="/rental">Rental</a>
-    </nav>
-    <div>
-        <a href="/motorhome/create"><button>Create</button></a>
+    <div class="top">
+        <nav>
+            <div>
+                <a href="/" id="logo">NMH | NMH</a>
+            </div>
+            <ul class = "navi">
+                <li>
+                    <a href="/customer">Customer</a>
+                </li>
+                <li>
+                    <a href="/motorhome" id = "tabcolor">Motorhome</a>
+                </li>
+                <li>
+                    <a href="/rental">Rental</a>
+                </li>
+            </ul>
+        </nav>
     </div>
-    <div>
+    <div class="content">
+        <a href="/motorhome/create"><button>Create</button></a>
         <table>
             <tr>
                 <th>register number</th>
@@ -29,8 +39,8 @@
                 <td th:text="${motorhome.brand}"></td>
                 <td th:text="${motorhome.model}"></td>
                 <td th:text="${motorhome.price}"></td>
-                <td>
-                    <a th:href="@{/motorhome/details(id=${motorhome.motorhomeId})}"><button>details</button></a>
+                <td id="details">
+                    <a th:href="@{/motorhome/details(id=${motorhome.id})}"><button>details</button></a>
                 </td>
             </tr>
         </table>
