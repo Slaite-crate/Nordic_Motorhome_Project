@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>motorhomes</title>
+    <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
+</head>
+<body>
+<div class="top">
+    <nav>
+        <div>
+            <a href="/" id="logo">NMH | NMH</a>
+        </div>
+        <ul class = "navi">
+            <li>
+                <a href="/customer">Customer</a>
+            </li>
+            <li>
+                <a href="/motorhome" id = "tabcolor">Motorhome</a>
+            </li>
+            <li>
+                <a href="/rental">Rental</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="content">
+    <a href="/motorhome/create"><button>Create</button></a>
+    <a href="/motorhome/brandcreate"><button>Create brand</button></a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>brand</th>
+        </tr>
+        <tr th:each="motorhome : ${motorhomes}">
+            <td th:text="${motorhome.brandId}"></td>
+            <td th:text="${motorhome.brandName}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

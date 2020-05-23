@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>motorhomes</title>
+    <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
+</head>
+<body>
+<div class="top">
+    <nav>
+        <div>
+            <a href="/" id="logo">NMH | NMH</a>
+        </div>
+        <ul class = "navi">
+            <li>
+                <a href="/customer">Customer</a>
+            </li>
+            <li>
+                <a href="/motorhome" id = "tabcolor">Motorhome</a>
+            </li>
+            <li>
+                <a href="/rental">Rental</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="content">
+    <h1>Create Motorhome</h1>
+    <br>
+    <form action="/motorhome/realbrandcreate" method="post">
+        <table>
+            <tr>
+                <th><label for="brandName">Brand</label></th>
+            </tr>
+            <tr>
+                <td><input id="brandName" name="brandName" type="text"></td>
+            </tr>
+        </table>
+        <br>
+        <button type="submit">Create</button>
+    </form>
+</div>
+</body>
+</html>

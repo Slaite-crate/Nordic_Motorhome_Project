@@ -4,32 +4,15 @@ public class Motorhome {
 
     private int motorhomeId;
     private String regNr;
-    private String brand;
-    private String model;
+    private int modelId;
+    private String modelName;
     private int seats;
     private int beds;
     private double price;
+    private int brandId;
+    private String brandName;
 
     public Motorhome() {
-    }
-
-    public Motorhome(int motorhomeId, String regNr, String brand, String model, int seats, int beds, double price) {
-        this.motorhomeId = motorhomeId;
-        this.regNr = regNr;
-        this.brand = brand;
-        this.model = model;
-        this.seats = seats;
-        this.beds = beds;
-        this.price = price;
-    }
-
-    public Motorhome(String regNr, String brand, String model, int seats, int beds, double price) {
-        this.regNr = regNr;
-        this.brand = brand;
-        this.model = model;
-        this.seats = seats;
-        this.beds = beds;
-        this.price = price;
     }
 
     public int getMotorhomeId() {
@@ -48,20 +31,20 @@ public class Motorhome {
         this.regNr = regNr;
     }
 
-    public String getBrand() {
-        return brand;
+    public int getModelId() {
+        return modelId;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
+    public void setModelId(int modelId) {
+        this.modelId = modelId;
     }
 
-    public String getModel() {
-        return model;
+    public String getModelName() {
+        return modelName;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
     }
 
     public int getSeats() {
@@ -86,5 +69,21 @@ public class Motorhome {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public int getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(int brandId) {
+        this.brandId = brandId;
+    }
+
+    public String getBrandName() {
+        return brandName;
+    }
+
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
     }
 }
