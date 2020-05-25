@@ -38,7 +38,29 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
 
     @Override
     public Motorhome readMotorhome(int id) {
-        return null;
+        Motorhome tempMotorhome = new Motorhome();
+        String sql = "SELECT motorhome_id, reg_nr, model_id, model_name, seats, beds, price_per_day, brand_id, brand_name\n" +
+                "FROM motorhomes INNER JOIN models USING (model_id) INNER JOIN brands USING (brand_id)\n" +
+                "WHERE motorhome_id = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                tempMotorhome.setMotorhomeId(rs.getInt("motorhome_id"));
+                tempMotorhome.setRegNr(rs.getString("reg_nr"));
+                tempMotorhome.setModelId(rs.getInt("model_id"));
+                tempMotorhome.setModelName(rs.getString("model_name"));
+                tempMotorhome.setSeats(rs.getInt("seats"));
+                tempMotorhome.setBeds(rs.getInt("beds"));
+                tempMotorhome.setPrice(rs.getDouble("price_per_day"));
+                tempMotorhome.setBrandId(rs.getInt("brand_id"));
+                tempMotorhome.setBrandName(rs.getString("brand_name"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return tempMotorhome;
     }
 
     @Override
@@ -78,5 +100,4 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
     public boolean deleteMotorhome(int id) {
         return false;
     }
-
 }
