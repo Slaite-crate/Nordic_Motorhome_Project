@@ -57,7 +57,20 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
 
     @Override
     public Motorhome readBrand(int id) {
-        return null;
+        Motorhome brand = new Motorhome();
+        try {
+            String sql = "SELECT * FROM brands WHERE brand_id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                brand.setBrandId(rs.getInt("brand_id"));
+                brand.setBrandName(rs.getString("brand_name"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return brand;
     }
 
     @Override
@@ -67,7 +80,28 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
 
     @Override
     public List<Motorhome> readAllModels() {
-        return null;
+        List<Motorhome> modelList = new ArrayList<Motorhome>();
+        try {
+            String sql = "SELECT model_id, model_name, seats, beds, price_per_day, brand_id, brand_name\n" +
+                    "FROM models INNER JOIN brands USING (brand_id)\n" +
+                    "ORDER BY brand_id";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                Motorhome tempModel = new Motorhome();
+                tempModel.setModelId(rs.getInt("model_id"));
+                tempModel.setModelName(rs.getString("model_name"));
+                tempModel.setSeats(rs.getInt("seats"));
+                tempModel.setBeds(rs.getInt("beds"));
+                tempModel.setPrice(rs.getDouble("price_per_day"));
+                tempModel.setBrandId(rs.getInt("brand_id"));
+                tempModel.setBrandName(rs.getString("brand_name"));
+                modelList.add(tempModel);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return modelList;
     }
 
     @Override
@@ -101,7 +135,22 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
 
     @Override
     public boolean updateBrand(Motorhome motorhome) {
-        return false;
+        boolean result = false;
+        try {
+            String sql = "UPDATE brands SET brand_name = ? WHERE brand_id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, motorhome.getBrandName());
+            ps.setInt(2, motorhome.getBrandId());
+            int row = ps.executeUpdate();
+            if (row > 0){
+                System.out.println("update worked");
+                result = true;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return result;
     }
 
     @Override
@@ -116,6 +165,19 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository{
 
     @Override
     public boolean deleteBrand(int id) {
-        return false;
+        boolean result = false;
+        try {
+            String sql = "DELETE FROM brands WHERE brand_id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            int row = ps.executeUpdate();
+            if (row > 0){
+                System.out.println("update worked");
+                result = true;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
     }
 }

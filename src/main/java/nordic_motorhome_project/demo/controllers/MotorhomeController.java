@@ -56,22 +56,4 @@ public class MotorhomeController {
         motorhomeRepository.deleteMotorhome(id);
         return "redirect:/motorhome";
     }
-
-    @GetMapping("/motorhome/brandcreate")
-    public String createBrand(){
-        return "/motorhome/brandcreate";
-    }
-
-    @PostMapping("/motorhome/realbrandcreate")
-    public String realCreateBrand(@ModelAttribute Motorhome motorhomeFromPost){
-        motorhomeRepository.createBrand(motorhomeFromPost);
-        return "redirect:/motorhome/brand";
-    }
-
-    @GetMapping("/motorhome/brand")
-    public String brand(Model model){
-        model.addAttribute("motorhomes", motorhomeRepository.readAllBrands());
-        return "/motorhome/brand";
-    }
-
 }

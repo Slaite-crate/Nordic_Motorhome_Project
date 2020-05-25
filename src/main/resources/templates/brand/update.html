@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>motorhomes</title>
+    <title>motorhome update</title>
     <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
 </head>
 <body>
@@ -25,19 +25,20 @@
     </nav>
 </div>
 <div class="content">
-    <h1>Create Motorhome</h1>
+    <h1>Update motorhome</h1>
     <br>
-    <form action="/motorhome/realbrandcreate" method="post">
+    <form action="/brand/realupdate" method="post">
+        <input id="brandId" name="brandId" type="hidden" th:value="${motorhome.brandId}">
         <table>
             <tr>
                 <th><label for="brandName">Brand</label></th>
             </tr>
             <tr>
-                <td><input id="brandName" name="brandName" type="text"></td>
+                <td><input id="brandName" name="brandName" type="text" th:value="${motorhome.brandName}"></td>
             </tr>
         </table>
         <br>
-        <button type="submit">Create</button>
+        <button type="submit">Update</button>
     </form>
 </div>
 </body>

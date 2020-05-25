@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>motorhomes</title>
@@ -25,18 +25,20 @@
     </nav>
 </div>
 <div class="content">
-    <a href="/motorhome/create"><button>Create</button></a>
-    <a href="/motorhome/brandcreate"><button>Create brand</button></a>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>brand</th>
-        </tr>
-        <tr th:each="motorhome : ${motorhomes}">
-            <td th:text="${motorhome.brandId}"></td>
-            <td th:text="${motorhome.brandName}"></td>
-        </tr>
-    </table>
+    <h1>Create Motorhome</h1>
+    <br>
+    <form action="/brand/realcreate" method="post">
+        <table>
+            <tr>
+                <th><label for="brandName">Brand</label></th>
+            </tr>
+            <tr>
+                <td><input id="brandName" name="brandName" type="text"></td>
+            </tr>
+        </table>
+        <br>
+        <button type="submit">Create</button>
+    </form>
 </div>
 </body>
 </html>

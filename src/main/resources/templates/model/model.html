@@ -25,22 +25,24 @@
         </nav>
     </div>
     <div class="content">
-        <a href="/motorhome/create"><button>Create</button></a>
+        <a href="/model/create"><button>Create</button></a>
         <table>
             <tr>
-                <th>register number</th>
-                <th>brand</th>
-                <th>model</th>
-                <th>price</th>
-                <th></th>
+                <th>ID</th>
+                <th>name</th>
+                <th>seats</th>
+                <th>beds</th>
+                <th>price per day</th>
             </tr>
-            <tr th:each="motorhome : ${motorhomes}">
-                <td th:text="${motorhome.regNr}"></td>
-                <td th:text="${motorhome.brandName}"></td>
+            <tr th:each="motorhome : ${models}">
+                <td th:text="${motorhome.modelId}"></td>
                 <td th:text="${motorhome.modelName}"></td>
+                <td th:text="${motorhome.seats}"></td>
+                <td th:text="${motorhome.beds}"></td>
                 <td th:text="${motorhome.price}"></td>
-                <td id="details">
-                    <a th:href="@{/motorhome/details(id=${motorhome.motorhomeId})}"><button>details</button></a>
+                <td>
+                    <a th:href="@{/brand/update(id=${motorhome.brandId})}"><button>update</button></a>
+                    <a th:href="@{/brand/delete(id=${motorhome.brandId})}"><button>delete</button></a>
                 </td>
             </tr>
         </table>
