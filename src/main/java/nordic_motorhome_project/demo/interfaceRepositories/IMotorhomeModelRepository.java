@@ -11,4 +11,5 @@ public interface IMotorhomeModelRepository {
     boolean updateModel(Motorhome motorhome);
     boolean deleteModel(int id);
     List<Motorhome> readModelsFromBrand(Motorhome brand);
+    List<Motorhome> readModelsFromBrand(int id);
 }

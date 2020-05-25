@@ -93,11 +93,42 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
 
     @Override
     public boolean updateMotorhome(Motorhome motorhome) {
-        return false;
+        boolean result = false;
+        String sql = "UPDATE motorhomes set reg_nr = ?, model_id = ? " +
+                "WHERE motorhome_id = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, motorhome.getRegNr());
+            ps.setInt(2, motorhome.getModelId());
+            ps.setInt(3, motorhome.getMotorhomeId());
+            int row = ps.executeUpdate();
+            if (row > 0){
+                System.out.printf("update worked");
+                result = true;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+
+        return result;
     }
 
     @Override
     public boolean deleteMotorhome(int id) {
-        return false;
+        boolean result = false;
+        String sql = "DELETE FROM motorhomes WHERE motorhome_id = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            int row = ps.executeUpdate();
+            if (row > 0){
+                System.out.println("delete worked");
+                result = true;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
     }
 }

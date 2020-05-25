@@ -56,8 +56,9 @@ public class MotorhomeController {
     }
 
     @GetMapping("/motorhome/update")
-    public String motorhomesUpdate(@RequestParam int id, Model model){
-        model.addAttribute("motorhome", motorhomeRepository.readMotorhome(id));
+    public String motorhomesUpdate(@RequestParam int id, Model motorhome, Model model){
+        motorhome.addAttribute("motorhome", motorhomeRepository.readMotorhome(id));
+        model.addAttribute("models", modelRepository.readModelsFromBrand(id));
         return "/motorhome/update";
     }
     @PostMapping("/motorhome/realupdate")
