@@ -1,5 +1,6 @@
 package nordic_motorhome_project.demo.repositories;
 
+import nordic_motorhome_project.demo.interfaceRepositories.IExtraRepository;
 import nordic_motorhome_project.demo.models.Extra;
 import nordic_motorhome_project.demo.utilities.DatabaseConnectionManager;
 
@@ -10,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExtraRepositoryImpl implements IExtraRepository{
+public class ExtraRepositoryImpl implements IExtraRepository {
     private Connection conn;
 
     public ExtraRepositoryImpl(){
