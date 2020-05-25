@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>motorhomes</title>
@@ -30,20 +30,16 @@
         <form action="/motorhome/realcreate" method="post">
             <table>
                 <tr>
-                    <th><label for="regNr">Register Number</label></th>
-                    <th><label for="brand">Brand</label></th>
-                    <th><label for="model">Model</label></th>
-                    <th><label for="seats">Seats</label></th>
-                    <th><label for="beds">Beds</label></th>
-                    <th><label for="price">Price</label></th>
+                    <th><label for="regNr">Register number</label></th>
+                    <th><label for="modelId">Model</label></th>
                 </tr>
                 <tr>
                     <td><input id="regNr" name="regNr" type="text"></td>
-                    <td><input id="brand" name="brand" type="text"></td>
-                    <td><input id="model" name="model" type="text"></td>
-                    <td><input id="seats" name="seats" type="text"></td>
-                    <td><input id="beds" name="beds" type="text"></td>
-                    <td><input id="price" name="price" type="text"></td>
+                    <td>
+                        <select id="modelId" name="modelId">
+                            <option th:each="model : ${models}" th:text="${model.modelName}" th:value="${model.modelId}"></option>
+                        </select>
+                    </td>
                 </tr>
             </table>
             <br>

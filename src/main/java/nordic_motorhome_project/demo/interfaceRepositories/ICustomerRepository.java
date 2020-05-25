@@ -1,4 +1,4 @@
-package nordic_motorhome_project.demo.repositories;
+package nordic_motorhome_project.demo.interfaceRepositories;
 
 import nordic_motorhome_project.demo.models.Customer;
 

@@ -33,6 +33,7 @@
                 <th>seats</th>
                 <th>beds</th>
                 <th>price per day</th>
+                <th></th>
             </tr>
             <tr th:each="motorhome : ${models}">
                 <td th:text="${motorhome.modelId}"></td>
@@ -41,8 +42,8 @@
                 <td th:text="${motorhome.beds}"></td>
                 <td th:text="${motorhome.price}"></td>
                 <td>
-                    <a th:href="@{/brand/update(id=${motorhome.brandId})}"><button>update</button></a>
-                    <a th:href="@{/brand/delete(id=${motorhome.brandId})}"><button>delete</button></a>
+                    <a th:href="@{/model/update(id=${motorhome.modelId})}"><button>update</button></a>
+                    <a th:href="@{/model/delete(id=${motorhome.modelId})}"><button>delete</button></a>
                 </td>
             </tr>
         </table>

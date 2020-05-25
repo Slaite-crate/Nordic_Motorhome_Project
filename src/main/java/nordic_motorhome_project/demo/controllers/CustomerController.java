@@ -2,7 +2,7 @@ package nordic_motorhome_project.demo.controllers;
 
 import nordic_motorhome_project.demo.models.Customer;
 import nordic_motorhome_project.demo.repositories.CustomerRepositoryImpl;
-import nordic_motorhome_project.demo.repositories.ICustomerRepository;
+import nordic_motorhome_project.demo.interfaceRepositories.ICustomerRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,7 +1,7 @@
 package nordic_motorhome_project.demo.repositories;
 
+import nordic_motorhome_project.demo.interfaceRepositories.IRentalRepository;
 import nordic_motorhome_project.demo.models.Customer;
-import nordic_motorhome_project.demo.models.Motorhome;
 import nordic_motorhome_project.demo.models.Rental;
 import nordic_motorhome_project.demo.utilities.DatabaseConnectionManager;
 

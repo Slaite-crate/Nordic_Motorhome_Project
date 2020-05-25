@@ -1,8 +1,8 @@
 package nordic_motorhome_project.demo.controllers;
 
 import nordic_motorhome_project.demo.models.Motorhome;
-import nordic_motorhome_project.demo.repositories.IMotorhomeRepository;
-import nordic_motorhome_project.demo.repositories.MotorhomeRepositoryImpl;
+import nordic_motorhome_project.demo.repositories.BrandRepository;
+import nordic_motorhome_project.demo.interfaceRepositories.IBrandRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,15 +12,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BrandController {
-    private IMotorhomeRepository motorhomeRepository;
+    private IBrandRepository brandRepository;
 
     public BrandController(){
-        motorhomeRepository = new MotorhomeRepositoryImpl();
+        brandRepository = new BrandRepository();
     }
+
 
     @GetMapping("/brand/brand")
     public String brand(Model model){
-        model.addAttribute("motorhomes", motorhomeRepository.readAllBrands());
+        model.addAttribute("motorhomes", brandRepository.readAllBrands());
         return "/brand/brand";
     }
 
@@ -31,25 +32,25 @@ public class BrandController {
 
     @PostMapping("/brand/realcreate")
     public String realCreateBrand(@ModelAttribute Motorhome motorhomeFromPost){
-        motorhomeRepository.createBrand(motorhomeFromPost);
+        brandRepository.createBrand(motorhomeFromPost);
         return "redirect:/brand/brand";
     }
 
     @GetMapping("/brand/update")
     public String update(@RequestParam int id, Model model){
-        model.addAttribute("motorhome", motorhomeRepository.readBrand(id));
+        model.addAttribute("motorhome", brandRepository.readBrand(id));
         return "/brand/update";
     }
 
     @PostMapping("/brand/realupdate")
     public String realUpdate(@ModelAttribute Motorhome motorhomeFromPost){
-        motorhomeRepository.updateBrand(motorhomeFromPost);
+        brandRepository.updateBrand(motorhomeFromPost);
         return "redirect:/brand/brand";
     }
 
     @GetMapping("/brand/delete")
     public String delete(@RequestParam int id){
-        motorhomeRepository.deleteBrand(id);
+        brandRepository.deleteBrand(id);
         return "redirect:/brand/brand";
     }
 }

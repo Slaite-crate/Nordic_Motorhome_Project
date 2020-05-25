@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>motorhomes</title>
+    <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
+</head>
+<body>
+<div class="top">
+    <nav>
+        <div>
+            <a href="/" id="logo">NMH | NMH</a>
+        </div>
+        <ul class = "navi">
+            <li>
+                <a href="/customer">Customer</a>
+            </li>
+            <li>
+                <a href="/motorhome" id = "tabcolor">Motorhome</a>
+            </li>
+            <li>
+                <a href="/rental">Rental</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div class="content">
+    <h1>Create Motorhome</h1>
+    <br>
+    <form action="/model/realcreate" method="post">
+        <table>
+            <tr>
+                <th><label for="modelName">model</label></th>
+                <th><label for="seats">seats</label></th>
+                <th><label for="beds">beds</label></th>
+                <th><label for="price">price per day</label></th>
+                <th><label for="brandId">brand name</label></th>
+            </tr>
+            <tr>
+                <td><input id="modelName" name="modelName" type="text"></td>
+                <td><input id="seats" name="seats" type="text"></td>
+                <td><input id="beds" name="beds" type="text"></td>
+                <td><input id="price" name="price" type="text"></td>
+                <td>
+                    <select id="brandId" name="brandId">
+                        <option th:each="brand : ${brands}" th:text="${brand.brandName}" th:value="${brand.brandId}"></option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <button type="submit">Create</button>
+    </form>
+</div>
+</body>
+</html>

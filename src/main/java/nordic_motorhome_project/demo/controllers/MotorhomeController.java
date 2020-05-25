@@ -1,8 +1,10 @@
 package nordic_motorhome_project.demo.controllers;
 
+import nordic_motorhome_project.demo.interfaceRepositories.IBrandRepository;
+import nordic_motorhome_project.demo.interfaceRepositories.IMotorhomeModelRepository;
+import nordic_motorhome_project.demo.interfaceRepositories.IMotorhomeRepository;
 import nordic_motorhome_project.demo.models.Motorhome;
-import nordic_motorhome_project.demo.repositories.IMotorhomeRepository;
-import nordic_motorhome_project.demo.repositories.MotorhomeRepositoryImpl;
+import nordic_motorhome_project.demo.repositories.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MotorhomeController {
 
     private IMotorhomeRepository motorhomeRepository;
+    private IMotorhomeModelRepository modelRepository;
+    private IBrandRepository brandRepository;
+
 
     public MotorhomeController(){
         motorhomeRepository = new MotorhomeRepositoryImpl();
+        modelRepository = new MotorhomeModelRepository();
+        brandRepository = new BrandRepository();
     }
 
     @GetMapping("/motorhome")
@@ -25,8 +32,15 @@ public class MotorhomeController {
         return "/motorhome/motorhome";
     }
 
-    @GetMapping("/motorhome/create")
-    public String motorhomeCreate(){
+    @GetMapping("/motorhome/createbrand")
+    public String motorhomeBrandCreate(Model brands){
+        brands.addAttribute("brands", brandRepository.readAllBrandsWithModels());
+        return "/motorhome/createbrand";
+    }
+
+    @PostMapping("/motorhome/create")
+    public String motorhomeCreate(@ModelAttribute Motorhome brand, Model models){
+        models.addAttribute("models", modelRepository.readModelsFromBrand(brand));
         return "/motorhome/create";
     }
 
