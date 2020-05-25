@@ -1,6 +1,7 @@
 package nordic_motorhome_project.demo.repositories;
 
 
+import nordic_motorhome_project.demo.interfaceRepositories.IFeeRepository;
 import nordic_motorhome_project.demo.models.Fee;
 import nordic_motorhome_project.demo.utilities.DatabaseConnectionManager;
 
@@ -11,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FeeRepositoryImpl implements IFeeRepository{
+public class FeeRepositoryImpl implements IFeeRepository {
     private Connection conn;
 
     public FeeRepositoryImpl(){
