@@ -5,9 +5,9 @@ import nordic_motorhome_project.demo.models.Customer;
 import java.util.List;
 
 public interface ICustomerRepository {
-    public boolean create(Customer customer);
-    public Customer read(int id);
-    public List<Customer> readAll();
-    public boolean update(Customer customer);
-    public boolean delete(int id);
+    boolean create(Customer customer);
+    Customer read(int id);
+    List<Customer> readAll();
+    boolean update(Customer customer);
+    boolean delete(int id);
 }

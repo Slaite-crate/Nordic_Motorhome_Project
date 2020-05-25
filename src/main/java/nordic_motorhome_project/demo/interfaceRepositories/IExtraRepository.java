@@ -1,14 +1,13 @@
 package nordic_motorhome_project.demo.interfaceRepositories;
 
-
 import nordic_motorhome_project.demo.models.Extra;
 
 import java.util.List;
 
 public interface IExtraRepository {
-    public boolean create(Extra extra);
-    public Extra read(int id);
-    public List<Extra> readAll();
-    public boolean update(Extra extra);
-    public boolean delete(int id);
+    boolean create(Extra extra);
+    Extra read(int id);
+    List<Extra> readAll();
+    boolean update(Extra extra);
+    boolean delete(int id);
 }
