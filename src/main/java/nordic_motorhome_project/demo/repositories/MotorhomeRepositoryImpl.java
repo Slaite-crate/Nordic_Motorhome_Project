@@ -3,6 +3,7 @@ package nordic_motorhome_project.demo.repositories;
 import nordic_motorhome_project.demo.interfaceRepositories.IMotorhomeRepository;
 import nordic_motorhome_project.demo.models.Motorhome;
 import nordic_motorhome_project.demo.utilities.DatabaseConnectionManager;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,7 +27,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
             ps.setString(1, motorhome.getRegNr());
             ps.setInt(2, motorhome.getModelId());
             int row = ps.executeUpdate();
-            if (row > 0){
+            if (row > 0) {
                 System.out.println("create worked");
                 result = true;
             }
@@ -94,7 +95,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
     @Override
     public boolean updateMotorhome(Motorhome motorhome) {
         boolean result = false;
-        String sql = "UPDATE motorhomes set reg_nr = ?, model_id = ? " +
+        String sql = "UPDATE motorhomes SET reg_nr = ?, model_id = ? " +
                 "WHERE motorhome_id = ?";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -102,8 +103,8 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
             ps.setInt(2, motorhome.getModelId());
             ps.setInt(3, motorhome.getMotorhomeId());
             int row = ps.executeUpdate();
-            if (row > 0){
-                System.out.printf("update worked");
+            if (row > 0) {
+                System.out.println("update worked");
                 result = true;
             }
         } catch (SQLException throwables) {
@@ -122,7 +123,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             int row = ps.executeUpdate();
-            if (row > 0){
+            if (row > 0) {
                 System.out.println("delete worked");
                 result = true;
             }
@@ -132,3 +133,4 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
         return result;
     }
 }
+

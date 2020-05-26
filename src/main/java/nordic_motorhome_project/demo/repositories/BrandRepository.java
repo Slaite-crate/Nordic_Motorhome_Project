@@ -14,7 +14,7 @@ import java.util.List;
 public class BrandRepository implements IBrandRepository {
     private Connection conn;
 
-    public BrandRepository(){
+    public BrandRepository() {
         conn = DatabaseConnectionManager.getDatabaseConnection();
     }
 
@@ -24,9 +24,9 @@ public class BrandRepository implements IBrandRepository {
         try {
             String sql = "INSERT INTO brands (brand_name) VALUES (?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1,motorhome.getBrandName());
+            ps.setString(1, motorhome.getBrandName());
             int row = ps.executeUpdate();
-            if (row > 0){
+            if (row > 0) {
                 System.out.println("created new brand");
                 result = true;
             }
@@ -44,7 +44,7 @@ public class BrandRepository implements IBrandRepository {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 brand.setBrandId(rs.getInt("brand_id"));
                 brand.setBrandName(rs.getString("brand_name"));
             }
@@ -61,7 +61,7 @@ public class BrandRepository implements IBrandRepository {
             String sql = "SELECT * FROM brands ORDER BY brand_id";
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Motorhome tempBrand = new Motorhome();
                 tempBrand.setBrandId(rs.getInt("brand_id"));
                 tempBrand.setBrandName(rs.getString("brand_name"));
@@ -82,7 +82,7 @@ public class BrandRepository implements IBrandRepository {
             ps.setString(1, motorhome.getBrandName());
             ps.setInt(2, motorhome.getBrandId());
             int row = ps.executeUpdate();
-            if (row > 0){
+            if (row > 0) {
                 System.out.println("update worked");
                 result = true;
             }
@@ -101,7 +101,7 @@ public class BrandRepository implements IBrandRepository {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             int row = ps.executeUpdate();
-            if (row > 0){
+            if (row > 0) {
                 System.out.println("update worked");
                 result = true;
             }
@@ -119,7 +119,7 @@ public class BrandRepository implements IBrandRepository {
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Motorhome tempMotor = new Motorhome();
                 tempMotor.setBrandId(rs.getInt("brand_id"));
                 tempMotor.setBrandName(rs.getString("brand_name"));

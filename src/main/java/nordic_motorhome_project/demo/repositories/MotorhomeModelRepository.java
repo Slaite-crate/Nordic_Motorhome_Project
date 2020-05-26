@@ -14,7 +14,7 @@ import java.util.List;
 public class MotorhomeModelRepository implements IMotorhomeModelRepository {
     private Connection conn;
 
-    public MotorhomeModelRepository(){
+    public MotorhomeModelRepository() {
         conn = DatabaseConnectionManager.getDatabaseConnection();
     }
 
@@ -32,7 +32,7 @@ public class MotorhomeModelRepository implements IMotorhomeModelRepository {
             ps.setDouble(4, motorhome.getPrice());
             ps.setInt(5, motorhome.getBrandId());
             int row = ps.executeUpdate();
-            if (row > 0){
+            if (row > 0) {
                 System.out.println("created worked");
                 result = true;
             }
@@ -52,7 +52,7 @@ public class MotorhomeModelRepository implements IMotorhomeModelRepository {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 model.setModelId(rs.getInt("model_id"));
                 model.setModelName(rs.getString("model_name"));
                 model.setSeats(rs.getInt("seats"));
@@ -76,7 +76,7 @@ public class MotorhomeModelRepository implements IMotorhomeModelRepository {
                     "ORDER BY brand_id";
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Motorhome tempModel = new Motorhome();
                 tempModel.setModelId(rs.getInt("model_id"));
                 tempModel.setModelName(rs.getString("model_name"));
@@ -98,7 +98,7 @@ public class MotorhomeModelRepository implements IMotorhomeModelRepository {
         boolean result = false;
         try {
             String sql = "UPDATE models SET model_name = ?, seats = ?, beds = ?, price_per_day = ?, brand_id = ?\n" +
-                    "where model_id = ?";
+                    "WHERE model_id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, motorhome.getModelName());
             ps.setInt(2, motorhome.getSeats());
@@ -107,7 +107,7 @@ public class MotorhomeModelRepository implements IMotorhomeModelRepository {
             ps.setInt(5, motorhome.getBrandId());
             ps.setInt(6, motorhome.getModelId());
             int row = ps.executeUpdate();
-            if (row > 0){
+            if (row > 0) {
                 System.out.println("update worked");
                 result = true;
             }
@@ -125,7 +125,7 @@ public class MotorhomeModelRepository implements IMotorhomeModelRepository {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             int row = ps.executeUpdate();
-            if (row > 0){
+            if (row > 0) {
                 System.out.println("delete worked");
                 result = true;
             }
@@ -145,7 +145,7 @@ public class MotorhomeModelRepository implements IMotorhomeModelRepository {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, brand.getBrandId());
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Motorhome tempModel = new Motorhome();
                 tempModel.setModelId(rs.getInt("model_id"));
                 tempModel.setModelName(rs.getString("model_name"));
@@ -170,7 +170,7 @@ public class MotorhomeModelRepository implements IMotorhomeModelRepository {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Motorhome tempModel = new Motorhome();
                 tempModel.setModelId(rs.getInt("model_id"));
                 tempModel.setModelName(rs.getString("model_name"));
