@@ -29,55 +29,7 @@ public class RentalRepository implements IRentalRepository {
 
     @Override
     public List<Rental> readAll() {
-        List<Rental> rentalList = new ArrayList<Rental>();
-        try {
-            String sql = "";
-            PreparedStatement ps = conn.prepareStatement(sql);
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return rentalList;
-    }
-
-    @Override
-    public List<Customer> readAllCustomers() {
-        List<Customer> customerList = new ArrayList<Customer>();
-        try {
-            String sql = "SELECT\n" +
-                    "    customer_id,\n" +
-                    "    first_name,\n" +
-                    "    last_name,\n" +
-                    "    address,\n" +
-                    "    cpr,\n" +
-                    "    phone_nr,\n" +
-                    "    drivers_license\n" +
-                    "FROM\n" +
-                    "    customers\n" +
-                    "        INNER JOIN\n" +
-                    "    rentals USING (customer_id)\n" +
-                    "    GROUP BY customer_id";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                Customer tempCustomer = new Customer(
-                        rs.getInt("customer_id"),
-                        rs.getString("first_name"),
-                        rs.getString("last_name"),
-                        rs.getDate("birth_date"),
-                        rs.getString("phone_nr"),
-                        rs.getString("drivers_license"),
-                        rs.getString("country"),
-                        rs.getString("zip_code"),
-                        rs.getString("city"),
-                        rs.getString("street")
-                );
-                customerList.add(tempCustomer);
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return customerList;
+        return null;
     }
 
     @Override
@@ -92,39 +44,11 @@ public class RentalRepository implements IRentalRepository {
 
     @Override
     public List<Rental> readMotorhomes(int id) {
-        List<Rental> motorhomeList = new ArrayList<Rental>();
-        try {
-            String sql = "SELECT \n" +
-                    "    motorhome_id,\n" +
-                    "    reg_nr,\n" +
-                    "    brand,\n" +
-                    "    model,\n" +
-                    "    pickup_date,\n" +
-                    "    dropoff_date\n" +
-                    "FROM\n" +
-                    "    motorhomes\n" +
-                    "        INNER JOIN\n" +
-                    "    rentals USING (motorhome_id)\n" +
-                    "WHERE\n" +
-                    "    customer_id = ?\n" +
-                    "ORDER BY rental_id";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()){
-                Rental tempMotor = new Rental(
-                        rs.getInt("motorhome_id"),
-                        rs.getString("reg_nr"),
-                        rs.getString("brand"),
-                        rs.getString("model"),
-                        rs.getDate("pickup_date"),
-                        rs.getDate("dropoff_date")
-                );
-                motorhomeList.add(tempMotor);
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return motorhomeList;
+        return null;
+    }
+
+    @Override
+    public List<Customer> readAllCustomers() {
+        return null;
     }
 }

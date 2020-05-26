@@ -160,4 +160,29 @@ public class MotorhomeModelRepository implements IMotorhomeModelRepository {
         }
         return modelList;
     }
+
+    @Override
+    public List<Motorhome> readModelsFromBrand(int id) {
+        List<Motorhome> modelList = new ArrayList<>();
+        try {
+            String sql = "SELECT model_id, model_name, seats, beds, price_per_day, brand_id " +
+                    "FROM models WHERE brand_id = (SELECT brand_id FROM models WHERE model_id = (SELECT model_id FROM motorhomes WHERE motorhome_id = ?))";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                Motorhome tempModel = new Motorhome();
+                tempModel.setModelId(rs.getInt("model_id"));
+                tempModel.setModelName(rs.getString("model_name"));
+                tempModel.setSeats(rs.getInt("seats"));
+                tempModel.setBeds(rs.getInt("beds"));
+                tempModel.setPrice(rs.getDouble("price_per_day"));
+                tempModel.setBrandId(rs.getInt("brand_id"));
+                modelList.add(tempModel);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return modelList;
+    }
 }
