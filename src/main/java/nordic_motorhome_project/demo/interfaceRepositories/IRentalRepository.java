@@ -10,8 +10,9 @@ public interface IRentalRepository {
     boolean create(Rental rental);
     Rental read(int id);
     List<Rental> readAll();
+    List<Rental> readAll(String order);
     boolean update(Rental rental);
     boolean delete(int id);
-    List<Rental> readMotorhomes(int id);
+    List<Motorhome> readAllMotorhomes();
     List<Customer> readAllCustomers();
 }
