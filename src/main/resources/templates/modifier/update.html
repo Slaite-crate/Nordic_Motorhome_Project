@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
 </head>
 <body>
 <div class="top">
@@ -41,7 +42,19 @@
 <div class="content">
     <h1>Update Modifier</h1>
     <br>
-
+    <form action="/modifier/realupdate" method="post">
+        <input id="modifierId" name="modifierId" type="hidden" th:value="${modifier.modifierId}">
+        <table>
+            <tr>
+                <th><label for="modifierName">modifier</label></th>
+            </tr>
+            <tr>
+                <td><input id="modifierName" name="modifierName" type="text" th:value="${modifier.modifierName}"></td>
+            </tr>
+        </table>
+        <br>
+        <button type="submit">Update</button>
+    </form>
 </div>
 
 </body>

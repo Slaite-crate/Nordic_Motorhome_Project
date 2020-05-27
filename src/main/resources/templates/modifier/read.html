@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
 </head>
 <body>
 <div class="top">
@@ -41,7 +42,22 @@
 <div class="content">
     <h1>Read Modifier</h1>
     <br>
-
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Modifier</th>
+        </tr>
+        <tr>
+            <td th:text="${modifier.modifierId}"></td>
+            <td th:text="${modifier.modifierName}"></td>
+            <td th:text="${modifier.modifier}"></td>
+        </tr>
+    </table>
+    <div>
+        <a th:href="@{/modifier/update(id=${modifier.modifierId})}"><button>Update</button></a>
+        <a th:href="@{/modifier/delete(id=${modifier.modifierId})}"><button>Delete</button></a>
+    </div>
 </div>
 
 </body>

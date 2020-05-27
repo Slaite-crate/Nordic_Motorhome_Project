@@ -53,10 +53,7 @@ public class ModifierRespository implements IModifierRepository {
                         rs.getDouble("modifier")
                 );
             }
-            int rowsInserted = ps.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("A modifier was read successfully!");
-            }
+
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -78,10 +75,6 @@ public class ModifierRespository implements IModifierRepository {
                         rs.getDouble("modifier")
                 );
                 allModifiers.add(tempModifier);
-            }
-            int rowsInserted = ps.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("All modifiers were read successfully!");
             }
         }catch(SQLException e){
             e.printStackTrace();
