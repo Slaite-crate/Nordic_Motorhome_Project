@@ -1,6 +1,6 @@
 package nordic_motorhome_project.demo.repositories;
 
-import nordic_motorhome_project.demo.interfaceRepositories.ICustomerRepository;
+import nordic_motorhome_project.demo.interfaceRepositories.ICrud;
 import nordic_motorhome_project.demo.models.Customer;
 import nordic_motorhome_project.demo.utilities.DatabaseConnectionManager;
 
@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerRepositoryImpl implements ICustomerRepository {
+public class CustomerRepositoryImpl implements ICrud<Customer> {
     private Connection conn;
 
     public CustomerRepositoryImpl(){

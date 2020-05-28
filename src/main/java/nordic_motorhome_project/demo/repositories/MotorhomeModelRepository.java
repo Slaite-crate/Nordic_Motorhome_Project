@@ -1,6 +1,6 @@
 package nordic_motorhome_project.demo.repositories;
 
-import nordic_motorhome_project.demo.interfaceRepositories.IMotorhomeModelRepository;
+import nordic_motorhome_project.demo.interfaceRepositories.IMotorhomeRepository;
 import nordic_motorhome_project.demo.models.Motorhome;
 import nordic_motorhome_project.demo.utilities.DatabaseConnectionManager;
 
@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MotorhomeModelRepository implements IMotorhomeModelRepository {
+public class MotorhomeModelRepository implements IMotorhomeRepository {
     private Connection conn;
 
     public MotorhomeModelRepository() {
@@ -20,7 +20,7 @@ public class MotorhomeModelRepository implements IMotorhomeModelRepository {
 
 
     @Override
-    public boolean createModel(Motorhome motorhome) {
+    public boolean create(Motorhome motorhome) {
         boolean result = false;
         try {
             String sql = "INSERT INTO models (model_name, seats, beds, price_per_day, brand_id)\n" +
@@ -43,7 +43,7 @@ public class MotorhomeModelRepository implements IMotorhomeModelRepository {
     }
 
     @Override
-    public Motorhome readModel(int id) {
+    public Motorhome read(int id) {
         Motorhome model = new Motorhome();
         try {
             String sql = "SELECT model_id, model_name, seats, beds, price_per_day, brand_id, brand_name\n" +
@@ -68,7 +68,7 @@ public class MotorhomeModelRepository implements IMotorhomeModelRepository {
     }
 
     @Override
-    public List<Motorhome> readAllModels() {
+    public List<Motorhome> readAll() {
         List<Motorhome> modelList = new ArrayList<Motorhome>();
         try {
             String sql = "SELECT model_id, model_name, seats, beds, price_per_day, brand_id, brand_name\n" +
@@ -94,7 +94,7 @@ public class MotorhomeModelRepository implements IMotorhomeModelRepository {
     }
 
     @Override
-    public boolean updateModel(Motorhome motorhome) {
+    public boolean update(Motorhome motorhome) {
         boolean result = false;
         try {
             String sql = "UPDATE models SET model_name = ?, seats = ?, beds = ?, price_per_day = ?, brand_id = ?\n" +
@@ -118,7 +118,7 @@ public class MotorhomeModelRepository implements IMotorhomeModelRepository {
     }
 
     @Override
-    public boolean deleteModel(int id) {
+    public boolean delete(int id) {
         boolean result = false;
         try {
             String sql = "DELETE FROM models WHERE model_id = ?";
@@ -134,6 +134,11 @@ public class MotorhomeModelRepository implements IMotorhomeModelRepository {
         }
 
         return result;
+    }
+
+    @Override
+    public List<Motorhome> readAllBrandsWithModels() {
+        return null;
     }
 
     @Override

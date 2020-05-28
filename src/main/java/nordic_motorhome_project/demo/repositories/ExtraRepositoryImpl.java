@@ -1,6 +1,6 @@
 package nordic_motorhome_project.demo.repositories;
 
-import nordic_motorhome_project.demo.interfaceRepositories.IExtraRepository;
+import nordic_motorhome_project.demo.interfaceRepositories.ICrud;
 import nordic_motorhome_project.demo.models.Extra;
 import nordic_motorhome_project.demo.utilities.DatabaseConnectionManager;
 
@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExtraRepositoryImpl implements IExtraRepository {
+public class ExtraRepositoryImpl implements ICrud<Extra> {
     private Connection conn;
 
     public ExtraRepositoryImpl() {
@@ -27,8 +27,6 @@ public class ExtraRepositoryImpl implements IExtraRepository {
             ps.setString(1, extra.getItem());
             ps.setDouble(2, extra.getPrice());
             int rowsInserted = ps.executeUpdate();
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -90,10 +88,7 @@ public class ExtraRepositoryImpl implements IExtraRepository {
             ps.setString(1, extra.getItem());
             ps.setDouble(2, extra.getPrice());
             ps.setInt(3, extra.getExtraId());
-
             int rowsInserted = ps.executeUpdate();
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

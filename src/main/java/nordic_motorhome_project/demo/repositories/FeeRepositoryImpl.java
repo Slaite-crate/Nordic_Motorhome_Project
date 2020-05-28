@@ -1,7 +1,7 @@
 package nordic_motorhome_project.demo.repositories;
 
 
-import nordic_motorhome_project.demo.interfaceRepositories.IFeeRepository;
+import nordic_motorhome_project.demo.interfaceRepositories.ICrud;
 import nordic_motorhome_project.demo.models.Fee;
 import nordic_motorhome_project.demo.utilities.DatabaseConnectionManager;
 
@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FeeRepositoryImpl implements IFeeRepository {
+public class FeeRepositoryImpl implements ICrud<Fee> {
     private Connection conn;
 
     public FeeRepositoryImpl() {
@@ -28,8 +28,6 @@ public class FeeRepositoryImpl implements IFeeRepository {
             ps.setString(1, fee.getFee());
             ps.setDouble(2, fee.getPrice());
             int rowsInserted = ps.executeUpdate();
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -50,7 +48,6 @@ public class FeeRepositoryImpl implements IFeeRepository {
                         rs.getInt("fee_id"),
                         rs.getString("fee"),
                         rs.getDouble("price")
-
                 );
             }
         } catch (SQLException e) {
@@ -92,10 +89,7 @@ public class FeeRepositoryImpl implements IFeeRepository {
             ps.setString(1, fee.getFee());
             ps.setDouble(2, fee.getPrice());
             ps.setInt(3, fee.getFeeId());
-
             int rowsInserted = ps.executeUpdate();
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

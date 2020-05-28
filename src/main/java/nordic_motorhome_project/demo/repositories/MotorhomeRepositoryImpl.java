@@ -19,7 +19,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
     }
 
     @Override
-    public boolean createMotorhome(Motorhome motorhome) {
+    public boolean create(Motorhome motorhome) {
         boolean result = false;
         try {
             String sql = "INSERT INTO motorhomes (reg_nr, model_id) VALUES (?, ?)";
@@ -38,7 +38,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
     }
 
     @Override
-    public Motorhome readMotorhome(int id) {
+    public Motorhome read(int id) {
         Motorhome tempMotorhome = new Motorhome();
         String sql = "SELECT motorhome_id, reg_nr, model_id, model_name, seats, beds, price_per_day, brand_id, brand_name\n" +
                 "FROM motorhomes INNER JOIN models USING (model_id) INNER JOIN brands USING (brand_id)\n" +
@@ -65,7 +65,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
     }
 
     @Override
-    public List<Motorhome> readAllMotorhomes() {
+    public List<Motorhome> readAll() {
         List<Motorhome> motorhomeList = new ArrayList<>();
         String sql = "SELECT motorhome_id, reg_nr, model_id, model_name, seats, beds, price_per_day, brand_id, brand_name\n" +
                 "FROM motorhomes INNER JOIN models USING (model_id) INNER JOIN brands USING (brand_id)\n" +
@@ -93,7 +93,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
     }
 
     @Override
-    public boolean updateMotorhome(Motorhome motorhome) {
+    public boolean update(Motorhome motorhome) {
         boolean result = false;
         String sql = "UPDATE motorhomes SET reg_nr = ?, model_id = ? " +
                 "WHERE motorhome_id = ?";
@@ -116,7 +116,7 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
     }
 
     @Override
-    public boolean deleteMotorhome(int id) {
+    public boolean delete(int id) {
         boolean result = false;
         String sql = "DELETE FROM motorhomes WHERE motorhome_id = ?";
         try {
@@ -131,6 +131,21 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
             throwables.printStackTrace();
         }
         return result;
+    }
+
+    @Override
+    public List<Motorhome> readAllBrandsWithModels() {
+        return null;
+    }
+
+    @Override
+    public List<Motorhome> readModelsFromBrand(Motorhome brand) {
+        return null;
+    }
+
+    @Override
+    public List<Motorhome> readModelsFromBrand(int id) {
+        return null;
     }
 }
 

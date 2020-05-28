@@ -6,13 +6,8 @@ import nordic_motorhome_project.demo.models.Rental;
 
 import java.util.List;
 
-public interface IRentalRepository {
-    boolean create(Rental rental);
-    Rental read(int id);
-    List<Rental> readAll();
+public interface IRentalRepository extends ICrud<Rental>{
     List<Rental> readAll(String order);
-    boolean update(Rental rental);
-    boolean delete(int id);
     List<Motorhome> readAllMotorhomes();
     List<Customer> readAllCustomers();
 }
