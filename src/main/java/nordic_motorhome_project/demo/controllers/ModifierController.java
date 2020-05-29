@@ -1,6 +1,6 @@
 package nordic_motorhome_project.demo.controllers;
 
-import nordic_motorhome_project.demo.interfaceRepositories.IModifierRepository;
+import nordic_motorhome_project.demo.interfaceRepositories.ICrud;
 import nordic_motorhome_project.demo.models.Modifier;
 import nordic_motorhome_project.demo.repositories.ModifierRespository;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ModifierController {
-    private IModifierRepository modifierRepository;
+    private ICrud modifierRepository;
 
     public ModifierController(){
         modifierRepository = new ModifierRespository();

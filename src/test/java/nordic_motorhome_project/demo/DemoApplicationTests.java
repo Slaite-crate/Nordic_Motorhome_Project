@@ -100,7 +100,51 @@ class DemoApplicationTests {
     //Test DriversLicence Pelle
 
     //Test Integer Cecilie
-
+    @Test
+    void isIntegerOneTwoThree(){
+        //arrange
+        boolean expected = true;
+        //act
+        boolean actual = validator.isInteger("123");
+        //assert
+        assertEquals(expected,actual);
+    }
+    @Test
+    void isIntegerAbc(){
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isInteger("abc");
+        //assert
+        assertEquals(expected,actual);
+    }
+    @Test
+    void isIntegerSpecial(){
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isInteger("+?!");
+        //assert
+        assertEquals(expected,actual);
+    }
+    @Test
+    void isIntegerNull(){
+        //arrange
+        boolean expected = true;
+        //act
+        boolean actual = validator.isInteger("");
+        //assert
+        assertEquals(expected,actual);
+    }
+    @Test
+    void isIntegerMultiple(){
+        //arrange
+        boolean expected = true;
+        //act
+        boolean actual = validator.isInteger("999");
+        //assert
+        assertEquals(expected,actual);
+    }
     //Test Price Frederic
 
 }

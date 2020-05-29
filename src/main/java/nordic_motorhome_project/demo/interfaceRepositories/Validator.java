@@ -20,7 +20,7 @@ public class Validator {
         return result;
     }
     public boolean isInteger(String s){
-        boolean result = s.matches("[0-9]+");
+        boolean result = s.matches("[0-9]*");
         return result;
     }
     public boolean isPrice(String s){
