@@ -2,6 +2,7 @@ package nordic_motorhome_project.demo.repositories;
 
 import nordic_motorhome_project.demo.interfaceRepositories.IRentalRepository;
 import nordic_motorhome_project.demo.models.Customer;
+import nordic_motorhome_project.demo.models.Motorhome;
 import nordic_motorhome_project.demo.models.Rental;
 import nordic_motorhome_project.demo.utilities.DatabaseConnectionManager;
 
@@ -19,21 +20,92 @@ public class RentalRepository implements IRentalRepository {
 
     @Override
     public boolean create(Rental rental) {
-        return false;
+        boolean result = false;
+        String sql = "INSERT INTO rentals (customer_id, motorhome_id, pickup_date, dropoff_date)\n" +
+                "VALUES (?, ?, ? ,?)";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, rental.getCustomerId());
+            ps.setInt(2, rental.getMotorhomeId());
+            ps.setDate(3, rental.getPickupDate());
+            ps.setDate(4, rental.getDropoffDate());
+            int row = ps.executeUpdate();
+            if (row > 0){
+                System.out.println("create worked");
+                result = true;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
     }
 
     @Override
     public Rental read(int id) {
-        return null;
+        Rental tempRental = new Rental();
+        String sql = "SELECT rental_id, customer_id, motorhome_id, pickup_date, dropoff_date\n" +
+                "FROM rentals\n" +
+                "WHERE rental_id = ?\n" +
+                "ORDER BY rental_id";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                tempRental.setRentalId(rs.getInt("rental_id"));
+                tempRental.setCustomerId(rs.getInt("customer_id"));
+                tempRental.setMotorhomeId(rs.getInt("motorhome_id"));
+                tempRental.setPickupDate(rs.getDate("pickup_date"));
+                tempRental.setDropoffDate(rs.getDate("dropoff_date"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return tempRental;
     }
 
     @Override
     public List<Rental> readAll() {
-        List<Rental> rentalList = new ArrayList<Rental>();
+        List<Rental> rentalList = new ArrayList<>();
+        String sql = "SELECT rental_id, customer_id, motorhome_id, pickup_date, dropoff_date\n" +
+                "FROM rentals\n" +
+                "ORDER BY rental_id";
         try {
-            String sql = "";
             PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                Rental tempRental = new Rental();
+                tempRental.setRentalId(rs.getInt("rental_id"));
+                tempRental.setCustomerId(rs.getInt("customer_id"));
+                tempRental.setMotorhomeId(rs.getInt("motorhome_id"));
+                tempRental.setPickupDate(rs.getDate("pickup_date"));
+                tempRental.setDropoffDate(rs.getDate("dropoff_date"));
+                rentalList.add(tempRental);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return rentalList;
+    }
 
+    public List<Rental> readAll(String order) {
+        List<Rental> rentalList = new ArrayList<>();
+        String sql = "SELECT rental_id, customer_id, motorhome_id, pickup_date, dropoff_date\n" +
+                "FROM rentals\n" +
+                "ORDER BY ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, order);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                Rental tempRental = new Rental();
+                tempRental.setRentalId(rs.getInt("rental_id"));
+                tempRental.setCustomerId(rs.getInt("customer_id"));
+                tempRental.setMotorhomeId(rs.getInt("motorhome_id"));
+                tempRental.setPickupDate(rs.getDate("pickup_date"));
+                tempRental.setDropoffDate(rs.getDate("dropoff_date"));
+                rentalList.add(tempRental);
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -41,90 +113,55 @@ public class RentalRepository implements IRentalRepository {
     }
 
     @Override
-    public List<Customer> readAllCustomers() {
-        List<Customer> customerList = new ArrayList<Customer>();
+    public boolean update(Rental rental) {
+        boolean result = false;
+        String sql = "UPDATE rentals\n" +
+                "SET customer_id = ?, motorhome_id = ?, pickup_date = ?, dropoff_date = ?\n" +
+                "WHERE rental_id = ?";
         try {
-            String sql = "SELECT\n" +
-                    "    customer_id,\n" +
-                    "    first_name,\n" +
-                    "    last_name,\n" +
-                    "    address,\n" +
-                    "    cpr,\n" +
-                    "    phone_nr,\n" +
-                    "    drivers_license\n" +
-                    "FROM\n" +
-                    "    customers\n" +
-                    "        INNER JOIN\n" +
-                    "    rentals USING (customer_id)\n" +
-                    "    GROUP BY customer_id";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                Customer tempCustomer = new Customer(
-                        rs.getInt("customer_id"),
-                        rs.getString("first_name"),
-                        rs.getString("last_name"),
-                        rs.getDate("birth_date"),
-                        rs.getString("phone_nr"),
-                        rs.getString("drivers_license"),
-                        rs.getString("country"),
-                        rs.getString("zip_code"),
-                        rs.getString("city"),
-                        rs.getString("street")
-                );
-                customerList.add(tempCustomer);
+            ps.setInt(1, rental.getCustomerId());
+            ps.setInt(2, rental.getMotorhomeId());
+            ps.setDate(3, rental.getPickupDate());
+            ps.setDate(4, rental.getDropoffDate());
+            ps.setInt(5, rental.getRentalId());
+            int row = ps.executeUpdate();
+            if (row > 0){
+                System.out.println("update worked");
+                result = true;
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return customerList;
-    }
-
-    @Override
-    public boolean update(Rental rental) {
-        return false;
+        return result;
     }
 
     @Override
     public boolean delete(int id) {
-        return false;
-    }
-
-    @Override
-    public List<Rental> readMotorhomes(int id) {
-        List<Rental> motorhomeList = new ArrayList<Rental>();
+        boolean result = false;
+        String sql = "DELETE FROM rentals\n" +
+                "WHERE rental_id = ?";
         try {
-            String sql = "SELECT \n" +
-                    "    motorhome_id,\n" +
-                    "    reg_nr,\n" +
-                    "    brand,\n" +
-                    "    model,\n" +
-                    "    pickup_date,\n" +
-                    "    dropoff_date\n" +
-                    "FROM\n" +
-                    "    motorhomes\n" +
-                    "        INNER JOIN\n" +
-                    "    rentals USING (motorhome_id)\n" +
-                    "WHERE\n" +
-                    "    customer_id = ?\n" +
-                    "ORDER BY rental_id";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()){
-                Rental tempMotor = new Rental(
-                        rs.getInt("motorhome_id"),
-                        rs.getString("reg_nr"),
-                        rs.getString("brand"),
-                        rs.getString("model"),
-                        rs.getDate("pickup_date"),
-                        rs.getDate("dropoff_date")
-                );
-                motorhomeList.add(tempMotor);
+            int row = ps.executeUpdate();
+            if (row > 0){
+                System.out.println("delete worked");
+                result = true;
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return motorhomeList;
+        return result;
+    }
+
+    @Override
+    public List<Motorhome> readAllMotorhomes() {
+        return null;
+    }
+
+    @Override
+    public List<Customer> readAllCustomers() {
+        return null;
     }
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>rental</title>
+    <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
+</head>
+<body>
+<div class="top">
+    <nav>
+        <div>
+            <a href="/" id="logo">NMH | NMH</a>
+        </div>
+        <ul class="navi">
+            <li>
+                <a href="/customer">Customer</a>
+            </li>
+            <li>
+                <a href="/motorhome">Motorhome</a>
+            </li>
+            <li>
+                <a href="/rental" id="tabcolor">Rental</a>
+            </li>
+            <li>
+                <a href="/fee">Fees</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<div>
+    <form action="/rental/realcreate" method="post">
+        <table>
+            <tr>
+                <th><label for="customerId">customer id</label></th>
+                <th><label for="motorhomeId">motorhome id</label></th>
+                <th><label for="pickupDate">pickup date</label></th>
+                <th><label for="dropoffDate">dropoff date</label></th>
+            </tr>
+            <tr>
+                <td><input id="customerId" name="customerId" type="text"></td>
+                <td><input id="motorhomeId" name="motorhomeId" type="test"></td>
+                <td><input id="pickupDate" name="pickupDate" type="date"></td>
+                <td><input id="dropoffDate" name="dropoffDate" type="date"></td>
+            </tr>
+        </table>
+        <button type="submit">create</button>
+    </form>
+</div>
+</body>
+</html>

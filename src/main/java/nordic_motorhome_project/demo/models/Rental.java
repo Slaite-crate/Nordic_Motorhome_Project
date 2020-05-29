@@ -4,19 +4,12 @@ import java.sql.Date;
 
 public class Rental {
     private int rentalId;
-    private String regNr;
-    private String brand;
-    private String model;
+    private int customerId;
+    private int motorhomeId;
     private Date pickupDate;
     private Date dropoffDate;
 
-    public Rental(int rentalId, String regNr, String brand, String model, Date pickupDate, Date dropoffDate) {
-        this.rentalId = rentalId;
-        this.regNr = regNr;
-        this.brand = brand;
-        this.model = model;
-        this.pickupDate = pickupDate;
-        this.dropoffDate = dropoffDate;
+    public Rental() {
     }
 
     public int getRentalId() {
@@ -27,28 +20,20 @@ public class Rental {
         this.rentalId = rentalId;
     }
 
-    public String getRegNr() {
-        return regNr;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setRegNr(String regNr) {
-        this.regNr = regNr;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
-    public String getBrand() {
-        return brand;
+    public int getMotorhomeId() {
+        return motorhomeId;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
+    public void setMotorhomeId(int motorhomeId) {
+        this.motorhomeId = motorhomeId;
     }
 
     public Date getPickupDate() {

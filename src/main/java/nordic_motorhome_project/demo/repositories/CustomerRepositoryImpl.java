@@ -1,6 +1,6 @@
 package nordic_motorhome_project.demo.repositories;
 
-import nordic_motorhome_project.demo.interfaceRepositories.ICustomerRepository;
+import nordic_motorhome_project.demo.interfaceRepositories.ICrud;
 import nordic_motorhome_project.demo.models.Customer;
 import nordic_motorhome_project.demo.utilities.DatabaseConnectionManager;
 
@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerRepositoryImpl implements ICustomerRepository {
+public class CustomerRepositoryImpl implements ICrud<Customer> {
     private Connection conn;
 
     public CustomerRepositoryImpl(){
@@ -22,7 +22,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
     public boolean create(Customer customer) {
         boolean result = false;
         try {
-            String sql = "insert into customers (first_name, last_name, birth_date, phone_nr, drivers_license) values (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO customers (first_name, last_name, birth_date, phone_nr, drivers_license) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, customer.getFirstName());
             ps.setString(2, customer.getLastName());
@@ -31,7 +31,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
             ps.setString(5, customer.getDriversLicense());
             int rowsInserted = ps.executeUpdate();
 
-            String sql2 = "insert into addresses (customer_id, country, zip_code, city, street) values ((select customer_id from customers where drivers_license = ?), ?, ?, ?, ?)";
+            String sql2 = "INSERT INTO addresses (customer_id, country, zip_code, city, street) VALUES ((SELECT customer_id FROM customers WHERE drivers_license = ?), ?, ?, ?, ?)";
             PreparedStatement ps2 = conn.prepareStatement(sql2);
             ps2.setString(1, customer.getDriversLicense());
             ps2.setString(2, customer.getCountry());
@@ -55,8 +55,8 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
         Customer tempCustomer = null;
         try {
             String sql = "SELECT customer_id, first_name, last_name, birth_date, phone_nr, drivers_license, country, zip_code, city, street\n" +
-                    "from customers inner join addresses using(customer_id)\n" +
-                    "where customer_id = ?";
+                    "FROM customers INNER JOIN addresses USING (customer_id)\n" +
+                    "WHERE customer_id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1,id);
             ResultSet rs = ps.executeQuery();
@@ -85,7 +85,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
         List<Customer> allCustomers = new ArrayList<Customer>();
         try {
             String sql = "SELECT customer_id, first_name, last_name, birth_date, phone_nr, drivers_license, country, zip_code, city, street\n" +
-                    "from customers inner join addresses using(customer_id)";
+                    "FROM customers INNER JOIN addresses USING (customer_id)";
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){

@@ -1,6 +1,6 @@
 package nordic_motorhome_project.demo.repositories;
 
-import nordic_motorhome_project.demo.interfaceRepositories.IBrandRepository;
+import nordic_motorhome_project.demo.interfaceRepositories.IMotorhomeRepository;
 import nordic_motorhome_project.demo.models.Motorhome;
 import nordic_motorhome_project.demo.utilities.DatabaseConnectionManager;
 
@@ -11,22 +11,22 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BrandRepository implements IBrandRepository {
+public class BrandRepository implements IMotorhomeRepository {
     private Connection conn;
 
-    public BrandRepository(){
+    public BrandRepository() {
         conn = DatabaseConnectionManager.getDatabaseConnection();
     }
 
     @Override
-    public boolean createBrand(Motorhome motorhome) {
+    public boolean create(Motorhome motorhome) {
         boolean result = false;
         try {
             String sql = "INSERT INTO brands (brand_name) VALUES (?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1,motorhome.getBrandName());
+            ps.setString(1, motorhome.getBrandName());
             int row = ps.executeUpdate();
-            if (row > 0){
+            if (row > 0) {
                 System.out.println("created new brand");
                 result = true;
             }
@@ -37,14 +37,14 @@ public class BrandRepository implements IBrandRepository {
     }
 
     @Override
-    public Motorhome readBrand(int id) {
+    public Motorhome read(int id) {
         Motorhome brand = new Motorhome();
         try {
             String sql = "SELECT * FROM brands WHERE brand_id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 brand.setBrandId(rs.getInt("brand_id"));
                 brand.setBrandName(rs.getString("brand_name"));
             }
@@ -55,13 +55,13 @@ public class BrandRepository implements IBrandRepository {
     }
 
     @Override
-    public List<Motorhome> readAllBrands() {
+    public List<Motorhome> readAll() {
         List<Motorhome> allBrands = new ArrayList<>();
         try {
             String sql = "SELECT * FROM brands ORDER BY brand_id";
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Motorhome tempBrand = new Motorhome();
                 tempBrand.setBrandId(rs.getInt("brand_id"));
                 tempBrand.setBrandName(rs.getString("brand_name"));
@@ -74,7 +74,7 @@ public class BrandRepository implements IBrandRepository {
     }
 
     @Override
-    public boolean updateBrand(Motorhome motorhome) {
+    public boolean update(Motorhome motorhome) {
         boolean result = false;
         try {
             String sql = "UPDATE brands SET brand_name = ? WHERE brand_id = ?";
@@ -82,7 +82,7 @@ public class BrandRepository implements IBrandRepository {
             ps.setString(1, motorhome.getBrandName());
             ps.setInt(2, motorhome.getBrandId());
             int row = ps.executeUpdate();
-            if (row > 0){
+            if (row > 0) {
                 System.out.println("update worked");
                 result = true;
             }
@@ -94,14 +94,14 @@ public class BrandRepository implements IBrandRepository {
     }
 
     @Override
-    public boolean deleteBrand(int id) {
+    public boolean delete(int id) {
         boolean result = false;
         try {
             String sql = "DELETE FROM brands WHERE brand_id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, id);
             int row = ps.executeUpdate();
-            if (row > 0){
+            if (row > 0) {
                 System.out.println("update worked");
                 result = true;
             }
@@ -119,7 +119,7 @@ public class BrandRepository implements IBrandRepository {
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Motorhome tempMotor = new Motorhome();
                 tempMotor.setBrandId(rs.getInt("brand_id"));
                 tempMotor.setBrandName(rs.getString("brand_name"));
@@ -129,5 +129,15 @@ public class BrandRepository implements IBrandRepository {
             throwables.printStackTrace();
         }
         return brandList;
+    }
+
+    @Override
+    public List<Motorhome> readModelsFromBrand(Motorhome brand) {
+        return null;
+    }
+
+    @Override
+    public List<Motorhome> readModelsFromBrand(int id) {
+        return null;
     }
 }
