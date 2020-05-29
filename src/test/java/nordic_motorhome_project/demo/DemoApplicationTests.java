@@ -332,7 +332,7 @@ class DemoApplicationTests {
     @Test
     void isIntegerNull(){
         //arrange
-        boolean expected = true;
+        boolean expected = false;
         //act
         boolean actual = validator.isInteger("");
         //assert
