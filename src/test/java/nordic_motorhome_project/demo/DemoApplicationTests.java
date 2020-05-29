@@ -96,8 +96,68 @@ class DemoApplicationTests {
     //Test numberplate Frederic
 
     //Test phonenumber Natali
+    @Test
+    void isPhoneNumberFour(){
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isPhoneNumber("4");
+        //assert
+        assertEquals(expected,actual);
+    }
+    @Test
+    void isPhoneNumberSpecial(){
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isPhoneNumber("!?<");
+        //assert
+        assertEquals(expected,actual);
+    }
+    @Test
+    void isPhoneNumberEightNumbers(){
+        //arrange
+        boolean expected = true; //men skal den ikke være true?
+        //act
+        boolean actual = validator.isPhoneNumber("01234567");
+        //assert
+        assertEquals(expected,actual);
+    }
 
-    //Test DriversLicence Pelle
+    @Test
+    void isPhoneNumberMixed(){
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isPhoneNumber("01+!");
+        //assert
+        assertEquals(expected,actual);
+    }
+
+    @Test
+    void isPhoneNumberNull(){
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isPhoneNumber("");
+        //assert
+        assertEquals(expected,actual);
+        }
+
+    @Test
+    void isPhoneNumberDouble() {
+        //arrange
+        boolean expected = true;
+        //act
+        boolean actual = validator.isPhoneNumber("11223344");
+        //assert
+        assertEquals(expected,actual);
+    }
+
+
+
+
+        //Test DriversLicence Pelle
 
     //Test Integer Cecilie
 
