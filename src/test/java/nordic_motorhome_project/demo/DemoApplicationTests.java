@@ -290,4 +290,31 @@ class DemoApplicationTests {
         //assert
         assertEquals(expected, actual);
     }
+    @Test
+    void isPriceComma() {
+        //arrange
+        boolean expected = true;
+        //act
+        boolean actual = validator.isPrice("7,5");
+        //assert
+        assertEquals(expected, actual);
+    }
+    @Test
+    void isPriceDot() {
+        //arrange
+        boolean expected = true;
+        //act
+        boolean actual = validator.isPrice("7.5");
+        //assert
+        assertEquals(expected, actual);
+    }
+    @Test
+    void isPriceCommaDot() {
+        //arrange
+        boolean expected = true;
+        //act
+        boolean actual = validator.isPrice(",.");
+        //assert
+        assertEquals(expected, actual);
+    }
 }
