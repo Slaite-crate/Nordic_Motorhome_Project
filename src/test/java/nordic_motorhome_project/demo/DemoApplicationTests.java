@@ -98,7 +98,60 @@ class DemoApplicationTests {
     //Test phonenumber Natali
 
     //Test DriversLicence Pelle
-
+    @Test
+    void isDriversLicenceRightLengthWrongChar() {
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isDriversLicence("aaaaaaaa");
+        //assert
+        assertEquals(expected, actual);
+    }
+    @Test
+    void isDriversLicenceRightLength() {
+        //arrange
+        boolean expected = true;
+        //act
+        boolean actual = validator.isDriversLicence("12345678");
+        //assert
+        assertEquals(expected, actual);
+    }
+    @Test
+    void isDriversLicenceWrongLength() {
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isDriversLicence("1234567");
+        //assert
+        assertEquals(expected, actual);
+    }
+    @Test
+    void isDriversLicenceRightLengthWeird() {
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isDriversLicence("1234567?");
+        //assert
+        assertEquals(expected, actual);
+    }
+    @Test
+    void isDriversLicenceMixed() {
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isDriversLicence("1234abcd");
+        //assert
+        assertEquals(expected, actual);
+    }
+    @Test
+    void isDriversLicenceTooLong() {
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isDriversLicence("1234567890");
+        //assert
+        assertEquals(expected, actual);
+    }
     //Test Integer Cecilie
 
     //Test Price Frederic
