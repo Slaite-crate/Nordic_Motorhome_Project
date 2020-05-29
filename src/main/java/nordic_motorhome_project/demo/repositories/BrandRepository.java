@@ -112,6 +112,11 @@ public class BrandRepository implements IMotorhomeRepository {
     }
 
     @Override
+    public boolean checkValue(Motorhome motorhome) {
+        return false;
+    }
+
+    @Override
     public List<Motorhome> readAllBrandsWithModels() {
         List<Motorhome> brandList = new ArrayList<>();
         String sql = "SELECT DISTINCT brand_id, brand_name\n" +

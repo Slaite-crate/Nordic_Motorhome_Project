@@ -134,6 +134,11 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
     }
 
     @Override
+    public boolean checkValue(Motorhome motorhome) {
+        return false;
+    }
+
+    @Override
     public List<Motorhome> readAllBrandsWithModels() {
         return null;
     }

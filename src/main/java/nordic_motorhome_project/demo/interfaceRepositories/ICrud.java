@@ -8,4 +8,5 @@ public interface ICrud<T> {
     List<T> readAll();
     boolean update(T t);
     boolean delete(int id);
+    boolean checkValue(T t);
 }

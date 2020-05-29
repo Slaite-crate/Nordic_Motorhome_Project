@@ -156,6 +156,11 @@ public class RentalRepository implements IRentalRepository {
     }
 
     @Override
+    public boolean checkValue(Rental rental) {
+        return false;
+    }
+
+    @Override
     public List<Motorhome> readAllMotorhomes() {
         return null;
     }

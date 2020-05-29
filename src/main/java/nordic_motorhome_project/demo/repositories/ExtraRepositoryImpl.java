@@ -112,4 +112,9 @@ public class ExtraRepositoryImpl implements ICrud<Extra> {
         }
         return result;
     }
+
+    @Override
+    public boolean checkValue(Extra extra) {
+        return false;
+    }
 }

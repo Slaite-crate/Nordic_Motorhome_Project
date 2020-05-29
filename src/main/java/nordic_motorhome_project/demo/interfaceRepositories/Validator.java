@@ -1,5 +1,7 @@
 package nordic_motorhome_project.demo.interfaceRepositories;
 
+import nordic_motorhome_project.demo.models.Customer;
+
 public class Validator {
 
     public boolean isName(String s){

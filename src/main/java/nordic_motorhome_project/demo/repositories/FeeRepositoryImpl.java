@@ -114,5 +114,10 @@ public class FeeRepositoryImpl implements ICrud<Fee> {
         return result;
     }
 
+    @Override
+    public boolean checkValue(Fee fee) {
+        return false;
+    }
+
 
 }

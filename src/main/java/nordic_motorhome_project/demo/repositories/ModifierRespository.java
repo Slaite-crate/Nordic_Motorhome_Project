@@ -129,4 +129,9 @@ public class ModifierRespository implements ICrud<Modifier> {
 
         return result;
     }
+
+    @Override
+    public boolean checkValue(Modifier modifier) {
+        return false;
+    }
 }

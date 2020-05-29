@@ -1,6 +1,7 @@
 package nordic_motorhome_project.demo.repositories;
 
 import nordic_motorhome_project.demo.interfaceRepositories.ICrud;
+import nordic_motorhome_project.demo.interfaceRepositories.Validator;
 import nordic_motorhome_project.demo.models.Customer;
 import nordic_motorhome_project.demo.utilities.DatabaseConnectionManager;
 
@@ -13,6 +14,7 @@ import java.util.List;
 
 public class CustomerRepositoryImpl implements ICrud<Customer> {
     private Connection conn;
+    private Validator validator;
 
     public CustomerRepositoryImpl(){
         this.conn = DatabaseConnectionManager.getDatabaseConnection();
@@ -21,31 +23,36 @@ public class CustomerRepositoryImpl implements ICrud<Customer> {
     @Override
     public boolean create(Customer customer) {
         boolean result = false;
-        try {
-            String sql = "INSERT INTO customers (first_name, last_name, birth_date, phone_nr, drivers_license) VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, customer.getFirstName());
-            ps.setString(2, customer.getLastName());
-            ps.setDate(3, customer.getBirthDate());
-            ps.setString(4, customer.getPhoneNumber());
-            ps.setString(5, customer.getDriversLicense());
-            int rowsInserted = ps.executeUpdate();
+        if(checkValue(customer)){
+            try {
+                String sql = "INSERT INTO customers (first_name, last_name, birth_date, phone_nr, drivers_license) VALUES (?, ?, ?, ?, ?)";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setString(1, customer.getFirstName());
+                ps.setString(2, customer.getLastName());
+                ps.setDate(3, customer.getBirthDate());
+                ps.setString(4, customer.getPhoneNumber());
+                ps.setString(5, customer.getDriversLicense());
+                int rowsInserted = ps.executeUpdate();
 
-            String sql2 = "INSERT INTO addresses (customer_id, country, zip_code, city, street) VALUES ((SELECT customer_id FROM customers WHERE drivers_license = ?), ?, ?, ?, ?)";
-            PreparedStatement ps2 = conn.prepareStatement(sql2);
-            ps2.setString(1, customer.getDriversLicense());
-            ps2.setString(2, customer.getCountry());
-            ps2.setString(3, customer.getZipCode());
-            ps2.setString(4, customer.getCity());
-            ps2.setString(5, customer.getStreet());
+                String sql2 = "INSERT INTO addresses (customer_id, country, zip_code, city, street) VALUES ((SELECT customer_id FROM customers WHERE drivers_license = ?), ?, ?, ?, ?)";
+                PreparedStatement ps2 = conn.prepareStatement(sql2);
+                ps2.setString(1, customer.getDriversLicense());
+                ps2.setString(2, customer.getCountry());
+                ps2.setString(3, customer.getZipCode());
+                ps2.setString(4, customer.getCity());
+                ps2.setString(5, customer.getStreet());
 
-            int rowsInserted2 = ps2.executeUpdate();
-            if (rowsInserted > 0 && rowsInserted2 > 0) {
-                System.out.println("A customer was created successfully!");
-                result = true;
+                int rowsInserted2 = ps2.executeUpdate();
+                if (rowsInserted > 0 && rowsInserted2 > 0) {
+                    System.out.println("A customer was created successfully!");
+                    result = true;
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        }
+        else {
+            result = false;
         }
         return result;
     }
@@ -160,6 +167,25 @@ public class CustomerRepositoryImpl implements ICrud<Customer> {
         }
         catch (SQLException e){
             e.printStackTrace();
+        }
+        return result;
+    }
+
+    @Override
+    public boolean checkValue(Customer customer) {
+        boolean result = false;
+        if(validator.isName(customer.getFirstName())
+                && validator.isName(customer.getLastName())
+                && validator.isPhoneNumber(customer.getPhoneNumber())
+                && validator.isDriversLicence(customer.getDriversLicense())
+                && validator.isName(customer.getCity())
+                && validator.isName(customer.getCountry())
+                && validator.isName(customer.getStreet())
+                && validator.isInteger(customer.getZipCode())) {
+            result = true;
+        }
+        else{
+            result = false;
         }
         return result;
     }
