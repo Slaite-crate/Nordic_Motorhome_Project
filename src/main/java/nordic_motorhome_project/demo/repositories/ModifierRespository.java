@@ -26,11 +26,7 @@ public class ModifierRespository implements IModifierRepository {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1,modifier.getModifierName());
             ps.setDouble(1,modifier.getModifier());
-            int rowsInserted = ps.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("A modifier was created successfully!");
                 result = true;
-            }
         }
         catch(SQLException e){
             e.printStackTrace();
@@ -92,12 +88,7 @@ public class ModifierRespository implements IModifierRepository {
             ps.setString(1,modifier.getModifierName());
             ps.setDouble(2,modifier.getModifier());
             ps.setInt(3,modifier.getModifierId());
-
-            int rowsInserted = ps.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("A modifier was updated successfully!");
                 result = true;
-            }
         }
 
         catch(SQLException e){
@@ -114,11 +105,7 @@ public class ModifierRespository implements IModifierRepository {
             String sql = "DELETE FROM modifiers WHERE modifier_id = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1,id);
-            int rowsInserted = ps.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("A modifier was deleted successfully!");
                 result = true;
-            }
         }catch(SQLException e){
             e.printStackTrace();
         }
