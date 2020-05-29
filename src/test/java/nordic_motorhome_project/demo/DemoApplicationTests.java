@@ -93,5 +93,14 @@ class DemoApplicationTests {
         //assert
         assertEquals(expected,actual);
     }
+    //Test numberplate Frederic
+
+    //Test phonenumber Natali
+
+    //Test DriversLicence Pelle
+
+    //Test Integer Cecilie
+
+    //Test Price Frederic
 
 }
