@@ -13,86 +13,95 @@ class DemoApplicationTests {
 
     //name tests
     @Test
-    void isNameThree(){
+    void isNameThree() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isName("3");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isNameSpecial(){
+    void isNameSpecial() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isName("!?<");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isNameABC(){
+    void isNameABC() {
         //arrange
         boolean expected = true;
         //act
         boolean actual = validator.isName("ABC");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isNamehabc(){
+    void isNamehabc() {
         //arrange
         boolean expected = true;
         //act
         boolean actual = validator.isName("abc");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isNameDanishSmall(){
+    void isNameDanishSmall() {
         //arrange
         boolean expected = true;
         //act
         boolean actual = validator.isName("øæå");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isNameDanishBig(){
+    void isNameDanishBig() {
         //arrange
         boolean expected = true;
         //act
         boolean actual = validator.isName("ÆØÅ");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isNameMixed(){
+    void isNameMixed() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isName("Æa+!");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isNameNull(){
+    void isNameNull() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isName("");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isNameDouble(){
+    void isNameDouble() {
         //arrange
         boolean expected = true;
         //act
         boolean actual = validator.isName("aa");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     //Test numberplate Frederic
     @Test
     void isNumberplateThree() {
@@ -103,78 +112,87 @@ class DemoApplicationTests {
         //assert
         assertEquals(expected, actual);
     }
-        @Test
-        void isNumberplateSpecial(){
-            //arrange
-            boolean expected = false;
-            //act
-            boolean actual = validator.isNumberPlate("!?<");
-            //assert
-            assertEquals(expected,actual);
-        }
-        @Test
-        void isNumberplateABC(){
-            //arrange
-            boolean expected = true;
-            //act
-            boolean actual = validator.isNumberPlate("ABC");
-            //assert
-            assertEquals(expected,actual);
-        }
-        @Test
-        void isNumberplateabc(){
-            //arrange
-            boolean expected = false;
-            //act
-            boolean actual = validator.isNumberPlate("abc");
-            //assert
-            assertEquals(expected,actual);
-        }
-        @Test
-        void isNumberplateDanishSmall(){
-            //arrange
-            boolean expected = false;
-            //act
-            boolean actual = validator.isNumberPlate("øæå");
-            //assert
-            assertEquals(expected,actual);
-        }
-        @Test
-        void isNumberplateDanishBig(){
-            //arrange
-            boolean expected = false;
-            //act
-            boolean actual = validator.isNumberPlate("ÆØÅ");
-            //assert
-            assertEquals(expected,actual);
-        }
-        @Test
-        void isNumberplateMixed(){
-            //arrange
-            boolean expected = false;
-            //act
-            boolean actual = validator.isNumberPlate("Æa+!");
-            //assert
-            assertEquals(expected,actual);
-        }
-        @Test
-        void isNumberplateNull(){
-            //arrange
-            boolean expected = false;
-            //act
-            boolean actual = validator.isNumberPlate("");
-            //assert
-            assertEquals(expected,actual);
-        }
-        @Test
-        void isNumberplateDoubleBig() {
-            //arrange
-            boolean expected = true;
-            //act
-            boolean actual = validator.isNumberPlate("AA");
-            //assert
-            assertEquals(expected, actual);
-        }
+
+    @Test
+    void isNumberplateSpecial() {
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isNumberPlate("!?<");
+        //assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void isNumberplateABC() {
+        //arrange
+        boolean expected = true;
+        //act
+        boolean actual = validator.isNumberPlate("ABC");
+        //assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void isNumberplateabc() {
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isNumberPlate("abc");
+        //assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void isNumberplateDanishSmall() {
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isNumberPlate("øæå");
+        //assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void isNumberplateDanishBig() {
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isNumberPlate("ÆØÅ");
+        //assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void isNumberplateMixed() {
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isNumberPlate("Æa+!");
+        //assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void isNumberplateNull() {
+        //arrange
+        boolean expected = false;
+        //act
+        boolean actual = validator.isNumberPlate("");
+        //assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void isNumberplateDoubleBig() {
+        //arrange
+        boolean expected = true;
+        //act
+        boolean actual = validator.isNumberPlate("AA");
+        //assert
+        assertEquals(expected, actual);
+    }
+
     @Test
     void isNumberplateDoubleSmall() {
         //arrange
@@ -184,54 +202,57 @@ class DemoApplicationTests {
         //assert
         assertEquals(expected, actual);
     }
+
     //Test phonenumber Natali
     @Test
-    void isPhoneNumberFour(){
+    void isPhoneNumberFour() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isPhoneNumber("4");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isPhoneNumberSpecial(){
+    void isPhoneNumberSpecial() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isPhoneNumber("!?<");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isPhoneNumberEightNumbers(){
+    void isPhoneNumberEightNumbers() {
         //arrange
         boolean expected = true; //men skal den ikke være true?
         //act
         boolean actual = validator.isPhoneNumber("01234567");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 
     @Test
-    void isPhoneNumberMixed(){
+    void isPhoneNumberMixed() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isPhoneNumber("01+!");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 
     @Test
-    void isPhoneNumberNull(){
+    void isPhoneNumberNull() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isPhoneNumber("");
         //assert
-        assertEquals(expected,actual);
-        }
+        assertEquals(expected, actual);
+    }
 
     @Test
     void isPhoneNumberDouble() {
@@ -240,10 +261,8 @@ class DemoApplicationTests {
         //act
         boolean actual = validator.isPhoneNumber("11223344");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
-
-
 
 
     //Test DriversLicence Pelle
@@ -256,6 +275,7 @@ class DemoApplicationTests {
         //assert
         assertEquals(expected, actual);
     }
+
     @Test
     void isDriversLicenceRightLength() {
         //arrange
@@ -265,6 +285,7 @@ class DemoApplicationTests {
         //assert
         assertEquals(expected, actual);
     }
+
     @Test
     void isDriversLicenceWrongLength() {
         //arrange
@@ -274,6 +295,7 @@ class DemoApplicationTests {
         //assert
         assertEquals(expected, actual);
     }
+
     @Test
     void isDriversLicenceRightLengthWeird() {
         //arrange
@@ -283,6 +305,7 @@ class DemoApplicationTests {
         //assert
         assertEquals(expected, actual);
     }
+
     @Test
     void isDriversLicenceMixed() {
         //arrange
@@ -292,6 +315,7 @@ class DemoApplicationTests {
         //assert
         assertEquals(expected, actual);
     }
+
     @Test
     void isDriversLicenceTooLong() {
         //arrange
@@ -301,52 +325,58 @@ class DemoApplicationTests {
         //assert
         assertEquals(expected, actual);
     }
+
     //Test Integer Cecilie
     @Test
-    void isIntegerOneTwoThree(){
+    void isIntegerOneTwoThree() {
         //arrange
         boolean expected = true;
         //act
         boolean actual = validator.isInteger("123");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isIntegerAbc(){
+    void isIntegerAbc() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isInteger("abc");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isIntegerSpecial(){
+    void isIntegerSpecial() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isInteger("+?!");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isIntegerNull(){
+    void isIntegerNull() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isInteger("");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isIntegerMultiple(){
+    void isIntegerMultiple() {
         //arrange
         boolean expected = true;
         //act
         boolean actual = validator.isInteger("999");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     //Test Price Frederic
     @Test
     void isPriceThree() {
@@ -357,78 +387,87 @@ class DemoApplicationTests {
         //assert
         assertEquals(expected, actual);
     }
+
     @Test
-    void isPriceSpecial(){
+    void isPriceSpecial() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isPrice("!?<");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isPriceABC(){
+    void isPriceABC() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isPrice("ABC");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isPriceabc(){
+    void isPriceabc() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isPrice("abc");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isPriceDanishSmall(){
+    void isPriceDanishSmall() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isPrice("øæå");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isPriceDanishBig(){
+    void isPriceDanishBig() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isPrice("ÆØÅ");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isPriceMixed(){
+    void isPriceMixed() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isPrice("3Æa+!");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isPriceZero(){
+    void isPriceZero() {
         //arrange
         boolean expected = true;
         //act
         boolean actual = validator.isPrice("0");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
-    void isPriceNull(){
+    void isPriceNull() {
         //arrange
         boolean expected = false;
         //act
         boolean actual = validator.isPrice("");
         //assert
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
+
     @Test
     void isPriceDoubleBig() {
         //arrange
@@ -438,6 +477,7 @@ class DemoApplicationTests {
         //assert
         assertEquals(expected, actual);
     }
+
     @Test
     void isPriceDoubleSmall() {
         //arrange
@@ -447,6 +487,7 @@ class DemoApplicationTests {
         //assert
         assertEquals(expected, actual);
     }
+
     @Test
     void isPriceComma() {
         //arrange
@@ -456,6 +497,7 @@ class DemoApplicationTests {
         //assert
         assertEquals(expected, actual);
     }
+
     @Test
     void isPriceDot() {
         //arrange
@@ -465,6 +507,7 @@ class DemoApplicationTests {
         //assert
         assertEquals(expected, actual);
     }
+
     @Test
     void isPriceCommaDot() {
         //arrange

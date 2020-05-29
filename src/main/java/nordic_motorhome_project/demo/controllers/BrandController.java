@@ -31,8 +31,12 @@ public class BrandController {
 
     @PostMapping("/brand/realcreate")
     public String realCreateBrand(@ModelAttribute Motorhome motorhomeFromPost) {
-        MotorhomeRepository.create(motorhomeFromPost);
-        return "redirect:/brand/brand";
+        if (MotorhomeRepository.create(motorhomeFromPost)) {
+            return "redirect:/brand/brand";
+        }
+        else {
+            return "/brand/create";
+        }
     }
 
     @GetMapping("/brand/update")
