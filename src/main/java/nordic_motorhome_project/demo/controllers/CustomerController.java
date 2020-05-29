@@ -30,9 +30,14 @@ public class CustomerController {
     }
 
     @PostMapping("/customer/realcreate")
-    public String customerRealCreate(@ModelAttribute Customer customer) {
-        customerRepository.create(customer);
-        return "redirect:/customer";
+    public String customerRealCreate(@ModelAttribute Customer customer,Model model) {
+        if(customerRepository.create(customer)){
+            return "redirect:/customer";
+        }
+        else {
+            model.addAttribute("customer",customer);
+            return "/error/wrong_input";
+        }
     }
 
     @GetMapping("/customer/details")
