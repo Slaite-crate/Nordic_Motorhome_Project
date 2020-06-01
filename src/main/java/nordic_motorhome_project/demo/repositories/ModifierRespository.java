@@ -25,7 +25,7 @@ public class ModifierRespository implements ICrud<Modifier> {
             String sql = "INSERT INTO modifiers (modifier_name,modifier) VALUES(?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, modifier.getModifierName());
-            ps.setDouble(1, modifier.getModifier());
+            ps.setDouble(2, modifier.getModifier());
             int rowsInserted = ps.executeUpdate();
             if (rowsInserted > 0) {
                 System.out.println("A modifier was created successfully!");
@@ -65,7 +65,7 @@ public class ModifierRespository implements ICrud<Modifier> {
 
     @Override
     public List<Modifier> readAll() {
-        List<Modifier> allModifiers = new ArrayList<>();
+        List<Modifier> allModifiers = new ArrayList<Modifier>();
         try {
             String sql = "SELECT * FROM modifiers";
             PreparedStatement ps = conn.prepareStatement(sql);

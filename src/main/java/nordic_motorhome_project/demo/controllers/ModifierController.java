@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ModifierController {
-    private ICrud modifierRepository;
+    private ICrud<Modifier> modifierRepository;
 
     public ModifierController(){
         modifierRepository = new ModifierRespository();
@@ -33,12 +33,6 @@ public class ModifierController {
     public String modifierRealCreate(@ModelAttribute Modifier modifier){
         modifierRepository.create(modifier);
         return "redirect:/modifier";
-    }
-
-    @GetMapping("/modifier/details")
-    public String modifierDetails(@RequestParam int id, Model model){
-        model.addAttribute("modifier",modifierRepository.read(id));
-        return "/modifier/read";
     }
 
     @GetMapping("/modifier/delete")

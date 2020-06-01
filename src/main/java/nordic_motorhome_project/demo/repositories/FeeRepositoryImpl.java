@@ -1,6 +1,5 @@
 package nordic_motorhome_project.demo.repositories;
 
-
 import nordic_motorhome_project.demo.interfaceRepositories.ICrud;
 import nordic_motorhome_project.demo.models.Fee;
 import nordic_motorhome_project.demo.utilities.DatabaseConnectionManager;
