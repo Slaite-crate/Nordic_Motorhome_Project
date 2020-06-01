@@ -63,7 +63,7 @@ nav a, nav li{
     text-decoration: none;
 }
 
-nav a:hover, #tabcolor {
+nav a:hover,.tabcolor {
     color: cadetblue;
     text-shadow: 1px 1px 0 black,2px 2px 0 peachpuff;
     height: 100%;

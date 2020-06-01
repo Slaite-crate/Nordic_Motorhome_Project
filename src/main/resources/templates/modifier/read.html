@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
 </head>
 <body>
-<div class="top">
+    <div class="top">
     <nav>
         <div>
             <a href="/" id="logo">NMH | NMH</a>
@@ -34,12 +34,12 @@
                 <a href="/model/model">models</a>
             </li>
             <li>
-                <a href="/modifier/modifier">modifiers</a>
+                <a href="/modifier" class="tabcolor">modifiers</a>
             </li>
         </ul>
     </nav>
 </div>
-<div class="content">
+    <div class="content">
     <h1>Read Modifier</h1>
     <br>
     <table>
@@ -59,7 +59,6 @@
         <a th:href="@{/modifier/delete(id=${modifier.modifierId})}"><button>Delete</button></a>
     </div>
 </div>
-
 </body>
 </body>
 </html>
