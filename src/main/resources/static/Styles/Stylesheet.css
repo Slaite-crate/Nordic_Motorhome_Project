@@ -12,10 +12,6 @@ body {
     text-transform: uppercase;
 }
 
-img {
-    height: 50px;
-    margin: -20px 0;
-}
 
 #logo{
     text-align: center;
@@ -57,16 +53,20 @@ nav {
     text-decoration: none;
 }
 
-nav a, nav li{
+nav a, nav li,th a{
     color: black;
     list-style: none;
     text-decoration: none;
 }
 
-nav a:hover,.tabcolor {
+nav a:hover,.tabcolor{
     color: cadetblue;
     text-shadow: 1px 1px 0 black,2px 2px 0 peachpuff;
     height: 100%;
+}
+
+th a:hover{
+    color: cadetblue;
 }
 
 .content {
@@ -90,7 +90,7 @@ button:active {
     transform: translate(1px, 2px);
 }
 
-button:hover {
+button:hover{
     color: #f1f8ff;
 }
 

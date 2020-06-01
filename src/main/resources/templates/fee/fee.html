@@ -40,23 +40,24 @@
     </nav>
 </div>
     <div class="content">
-    <a href="/fee/create"><button>Create</button></a>
-    <table>
-        <tr>
-            <th>id</th>
-            <th>fee</th>
-            <th>price</th>
-            <th></th>
-        </tr>
-        <tr th:each="fee : ${fees}">
-            <td th:text="${fee.feeId}"></td>
-            <td th:text="${fee.fee}"></td>
-            <td th:text="${fee.price}"></td>
-            <td id="details">
-                <a th:href="@{/fee/details(id=${fee.feeId})}"><button>details</button></a>
-            </td>
-        </tr>
-    </table>
-</div>
+        <a href="/fee/create"><button>Create</button></a>
+        <h1>List of fees</h1>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>fee</th>
+                <th>price</th>
+                <th></th>
+            </tr>
+            <tr th:each="fee : ${fees}">
+                <td th:text="${fee.feeId}"></td>
+                <td th:text="${fee.fee}"></td>
+                <td th:text="${fee.price}"></td>
+                <td id="details">
+                    <a th:href="@{/fee/details(id=${fee.feeId})}"><button>details</button></a>
+                 </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

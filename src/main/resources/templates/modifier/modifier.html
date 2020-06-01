@@ -40,24 +40,25 @@
     </nav>
 </div>
     <div class="content">
-    <a href="/modifier/create"><button>Create</button></a>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>name</th>
-            <th>modifier</th>
-            <th></th>
-        </tr>
-        <tr th:each="modifier : ${modifiers}">
-            <td th:text="${modifier.modifierId}"></td>
-            <td th:text="${modifier.modifierName}"></td>
-            <td th:text="${modifier.modifier}"></td>
-            <td>
-                <a th:href="@{/modifier/update(id=${modifier.modifierId})}"><button>update</button></a>
-                <a th:href="@{/modifier/delete(id=${modifier.modifierId})}"><button>delete</button></a>
-            </td>
-        </tr>
-    </table>
-</div>
+        <a href="/modifier/create"><button>Create</button></a>
+        <h1>List of modifiers</h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>name</th>
+                <th>modifier</th>
+                <th></th>
+            </tr>
+            <tr th:each="modifier : ${modifiers}">
+                <td th:text="${modifier.modifierId}"></td>
+                <td th:text="${modifier.modifierName}"></td>
+                <td th:text="${modifier.modifier}"></td>
+                <td>
+                    <a th:href="@{/modifier/update(id=${modifier.modifierId})}"><button>update</button></a>
+                    <a th:href="@{/modifier/delete(id=${modifier.modifierId})}"><button>delete</button></a>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

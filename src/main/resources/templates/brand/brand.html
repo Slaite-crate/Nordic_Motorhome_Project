@@ -40,22 +40,23 @@
     </nav>
 </div>
     <div class="content">
-    <a href="/brand/create"><button>Create</button></a>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>brand</th>
-            <th></th>
-        </tr>
-        <tr th:each="motorhome : ${motorhomes}">
-            <td th:text="${motorhome.brandId}"></td>
-            <td th:text="${motorhome.brandName}"></td>
-            <td>
-                <a th:href="@{/brand/update(id=${motorhome.brandId})}"><button>update</button></a>
-                <a th:href="@{/brand/delete(id=${motorhome.brandId})}"><button>delete</button></a>
-            </td>
-        </tr>
-    </table>
-</div>
+        <a href="/brand/create"><button>Create</button></a>
+        <h1>List of brandt</h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>brand</th>
+                <th></th>
+            </tr>
+            <tr th:each="motorhome : ${motorhomes}">
+                <td th:text="${motorhome.brandId}"></td>
+                <td th:text="${motorhome.brandName}"></td>
+                <td>
+                    <a th:href="@{/brand/update(id=${motorhome.brandId})}"><button>update</button></a>
+                    <a th:href="@{/brand/delete(id=${motorhome.brandId})}"><button>delete</button></a>
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
