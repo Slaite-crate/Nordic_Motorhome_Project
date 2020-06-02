@@ -48,6 +48,17 @@ public class Rental {
         return dropoffDate;
     }
 
+    @Override
+    public String toString() {
+        return "Rental{" +
+                "rentalId=" + rentalId +
+                ", customerId=" + customerId +
+                ", motorhomeId=" + motorhomeId +
+                ", pickupDate=" + pickupDate +
+                ", dropoffDate=" + dropoffDate +
+                '}';
+    }
+
     public void setDropoffDate(Date dropoffDate) {
         this.dropoffDate = dropoffDate;
     }

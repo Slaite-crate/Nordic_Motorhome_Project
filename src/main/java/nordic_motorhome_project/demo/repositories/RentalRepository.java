@@ -90,12 +90,9 @@ public class RentalRepository implements IRentalRepository {
 
     public List<Rental> readAll(String order) {
         List<Rental> rentalList = new ArrayList<>();
-        String sql = "SELECT rental_id, customer_id, motorhome_id, pickup_date, dropoff_date\n" +
-                "FROM rentals\n" +
-                "ORDER BY ?";
+        String sql = sqlThingy(order);
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, order);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 Rental tempRental = new Rental();
@@ -168,5 +165,31 @@ public class RentalRepository implements IRentalRepository {
     @Override
     public List<Customer> readAllCustomers() {
         return null;
+    }
+
+    private String sqlThingy(String order){
+        String result = "SELECT rental_id, customer_id, motorhome_id, pickup_date, dropoff_date\n" +
+                "FROM rentals";
+        if (order.equals("pickup_date")){
+            result = "SELECT rental_id, customer_id, motorhome_id, pickup_date, dropoff_date\n" +
+                    "FROM rentals\n" +
+                    "ORDER BY pickup_date";
+        }
+        if (order.equals("dropoff_date")){
+            result = "SELECT rental_id, customer_id, motorhome_id, pickup_date, dropoff_date\n" +
+                    "FROM rentals\n" +
+                    "ORDER BY dropoff_date";
+        }
+        if (order.equals("customer_id")) {
+            result = "SELECT rental_id, customer_id, motorhome_id, pickup_date, dropoff_date\n" +
+                    "FROM rentals\n" +
+                    "ORDER BY customer_id";
+        }
+        if (order.equals("motorhome_id")) {
+            result = "SELECT rental_id, customer_id, motorhome_id, pickup_date, dropoff_date\n" +
+                    "FROM rentals\n" +
+                    "ORDER BY motorhome_id";
+        }
+        return result;
     }
 }
