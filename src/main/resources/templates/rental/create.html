@@ -43,14 +43,58 @@
     <form action="/rental/realcreate" method="post">
         <table>
             <tr>
-                <th><label for="customerId">customer id</label></th>
-                <th><label for="motorhomeId">motorhome id</label></th>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Birth Date</th>
+                <th>Phone number</th>
+                <th>Drivers Licence</th>
+                <th>Country</th>
+                <th>Zip Code</th>
+                <th>City</th>
+                <th>Street</th>
+            </tr>
+            <tr>
+                <td th:text="${customer.customerId}"></td>
+                <td th:text="${customer.firstName}"></td>
+                <td th:text="${customer.lastName}"></td>
+                <td th:text="${customer.birthDate}"></td>
+                <td th:text="${customer.phoneNumber}"></td>
+                <td th:text="${customer.driversLicense}"></td>
+                <td th:text="${customer.country}"></td>
+                <td th:text="${customer.zipCode}"></td>
+                <td th:text="${customer.city}"></td>
+                <td th:text="${customer.street}"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>register number</th>
+                <th>brand</th>
+                <th>model</th>
+                <th>seats</th>
+                <th>beds</th>
+                <th>price</th>
+            </tr>
+            <tr>
+                <td th:text="${motorhome.motorhomeId}"></td>
+                <td th:text="${motorhome.regNr}"></td>
+                <td th:text="${motorhome.brandName}"></td>
+                <td th:text="${motorhome.modelName}"></td>
+                <td th:text="${motorhome.seats}"></td>
+                <td th:text="${motorhome.beds}"></td>
+                <td th:text="${motorhome.price}"></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
                 <th><label for="pickupDate">pickup date</label></th>
                 <th><label for="dropoffDate">dropoff date</label></th>
             </tr>
             <tr>
-                <td><input id="customerId" name="customerId" type="text"></td>
-                <td><input id="motorhomeId" name="motorhomeId" type="test"></td>
+                <input id="customerId" name="customerId" type="hidden" th:value="${customer.customerId}">
+                <input id="motorhomeId" name="motorhomeId" type="hidden" th:value="${motorhome.motorhomeId}">
                 <td><input id="pickupDate" name="pickupDate" type="date"></td>
                 <td><input id="dropoffDate" name="dropoffDate" type="date"></td>
             </tr>
