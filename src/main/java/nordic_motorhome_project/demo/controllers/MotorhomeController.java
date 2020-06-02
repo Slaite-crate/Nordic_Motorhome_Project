@@ -3,6 +3,7 @@ package nordic_motorhome_project.demo.controllers;
 import nordic_motorhome_project.demo.interfaceRepositories.IMotorhomeRepository;
 import nordic_motorhome_project.demo.models.Motorhome;
 import nordic_motorhome_project.demo.repositories.*;
+import nordic_motorhome_project.demo.utilities.RentalHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -68,6 +69,12 @@ public class MotorhomeController {
     @GetMapping("/motorhome/delete")
     public String deleteMotorhome(@RequestParam int id) {
         motorhomeRepository.delete(id);
+        return "redirect:/motorhome";
+    }
+
+    @PostMapping("/motorhome/selectmotorhome")
+    public String selectMotorhome(@ModelAttribute Motorhome motorhome){
+        RentalHolder.setMotorhome(motorhome);
         return "redirect:/motorhome";
     }
 }

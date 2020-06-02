@@ -3,6 +3,7 @@ package nordic_motorhome_project.demo.controllers;
 import nordic_motorhome_project.demo.interfaceRepositories.ICrud;
 import nordic_motorhome_project.demo.models.Customer;
 import nordic_motorhome_project.demo.repositories.CustomerRepositoryImpl;
+import nordic_motorhome_project.demo.utilities.RentalHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -61,6 +62,12 @@ public class CustomerController {
     @PostMapping("/customer/realupdate")
     public String customerRealUpdate(@ModelAttribute Customer customer) {
         customerRepository.update(customer);
+        return "redirect:/customer";
+    }
+
+    @PostMapping("/customer/selectcustomer")
+    public String selectCustomer(@ModelAttribute Customer customer){
+        RentalHolder.setCustomer(customer);
         return "redirect:/customer";
     }
 }

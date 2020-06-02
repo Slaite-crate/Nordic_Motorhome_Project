@@ -6,12 +6,12 @@
     <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
 </head>
 <body>
-    <div class="top">
+<div class="top">
     <nav>
         <div>
             <a href="/" id="logo">NMH | NMH</a>
         </div>
-        <ul class = "navi">
+        <ul class="navi">
             <li>
                 <a href="/customer">Customer</a>
             </li>
@@ -39,31 +39,45 @@
         </ul>
     </nav>
 </div>
-    <div class="content">
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>register number</th>
-                <th>brand</th>
-                <th>model</th>
-                <th>seats</th>
-                <th>beds</th>
-                <th>price</th>
-            </tr>
-            <tr>
-                <td th:text="${motorhome.motorhomeId}"></td>
-                <td th:text="${motorhome.regNr}"></td>
-                <td th:text="${motorhome.brandName}"></td>
-                <td th:text="${motorhome.modelName}"></td>
-                <td th:text="${motorhome.seats}"></td>
-                <td th:text="${motorhome.beds}"></td>
-                <td th:text="${motorhome.price}"></td>
-            </tr>
-        </table>
-        <div>
-            <a th:href="@{/motorhome/update(id=${motorhome.motorhomeId})}"><button>update</button></a>
-            <a th:href="@{/motorhome/delete(id=${motorhome.motorhomeId})}"><button>Delete</button></a>
-        </div>
+<div class="content">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>register number</th>
+            <th>brand</th>
+            <th>model</th>
+            <th>seats</th>
+            <th>beds</th>
+            <th>price</th>
+        </tr>
+        <tr>
+            <td th:text="${motorhome.motorhomeId}"></td>
+            <td th:text="${motorhome.regNr}"></td>
+            <td th:text="${motorhome.brandName}"></td>
+            <td th:text="${motorhome.modelName}"></td>
+            <td th:text="${motorhome.seats}"></td>
+            <td th:text="${motorhome.beds}"></td>
+            <td th:text="${motorhome.price}"></td>
+        </tr>
+    </table>
+    <div>
+        <a th:href="@{/motorhome/update(id=${motorhome.motorhomeId})}">
+            <button>update</button>
+        </a>
+        <a th:href="@{/motorhome/delete(id=${motorhome.motorhomeId})}">
+            <button>Delete</button>
+        </a>
+        <form action="/motorhome/selectmotorhome" method="post">
+            <input type="hidden" name="motorhomeId" th:value="${motorhome.motorhomeId}">
+            <input type="hidden" name="regNr" th:value="${motorhome.regNr}">
+            <input type="hidden" name="brandName" th:value="${motorhome.brandName}">
+            <input type="hidden" name="modelName" th:value="${motorhome.modelName}">
+            <input type="hidden" name="seats" th:value="${motorhome.seats}">
+            <input type="hidden" name="beds" th:value="${motorhome.beds}">
+            <input type="hidden" name="price" th:value="${motorhome.price}">
+            <button type="submit">Select</button>
+        </form>
     </div>
+</div>
 </body>
 </html>

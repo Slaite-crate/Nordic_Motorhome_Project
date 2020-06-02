@@ -6,12 +6,12 @@
     <link rel="stylesheet" type="text/css" href="/Styles/Stylesheet.css">
 </head>
 <body>
-    <div class="top">
+<div class="top">
     <nav>
         <div>
             <a href="/" id="logo">NMH | NMH</a>
         </div>
-        <ul class = "navi">
+        <ul class="navi">
             <li>
                 <a href="/customer" class="tabcolor">Customer</a>
             </li>
@@ -39,37 +39,54 @@
         </ul>
     </nav>
 </div>
-    <div class="content">
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Birth Date</th>
-                <th>Phone number</th>
-                <th>Drivers Licence</th>
-                <th>Country</th>
-                <th>Zip Code</th>
-                <th>City</th>
-                <th>Street</th>
-            </tr>
-            <tr>
-                <td th:text="${customer.customerId}"></td>
-                <td th:text="${customer.firstName}"></td>
-                <td th:text="${customer.lastName}"></td>
-                <td th:text="${customer.birthDate}"></td>
-                <td th:text="${customer.phoneNumber}"></td>
-                <td th:text="${customer.driversLicense}"></td>
-                <td th:text="${customer.country}"></td>
-                <td th:text="${customer.zipCode}"></td>
-                <td th:text="${customer.city}"></td>
-                <td th:text="${customer.street}"></td>
-            </tr>
-        </table>
+<div class="content">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Birth Date</th>
+            <th>Phone number</th>
+            <th>Drivers Licence</th>
+            <th>Country</th>
+            <th>Zip Code</th>
+            <th>City</th>
+            <th>Street</th>
+        </tr>
+        <tr>
+            <td th:text="${customer.customerId}"></td>
+            <td th:text="${customer.firstName}"></td>
+            <td th:text="${customer.lastName}"></td>
+            <td th:text="${customer.birthDate}"></td>
+            <td th:text="${customer.phoneNumber}"></td>
+            <td th:text="${customer.driversLicense}"></td>
+            <td th:text="${customer.country}"></td>
+            <td th:text="${customer.zipCode}"></td>
+            <td th:text="${customer.city}"></td>
+            <td th:text="${customer.street}"></td>
+        </tr>
+    </table>
     <div>
-        <a th:href="@{/customer/update(id=${customer.customerId})}"><button>Update</button></a>
-        <a th:href="@{/customer/delete(id=${customer.customerId})}"><button>Delete</button></a>
+        <a th:href="@{/customer/update(id=${customer.customerId})}">
+            <button>Update</button>
+        </a>
+        <a th:href="@{/customer/delete(id=${customer.customerId})}">
+            <button>Delete</button>
+        </a>
+        <form action="/customer/selectcustomer" method="post">
+            <input type="hidden" name="customerId" th:value="${customer.customerId}">
+            <input type="hidden" name="firstName" th:value="${customer.firstName}">
+            <input type="hidden" name="lastName" th:value="${customer.lastName}">
+            <input type="hidden" name="birthDate" th:value="${customer.birthDate}">
+            <input type="hidden" name="phoneNumber" th:value="${customer.phoneNumber}">
+            <input type="hidden" name="driversLicense" th:value="${customer.driversLicense}">
+            <input type="hidden" name="country" th:value="${customer.country}">
+            <input type="hidden" name="zipCode" th:value="${customer.zipCode}">
+            <input type="hidden" name="city" th:value="${customer.city}">
+            <input type="hidden" name="street" th:value="${customer.street}">
+            <button type="submit">Select</button>
+        </form>
     </div>
-    </div>
+</div>
 </body>
 </html>

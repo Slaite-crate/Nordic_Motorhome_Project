@@ -3,6 +3,7 @@ package nordic_motorhome_project.demo.controllers;
 import nordic_motorhome_project.demo.models.Rental;
 import nordic_motorhome_project.demo.interfaceRepositories.IRentalRepository;
 import nordic_motorhome_project.demo.repositories.RentalRepository;
+import nordic_motorhome_project.demo.utilities.RentalHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +33,15 @@ public class RentalController {
     }
 
     @GetMapping("/rental/create")
-    public String create() {
+    public String create(Model customer, Model motorhome) {
+        if (RentalHolder.getCustomer() == null) {
+            return "/error/wrong_input";
+        }
+        if (RentalHolder.getMotorhome() == null) {
+            return "/error/wrong_input";
+        }
+        customer.addAttribute("customer", RentalHolder.getCustomer());
+        motorhome.addAttribute("motorhome", RentalHolder.getMotorhome());
         return "/rental/create";
     }
 
