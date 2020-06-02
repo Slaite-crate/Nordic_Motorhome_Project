@@ -78,10 +78,6 @@ public class ModifierRespository implements ICrud<Modifier> {
                 );
                 allModifiers.add(tempModifier);
             }
-            int rowsInserted = ps.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("All modifiers were read successfully!");
-            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
