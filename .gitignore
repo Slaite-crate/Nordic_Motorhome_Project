@@ -31,4 +31,3 @@ build/
 .vscode/
 
 ### own stuff ###
-/src/main/resources/application.properties
