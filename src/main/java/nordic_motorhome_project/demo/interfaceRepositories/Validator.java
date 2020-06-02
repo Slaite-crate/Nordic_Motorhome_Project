@@ -1,7 +1,5 @@
 package nordic_motorhome_project.demo.interfaceRepositories;
 
-import nordic_motorhome_project.demo.models.Customer;
-
 public class Validator {
 
     public boolean isName(String s){
@@ -28,4 +26,8 @@ public class Validator {
         boolean result = s.matches("[0-9.,]+");
         return result;
     }
+    public boolean isStreetName(String s){
+        boolean result = s.matches("[a-zA-Z0-9æøåÆØÅ,.]");
+        return result;
+     }
 }

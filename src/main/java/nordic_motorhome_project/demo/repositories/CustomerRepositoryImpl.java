@@ -179,7 +179,7 @@ public class CustomerRepositoryImpl implements ICrud<Customer> {
                 && validator.isDriversLicence(customer.getDriversLicense())
                 && validator.isName(customer.getCity())
                 && validator.isName(customer.getCountry())
-                && validator.isName(customer.getStreet())
+                && validator.isStreetName(customer.getStreet())
                 && validator.isInteger(customer.getZipCode())) {
             result = true;
         } else {
