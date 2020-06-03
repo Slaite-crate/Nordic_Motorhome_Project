@@ -27,7 +27,7 @@ public class Validator {
         return result;
     }
     public boolean isStreetName(String s){
-        boolean result = s.matches("[a-zA-Z0-9æøåÆØÅ,.]");
+        boolean result = s.matches("[a-zA-Z0-9æøåÆØÅ,.]+");
         return result;
-     }
+    }
 }

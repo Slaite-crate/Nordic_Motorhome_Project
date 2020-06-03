@@ -167,6 +167,7 @@ public class RentalRepository implements IRentalRepository {
         return null;
     }
 
+    //
     private String sqlThingy(String order){
         String result = "SELECT rental_id, customer_id, motorhome_id, pickup_date, dropoff_date\n" +
                 "FROM rentals";
