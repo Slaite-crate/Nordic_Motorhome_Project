@@ -35,10 +35,10 @@ public class RentalController {
     @GetMapping("/rental/create")
     public String create(Model customer, Model motorhome) {
         if (RentalHolder.getCustomer() == null) {
-            return "/error/wrong_input";
+            return "/error/missing";
         }
         if (RentalHolder.getMotorhome() == null) {
-            return "/error/wrong_input";
+            return "/error/missing";
         }
         customer.addAttribute("customer", RentalHolder.getCustomer());
         motorhome.addAttribute("motorhome", RentalHolder.getMotorhome());
