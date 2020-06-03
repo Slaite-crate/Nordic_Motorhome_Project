@@ -50,4 +50,18 @@ public class RentalController {
         rentalRepository.create(rental);
         return "redirect:/rental";
     }
+
+    @GetMapping("/rental/details")
+    public String details(@RequestParam int id, Model customer, Model motorhome, Model rental){
+        customer.addAttribute("customer", rentalRepository.readCustomer(id));
+        motorhome.addAttribute("motorhome", rentalRepository.readMotorhome(id));
+        rental.addAttribute("rental", rentalRepository.read(id));
+        return "/rental/details";
+    }
+
+    @GetMapping("/rental/delete")
+    public String delete(@RequestParam int id){
+        rentalRepository.delete(id);
+        return "redirect:/rental";
+    }
 }

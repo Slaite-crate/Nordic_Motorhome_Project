@@ -158,16 +158,73 @@ public class RentalRepository implements IRentalRepository {
     }
 
     @Override
-    public List<Motorhome> readAllMotorhomes() {
-        return null;
+    public Motorhome readMotorhome(int id) {
+        Motorhome tempMotorhome = new Motorhome();
+        String sql = "SELECT motorhome_id,\n" +
+                "       reg_nr,\n" +
+                "       model_id,\n" +
+                "       model_name,\n" +
+                "       seats,\n" +
+                "       beds,\n" +
+                "       price_per_day,\n" +
+                "       brand_id,\n" +
+                "       brand_name\n" +
+                "FROM rentals\n" +
+                "         INNER JOIN motorhomes USING (motorhome_id)\n" +
+                "         INNER JOIN models USING (model_id)\n" +
+                "         INNER JOIN brands USING (brand_id)\n" +
+                "WHERE rental_id = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                tempMotorhome.setMotorhomeId(rs.getInt("motorhome_id"));
+                tempMotorhome.setRegNr(rs.getString("reg_nr"));
+                tempMotorhome.setModelId(rs.getInt("model_id"));
+                tempMotorhome.setModelName(rs.getString("model_name"));
+                tempMotorhome.setSeats(rs.getInt("seats"));
+                tempMotorhome.setBeds(rs.getInt("beds"));
+                tempMotorhome.setPrice(rs.getDouble("price_per_day"));
+                tempMotorhome.setBrandId(rs.getInt("brand_id"));
+                tempMotorhome.setBrandName(rs.getString("brand_name"));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return tempMotorhome;
     }
 
     @Override
-    public List<Customer> readAllCustomers() {
-        return null;
+    public Customer readCustomer(int id) {
+        Customer tempCustomer = null;
+        String sql = "SELECT  customer_id, first_name, last_name, birth_date, phone_nr, drivers_license, country, zip_code, city, street\n" +
+                "from rentals INNER JOIN customers USING (customer_id) INNER JOIN addresses USING (customer_id)\n" +
+                "WHERE rental_id = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                tempCustomer = new Customer(
+                        rs.getInt("customer_id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getDate("birth_date"),
+                        rs.getString("phone_nr"),
+                        rs.getString("drivers_license"),
+                        rs.getString("country"),
+                        rs.getString("zip_code"),
+                        rs.getString("city"),
+                        rs.getString("street")
+                );
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return tempCustomer;
     }
 
-    //
     private String sqlThingy(String order){
         String result = "SELECT rental_id, customer_id, motorhome_id, pickup_date, dropoff_date\n" +
                 "FROM rentals";

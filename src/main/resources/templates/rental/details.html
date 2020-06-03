@@ -40,46 +40,65 @@
     </nav>
 </div>
 <div class="content">
-    <div>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Birth date</th>
-                <th>Phone number</th>
-                <th>Drivers license</th>
-            </tr>
-            <tr>
-                <td th:text="${customer.customerId}"></td>
-                <td th:text="${customer.firstName}"></td>
-                <td th:text="${customer.lastName}"></td>
-                <td th:text="${customer.birthDate}"></td>
-                <td th:text="${customer.phoneNumber}"></td>
-                <td th:text="${customer.driversLicense}"></td>
-            </tr>
-        </table>
-    </div>
-    <div>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>register number</th>
-                <th>model</th>
-                <th>brand</th>
-                <th>pickup date</th>
-                <th>dropoff date</th>
-            </tr>
-            <tr th:each="rental : ${rentals}">
-                <td th:text="${rental.rentalId}"></td>
-                <td th:text="${rental.regNr}"></td>
-                <td th:text="${rental.model}"></td>
-                <td th:text="${rental.brand}"></td>
-                <td th:text="${rental.pickupDate}"></td>
-                <td th:text="${rental.dropoffDate}"></td>
-            </tr>
-        </table>
-    </div>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Birth Date</th>
+            <th>Phone number</th>
+            <th>Drivers Licence</th>
+            <th>Country</th>
+            <th>Zip Code</th>
+            <th>City</th>
+            <th>Street</th>
+        </tr>
+        <tr>
+            <td th:text="${customer.customerId}"></td>
+            <td th:text="${customer.firstName}"></td>
+            <td th:text="${customer.lastName}"></td>
+            <td th:text="${customer.birthDate}"></td>
+            <td th:text="${customer.phoneNumber}"></td>
+            <td th:text="${customer.driversLicense}"></td>
+            <td th:text="${customer.country}"></td>
+            <td th:text="${customer.zipCode}"></td>
+            <td th:text="${customer.city}"></td>
+            <td th:text="${customer.street}"></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>register number</th>
+            <th>brand</th>
+            <th>model</th>
+            <th>seats</th>
+            <th>beds</th>
+            <th>price</th>
+        </tr>
+        <tr>
+            <td th:text="${motorhome.motorhomeId}"></td>
+            <td th:text="${motorhome.regNr}"></td>
+            <td th:text="${motorhome.brandName}"></td>
+            <td th:text="${motorhome.modelName}"></td>
+            <td th:text="${motorhome.seats}"></td>
+            <td th:text="${motorhome.beds}"></td>
+            <td th:text="${motorhome.price}"></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <th>rental id</th>
+            <th>pickup date</th>
+            <th>dropoff date</th>
+        </tr>
+        <tr>
+            <td th:text="${rental.rentalId}"></td>
+            <td th:text="${rental.pickupDate}"></td>
+            <td th:text="${rental.dropoffDate}"></td>
+        </tr>
+    </table>
+    <a th:href="@{/rental/delete(id=${rental.rentalId})}"><button>Delete</button></a>
 </div>
 </body>
 </html>

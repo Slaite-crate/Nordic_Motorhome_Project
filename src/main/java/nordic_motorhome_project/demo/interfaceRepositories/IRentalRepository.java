@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface IRentalRepository extends ICrud<Rental>{
     List<Rental> readAll(String order);
-    List<Motorhome> readAllMotorhomes();
-    List<Customer> readAllCustomers();
+    Motorhome readMotorhome(int id);
+    Customer readCustomer(int id);
 }

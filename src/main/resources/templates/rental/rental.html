@@ -51,6 +51,7 @@
             <th><a th:href="@{/rental/order(order=motorhome_id)}"><div>motorhome id</div></a></th>
             <th><a th:href="@{/rental/order(order=pickup_date)}"><div>pickup date</div></a></th>
             <th><a th:href="@{/rental/order(order=dropoff_date)}"><div>dropoff date</div></a></th>
+            <th></th>
         </tr>
         <tr th:each="rental : ${rentals}">
             <td th:text="${rental.rentalId}"></td>
@@ -58,6 +59,9 @@
             <td th:text="${rental.motorhomeId}"></td>
             <td th:text="${rental.pickupDate}"></td>
             <td th:text="${rental.dropoffDate}"></td>
+            <td id="details">
+                <a th:href="@{/rental/details(id=${rental.rentalId})}"><button>details</button></a>
+            </td>
         </tr>
     </table>
 </div>
