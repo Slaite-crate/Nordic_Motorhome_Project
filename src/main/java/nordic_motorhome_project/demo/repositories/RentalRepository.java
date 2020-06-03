@@ -10,7 +10,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RentalRepository implements IRentalRepository {
+public class RentalRepository implements IRentalRepository { //Pelle
 
     private Connection conn;
 

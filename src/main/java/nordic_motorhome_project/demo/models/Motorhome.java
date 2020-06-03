@@ -1,6 +1,6 @@
 package nordic_motorhome_project.demo.models;
 
-public class Motorhome {
+public class Motorhome { //Frederic og Natali
 
     private int motorhomeId;
     private String regNr;

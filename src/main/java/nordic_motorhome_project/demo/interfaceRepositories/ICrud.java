@@ -2,7 +2,7 @@ package nordic_motorhome_project.demo.interfaceRepositories;
 
 import java.util.List;
 
-public interface ICrud<T> {
+public interface ICrud<T> { //All
     boolean create(T t);
     T read(int id);
     List<T> readAll();

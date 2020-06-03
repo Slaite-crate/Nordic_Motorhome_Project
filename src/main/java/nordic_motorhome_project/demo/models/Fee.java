@@ -1,7 +1,7 @@
 package nordic_motorhome_project.demo.models;
 
 
-public class Fee {
+public class Fee { // Natali
     private int feeId;
     private String fee;
     private double price;

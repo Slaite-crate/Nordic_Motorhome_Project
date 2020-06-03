@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class RentalController {
+public class RentalController { //Pelle
     private IRentalRepository rentalRepository;
 
     public RentalController() {

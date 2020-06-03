@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class CustomerController {
+public class CustomerController { //Cecilie og Pelle
     private ICrud<Customer> customerRepository;
 
     public CustomerController() {

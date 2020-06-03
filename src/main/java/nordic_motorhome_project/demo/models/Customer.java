@@ -2,7 +2,7 @@ package nordic_motorhome_project.demo.models;
 
 import java.sql.Date;
 
-public class Customer {
+public class Customer { //Cecilie og Pelle
     private int customerId;
     private String firstName;
     private String lastName;

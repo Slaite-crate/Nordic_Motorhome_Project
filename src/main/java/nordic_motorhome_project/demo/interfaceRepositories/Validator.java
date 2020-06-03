@@ -1,6 +1,6 @@
 package nordic_motorhome_project.demo.interfaceRepositories;
 
-public class Validator {
+public class Validator { //Cecile
 
     public boolean isName(String s){
         boolean result = s.matches("[a-zA-ZæøåÆØÅ]+");

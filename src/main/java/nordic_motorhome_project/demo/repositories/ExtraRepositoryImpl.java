@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExtraRepositoryImpl implements ICrud<Extra> {
+public class ExtraRepositoryImpl implements ICrud<Extra> { //Frederic
     private Connection conn;
 
     public ExtraRepositoryImpl() {

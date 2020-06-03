@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MotorhomeModelRepository implements IMotorhomeRepository {
+public class MotorhomeModelRepository implements IMotorhomeRepository { //Frederic og Natali
     private Connection conn;
 
     public MotorhomeModelRepository() {

@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BrandRepository implements IMotorhomeRepository {
+public class BrandRepository implements IMotorhomeRepository { //Pelle
     private Connection conn;
 
     public BrandRepository() {

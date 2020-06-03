@@ -3,7 +3,7 @@ package nordic_motorhome_project.demo.utilities;
 import nordic_motorhome_project.demo.models.Customer;
 import nordic_motorhome_project.demo.models.Motorhome;
 
-public class RentalHolder {
+public class RentalHolder { //Pelle
     private static Customer customer;
     private static Motorhome motorhome;
 

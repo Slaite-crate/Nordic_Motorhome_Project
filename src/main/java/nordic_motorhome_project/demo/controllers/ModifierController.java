@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class ModifierController {
+public class ModifierController { //Cecilie
     private ICrud<Modifier> modifierRepository;
 
     public ModifierController(){

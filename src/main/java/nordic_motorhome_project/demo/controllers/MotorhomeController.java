@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class MotorhomeController {
+public class MotorhomeController { //Frederic og Natali
     private IMotorhomeRepository motorhomeRepository;
     private IMotorhomeRepository modelRepository;
     private IMotorhomeRepository brandRepository;

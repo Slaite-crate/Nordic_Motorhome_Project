@@ -1,6 +1,7 @@
 package nordic_motorhome_project.demo.repositories;
 
 import nordic_motorhome_project.demo.interfaceRepositories.IMotorhomeRepository;
+import nordic_motorhome_project.demo.interfaceRepositories.Validator;
 import nordic_motorhome_project.demo.models.Motorhome;
 import nordic_motorhome_project.demo.utilities.DatabaseConnectionManager;
 
@@ -13,9 +14,11 @@ import java.util.List;
 
 public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
     private Connection conn;
+    private Validator validator;
 
     public MotorhomeRepositoryImpl() {
         this.conn = DatabaseConnectionManager.getDatabaseConnection();
+        this.validator = new Validator();
     }
 
     @Override
@@ -135,7 +138,18 @@ public class MotorhomeRepositoryImpl implements IMotorhomeRepository {
 
     @Override
     public boolean checkValue(Motorhome motorhome) {
-        return false;
+        boolean result;
+        if (validator.isNumberPlate(motorhome.getRegNr())
+                && validator.isName(motorhome.getModelName())
+                && validator.isName(motorhome.getBrandName())
+                && validator.isPrice(Double.toString(motorhome.getPrice()))
+                && validator.isInteger(Integer.toString(motorhome.getSeats()))
+                && validator.isInteger(Integer.toString(motorhome.getBeds()))) {
+            result = true;
+        } else {
+            result = false;
+        }
+        return result;
     }
 
     @Override

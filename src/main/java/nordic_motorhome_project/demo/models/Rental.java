@@ -2,7 +2,7 @@ package nordic_motorhome_project.demo.models;
 
 import java.sql.Date;
 
-public class Rental {
+public class Rental { //Pelle
     private int rentalId;
     private int customerId;
     private int motorhomeId;

@@ -6,7 +6,7 @@ import nordic_motorhome_project.demo.models.Rental;
 
 import java.util.List;
 
-public interface IRentalRepository extends ICrud<Rental>{
+public interface IRentalRepository extends ICrud<Rental>{ //Pelle
     List<Rental> readAll(String order);
     Motorhome readMotorhome(int id);
     Customer readCustomer(int id);

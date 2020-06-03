@@ -1,6 +1,6 @@
 package nordic_motorhome_project.demo.models;
 
-public class Modifier {
+public class Modifier { //Cecilie
     private int modifierId;
     private String modifierName;
     private double modifier;

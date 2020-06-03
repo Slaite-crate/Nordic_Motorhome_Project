@@ -1,6 +1,6 @@
 package nordic_motorhome_project.demo.models;
 
-public class Extra {
+public class Extra { //Frederic
 
     private int extraId;
     private String item;

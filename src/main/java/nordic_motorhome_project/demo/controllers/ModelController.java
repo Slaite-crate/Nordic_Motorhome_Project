@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class ModelController {
+public class ModelController { //Pelle
     private IMotorhomeRepository motorhomeModelRepository;
     private IMotorhomeRepository brandRepository;
 
